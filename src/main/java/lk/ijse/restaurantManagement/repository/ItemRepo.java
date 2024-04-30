@@ -1,0 +1,112 @@
+package lk.ijse.restaurantManagement.repository;
+
+import lk.ijse.restaurantManagement.db.DbConnection;
+import lk.ijse.restaurantManagement.model.Customer;
+import lk.ijse.restaurantManagement.model.Item;
+import lk.ijse.restaurantManagement.model.OrderDetail;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ItemRepo {
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT id FROM Item";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        List<String> idList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()) {
+            idList.add(resultSet.getString(1));
+        }
+        return idList;
+    }
+
+    public static Item searchById(String id) throws SQLException {
+        String sql = "SELECT * FROM Item WHERE id = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1, id);
+        ResultSet resultSet = pstm.executeQuery();
+
+        Item item = null;
+
+        if (resultSet.next()) {
+            String code = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String qtyOnHand = resultSet.getString(3);
+            String unitPrice = resultSet.getString(4);
+            String status = resultSet.getString(5);
+
+            item = new Item(code, name, qtyOnHand, unitPrice, status);
+        }
+        return item;
+    }
+
+
+    private static boolean updateQty(OrderDetail od) throws SQLException {
+        String sql = "UPDATE Item SET qtyOnHand = qtyOnHand - ? WHERE id = ?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setInt(1, od.getQty());
+        pstm.setString(2, od.getItemId());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean update(Item item) throws SQLException {
+        String sql = "UPDATE item SET description = ?, qtyOnHand = ?, unitPrice = ?,status = ? WHERE id = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1, item.getDescription());
+        pstm.setObject(2, item.getQtyOnHand());
+        pstm.setObject(3, item.getUnitPrice());
+        pstm.setObject(4, item.getStatus());
+        pstm.setObject(5, item.getId());
+
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean updateQty(List<OrderDetail> odList) throws SQLException {
+        for (OrderDetail od : odList) {
+            if (!updateQty(od)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static List<Item> getAll() throws SQLException {
+        String sql = "SELECT * FROM Item";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<Item> itemList = new ArrayList<>();
+        while (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String description = resultSet.getString(2);
+            String qtyOnHand = resultSet.getString(3);
+            String unitPrice = resultSet.getString(4);
+            String status = resultSet.getString(5);
+
+            Item item = new Item(id, description, qtyOnHand, unitPrice, status);
+            itemList.add(item);
+        }
+        return itemList;
+    }
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="413.0" prefWidth="624.0" style="-fx-background-color: AFD198;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="413.0" fitWidth="331.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/hamburger-and-fries.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="371.0" fitWidth="295.0" layoutX="330.0" layoutY="110.0" opacity="0.31" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/139210-food-plate-white-png-image-high-quality-thumb.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="531.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/food-png-6.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="502.0" layoutY="70.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
+         <font>
+            <Font name="System Bold Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="525.0" layoutY="54.0" opacity="0.76" prefHeight="21.0" prefWidth="92.0" text="Cinnamon-7" textFill="#611212">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="356.0" layoutY="139.0" prefHeight="21.0" prefWidth="134.0" text="UserName:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUserId" layoutX="382.0" layoutY="168.0" prefHeight="32.0" prefWidth="220.0" style="-fx-background-radius: 15;" />
+      <Label layoutX="356.0" layoutY="220.0" prefHeight="21.0" prefWidth="134.0" text="Password:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPassword" layoutX="380.0" layoutY="247.0" prefHeight="32.0" prefWidth="220.0" style="-fx-background-radius: 15;" />
+      <Label layoutX="417.0" layoutY="347.0" prefHeight="17.0" prefWidth="80.0" text="New User?" textFill="#373a3c">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Hyperlink layoutX="479.0" layoutY="344.0" onAction="#linkRegistrationOnAction" prefHeight="23.0" prefWidth="102.0" text="Register Here">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton layoutX="444.0" layoutY="299.0" onAction="#btnLoginOnAction" prefHeight="21.0" prefWidth="92.0" style="-fx-background-color: DBA979; -fx-background-radius: 20;" text="Login" textFill="#6f0c0c">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="dashboard" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5EFE6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.DashboardFormController">
+   <children>
+      <AnchorPane fx:id="bodyPane" layoutY="54.0" prefHeight="463.0" prefWidth="208.0" style="-fx-background-color: #7AA874;" styleClass="shadow">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="102.0" layoutY="403.0" onAction="#btnExitOnAction" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #31363F; -fx-background-radius: 20;" text="Exit" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../IdeaProjects/database-programmings/_06-supermarket-mvc/src/main/resources/asserts/icon/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <Button layoutX="17.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="LOGIN">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="CUSTOMER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="209.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="ITEM">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="EMPLOYEE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="18.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnInventoryOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="INVENTOTY">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="34.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../IdeaProjects/database-programmings/_06-supermarket-mvc/src/main/resources/asserts/icon/customer.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="18.0" layoutY="302.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #008170;" text="PLACE ORDER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="30.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../IdeaProjects/database-programmings/_06-supermarket-mvc/src/main/resources/asserts/icon/place_order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="31.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="44.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+              
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="27.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets.icon/icons8-restaurant-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label opacity="0.81" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: #2C7865;" text="             Welcome!">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="208.0" prefHeight="96.0" prefWidth="423.0" style="-fx-background-color: #F5E8C7;">
+         <children>
+            <Label layoutX="84.0" layoutY="38.0" prefHeight="21.0" prefWidth="199.0" text="WE are the Super Food" textFill="#182c7cf7">
+               <font>
+                  <Font name="Courier New Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="329.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets.icon/food-png-6.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="70.0" fitWidth="64.0" layoutX="20.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets.icon/icons8-food-100.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="329.0" fitWidth="392.0" layoutX="208.0" layoutY="211.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/fast-food-transparent-png-pictures-icons-and-png-18.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="501.0" layoutY="457.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #31363F; -fx-background-radius: 20;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane layoutX="241.0" layoutY="143.0" opacity="0.55" prefHeight="137.0" prefWidth="135.0" style="-fx-background-radius: 15; -fx-background-color: #DFD0B8; -fx-border-color: black; -fx-border-radius: 15;">
+         <children>
+            <Text fill="#941313" layoutX="12.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Count" wrappingWidth="85.98307228088379">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="lblCustomerCount" layoutX="32.0" layoutY="87.0" prefHeight="30.0" prefWidth="45.0" style="-fx-region-border-colour: black; -fx-border-color: black;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="241.0" layoutY="307.0" opacity="0.55" prefHeight="137.0" prefWidth="135.0" style="-fx-background-radius: 15; -fx-background-color: #DFD0B8; -fx-border-color: black; -fx-border-radius: 15;">
+         <children>
+            <Text fill="#941313" layoutX="12.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Count" wrappingWidth="85.98307228088379">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="lblItemCount" layoutX="38.0" layoutY="87.0" prefHeight="30.0" prefWidth="45.0" style="-fx-region-border-colour: black; -fx-border-color: black;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="426.0" layoutY="143.0" opacity="0.55" prefHeight="137.0" prefWidth="135.0" style="-fx-background-radius: 15; -fx-background-color: #DFD0B8; -fx-border-color: black; -fx-border-radius: 15;">
+         <children>
+            <Text fill="#941313" layoutX="12.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Count" wrappingWidth="85.98307228088379">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="lblEmployeeCount" layoutX="42.0" layoutY="87.0" prefHeight="30.0" prefWidth="45.0" style="-fx-region-border-colour: black; -fx-border-color: black;" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="512.0" layoutY="72.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
+         <font>
+            <Font name="System Bold Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="535.0" layoutY="55.0" opacity="0.76" prefHeight="21.0" prefWidth="92.0" text="Cinnamon-7" textFill="#611212">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
