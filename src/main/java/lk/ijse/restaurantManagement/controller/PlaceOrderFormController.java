@@ -72,12 +72,11 @@ public class PlaceOrderFormController {
     private TextField txtCustomerName;
 
     @FXML
-    private Label txtDate;
+    private TextField txtDate;
 
     @FXML
     private TextField txtDescription;
-    @FXML
-    private TextField txtTableId;
+
     @FXML
     private TextField txtOrderType;
 
@@ -252,10 +251,9 @@ public class PlaceOrderFormController {
         String orderId = txtOrderId.getText();
         String orderType= txtOrderType.getText();
         String cusId = txtId.getText();
-        String tableId = txtTableId.getText();
         String date = String.valueOf(Date.valueOf(LocalDate.now()));
 
-        var order = new Order(orderId,orderType, cusId,tableId, date);
+        var order = new Order(orderId,orderType, cusId, date);
 
         List<OrderDetail> odList = new ArrayList<>();
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -307,7 +305,7 @@ public class PlaceOrderFormController {
 
     }
 
-    public void btnsearchOnAction(ActionEvent event) {
+    public void btnSearchOnAction(ActionEvent event) {
         String contact = txtContact.getText();
 
         try {
@@ -318,4 +316,6 @@ public class PlaceOrderFormController {
             throw new RuntimeException(e);
         }
     }
+
+
 }
