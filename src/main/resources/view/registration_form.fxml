@@ -19,11 +19,11 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="1000.0" layoutY="-300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0">
          <fill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+            <RadialGradient centerX="0.7123893889705691" centerY="0.6590909018661038" radius="0.5">
                <stops>
                   <Stop>
                      <color>
-                        <Color />
+                        <Color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
@@ -40,9 +40,9 @@
             <Font name="Corbel Bold" size="35.0" />
          </font>
       </Text>
-      <ImageView fitHeight="706.0" fitWidth="459.0" layoutX="493.0" layoutY="-69.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="424.0" fitWidth="417.0" layoutX="509.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
          <image>
-            <Image url="@../assets.icon/stories-unsplash.jpg" />
+            <Image url="@../assets.icon/prawn-spicy-soup.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="893.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
@@ -68,8 +68,16 @@
             <Font size="23.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtUserName" layoutX="57.0" layoutY="324.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;" />
-      <TextField fx:id="txtPassword" layoutX="58.0" layoutY="445.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;" />
+      <TextField fx:id="txtUserName" layoutX="57.0" layoutY="324.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassword" layoutX="58.0" layoutY="445.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
       <Label layoutX="68.0" layoutY="174.0" text="User ID" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="22.0" />
