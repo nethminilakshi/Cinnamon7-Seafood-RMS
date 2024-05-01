@@ -10,6 +10,5 @@ public class Order {
     private String orderId;
     private String orderType;
     private String cusId;
-    private String tableId;
-    private Date date;
+    private String date;
 }

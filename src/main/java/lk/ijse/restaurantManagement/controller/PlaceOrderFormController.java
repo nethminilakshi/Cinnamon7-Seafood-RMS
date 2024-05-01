@@ -39,7 +39,7 @@ public class PlaceOrderFormController {
     private JFXButton btnPlaceOrder;
 
     @FXML
-    private ComboBox<String> cmbCustomerId;
+   private TextField txtContact;
 
     @FXML
     private ComboBox<String> cmbItemCode;
@@ -66,15 +66,17 @@ public class PlaceOrderFormController {
     private TableView<CartTm> tblOrderCart;
 
     @FXML
+    private TextField txtId;
+
+    @FXML
     private TextField txtCustomerName;
 
     @FXML
-    private DatePicker txtDate;
+    private TextField txtDate;
 
     @FXML
     private TextField txtDescription;
-    @FXML
-    private TextField txtTableId;
+
     @FXML
     private TextField txtOrderType;
 
@@ -93,7 +95,7 @@ public class PlaceOrderFormController {
 
     @FXML
     private TextField txtUnitPrice;
-    private ObservableList<CartTm> cartList = FXCollections.observableArrayList();
+    private final ObservableList<CartTm> cartList = FXCollections.observableArrayList();
     private double netTotal = 0;
 
 
@@ -101,7 +103,7 @@ public class PlaceOrderFormController {
         setCellValueFactory();
         loadNextOrderId();
         setDate();
-        getCustomerIds();
+        //getCustomerontact();
         getItemCodes();
     }
 
@@ -120,12 +122,12 @@ public class PlaceOrderFormController {
         }
     }
 
-    private void getCustomerIds() {
+   /* private void getCustomercontact() {
 
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<String> idList = CustomerRepo.getIds();
+            List<String> contactList = CustomerRepo.getIds();
 
             for (String id : idList) {
                 obList.add(id);
@@ -135,11 +137,12 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
+
 
     private void setDate() {
-        LocalDate now = LocalDate.now();
-        txtDate.setValue(java.time.LocalDate.now());
+        String now = String.valueOf(LocalDate.now());
+        txtDate.setText(now );
     }
 
     private void loadNextOrderId() {
@@ -247,11 +250,10 @@ public class PlaceOrderFormController {
     void btnPlaceOrderOnAction(ActionEvent event) {
         String orderId = txtOrderId.getText();
         String orderType= txtOrderType.getText();
-        String cusId = String.valueOf(cmbCustomerId.getValue());
-        String tableId = txtTableId.getText();
-        Date date = Date.valueOf(LocalDate.now());
+        String cusId = txtId.getText();
+        String date = String.valueOf(Date.valueOf(LocalDate.now()));
 
-        var order = new Order(orderId,orderType, cusId,tableId, date);
+        var order = new Order(orderId,orderType, cusId, date);
 
         List<OrderDetail> odList = new ArrayList<>();
         for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
@@ -280,21 +282,6 @@ public class PlaceOrderFormController {
     }
 
     @FXML
-     void cmbCustomerOnAction(ActionEvent event) {
-        String cusId = cmbCustomerId.getValue();
-
-        try {
-            Customer customer = CustomerRepo.searchById(cusId);
-
-            txtCustomerName.setText(customer.getName());
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
     void cmbItemOnAction(ActionEvent event) {
         String code = cmbItemCode.getValue();
         try {
@@ -317,4 +304,18 @@ public class PlaceOrderFormController {
         btnAddToCartOnAction(event);
 
     }
+
+    public void btnSearchOnAction(ActionEvent event) {
+        String contact = txtContact.getText();
+
+        try {
+            Customer customer = CustomerRepo.searchByContact(contact);
+            txtId.setText(customer.getCusId());
+            txtCustomerName.setText(customer.getName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

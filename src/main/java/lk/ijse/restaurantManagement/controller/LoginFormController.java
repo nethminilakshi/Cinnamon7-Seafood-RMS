@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -21,7 +22,7 @@ public class LoginFormController {
 
 
     public TextField txtUserId;
-    public TextField txtPassword;
+    public PasswordField txtPassword;
     public AnchorPane rootNode;
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {

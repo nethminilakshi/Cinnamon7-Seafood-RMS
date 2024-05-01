@@ -103,10 +103,10 @@ public class CustomerFormController {
 
         @FXML
         public void btnSearchOnAction(ActionEvent actionEvent) {
-            String cusId = txtId.getText();
+            String contact = txtContact.getText();
 
             try {
-                Customer customer = CustomerRepo.searchById(cusId);
+                Customer customer = CustomerRepo.searchByContact(contact);
 
                 if (customer != null) {
                     txtId.setText(customer.getCusId());
@@ -176,10 +176,10 @@ public class CustomerFormController {
 
         @FXML
         void btnDeleteOnAction(ActionEvent event) {
-            String cusId = txtId.getText();
+            String contact = txtContact.getText();
 
             try {
-                boolean isDeleted = CustomerRepo.delete(cusId);
+                boolean isDeleted = CustomerRepo.delete(contact);
                 if (isDeleted) {
                     new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
                 }

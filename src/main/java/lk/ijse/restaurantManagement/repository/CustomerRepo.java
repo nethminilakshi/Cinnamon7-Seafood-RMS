@@ -47,33 +47,33 @@ public class CustomerRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static Customer searchById(String cusId) throws SQLException {
-        String sql = "SELECT * FROM Customer WHERE cusId = ?";
+    public static Customer searchByContact(String contact) throws SQLException {
+        String sql = "SELECT * FROM Customer WHERE contact = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, cusId);
+        pstm.setObject(1, contact);
         ResultSet resultSet = pstm.executeQuery();
 
         Customer customer = null;
 
         if (resultSet.next()) {
-            String cus_id = resultSet.getString(1);
+            String cusId = resultSet.getString(1);
             String name = resultSet.getString(2);
             String address = resultSet.getString(3);
-            String contact = resultSet.getString(4);
+            String Contact = resultSet.getString(4);
 
-            customer = new Customer(cus_id, name, address, contact);
+            customer = new Customer(cusId, name, address, Contact);
         }
         return customer;
     }
 
-    public static boolean delete(String cusId) throws SQLException {
-        String sql = "DELETE FROM Customer WHERE cusId = ?";
+    public static boolean delete(String contact) throws SQLException {
+        String sql = "DELETE FROM Customer WHERE contact = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, cusId);
+        pstm.setObject(1, contact);
 
         return pstm.executeUpdate() > 0;
     }
