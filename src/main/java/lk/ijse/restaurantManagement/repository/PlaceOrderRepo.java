@@ -13,13 +13,10 @@ public class PlaceOrderRepo {
 
         try {
             boolean isOrderSaved = OrderRepo.save(po.getOrder());
-            System.out.println("1");
-            if (isOrderSaved) {
+                       if (isOrderSaved) {
                 boolean isOrderDetailSaved = OrderDetailRepo.save(po.getOdList());
-                System.out.println("2");
                 if (isOrderDetailSaved) {
                     boolean isItemQtyUpdate = ItemRepo.updateQty(po.getOdList());
-                    System.out.println("3");
                     if (isItemQtyUpdate) {
                         connection.commit();
                         return true;

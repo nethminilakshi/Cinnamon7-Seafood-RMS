@@ -18,7 +18,7 @@ public class OrderDetailRepo {
     }
 
     private static boolean save(OrderDetail od) throws SQLException {
-        String sql = "INSERT INTO Order_Detail VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO Order_details VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
         pstm.setString(1, od.getOrderId());

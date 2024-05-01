@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.restaurantManagement.controller.TablesFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="680.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.TablesFormController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1022.0" opacity="0.31" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/loginpageimage.jpg" />
+         </image>
+      </ImageView>
+      <TableView layoutX="24.0" layoutY="94.0" prefHeight="466.0" prefWidth="378.0">
+        <columns>
+          <TableColumn prefWidth="97.0" text="TableId" />
+          <TableColumn prefWidth="280.0" text="Description" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="158.0" fitWidth="291.0" layoutX="451.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/making-the-right-restaurant-table-choice-1000x510.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="261.0" fitWidth="243.0" layoutX="469.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/brasserie.jpg" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
