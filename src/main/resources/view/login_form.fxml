@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -52,7 +53,6 @@
             <Font name="Corbel" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPassword" layoutX="772.0" layoutY="436.0" prefHeight="54.0" prefWidth="354.0" style="-fx-background-radius: 30;" />
       <Label layoutX="835.0" layoutY="662.0" prefHeight="27.0" prefWidth="102.0" text="New User?" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -72,5 +72,6 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <PasswordField fx:id="txtPassword" layoutX="772.0" layoutY="451.0" prefHeight="54.0" prefWidth="354.0" style="-fx-background-radius: 30;" />
    </children>
 </AnchorPane>

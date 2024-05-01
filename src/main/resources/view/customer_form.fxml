@@ -23,7 +23,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="143.0" layoutY="87.0" onAction="#btnSearchOnAction" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtId" layoutX="143.0" layoutY="87.0" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
       <Label layoutX="23.0" layoutY="136.0" prefHeight="20.0" prefWidth="113.0" text="Name*">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -41,7 +41,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="143.0" layoutY="222.0" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtContact" layoutX="143.0" layoutY="222.0" onAction="#btnSearchOnAction" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
       <TableView fx:id="tblCustomer" layoutX="11.0" layoutY="269.0" prefHeight="227.0" prefWidth="543.0" style="-fx-background-color: #E8DFCA;">
         <columns>
           <TableColumn fx:id="colId" prefWidth="104.0" text="Id" />
