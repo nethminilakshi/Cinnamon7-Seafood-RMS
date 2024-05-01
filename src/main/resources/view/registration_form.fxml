@@ -7,9 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -17,32 +14,10 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.RegisterFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1000.0" layoutY="-300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0">
-         <fill>
-            <RadialGradient centerX="0.7123893889705691" centerY="0.6590909018661038" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </fill>
-      </Rectangle>
-      <Text fill="#fffffff2" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" wrappingWidth="147.19998168945312">
-         <font>
-            <Font name="Corbel Bold" size="35.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="424.0" fitWidth="417.0" layoutX="509.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="702.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+      <ImageView fitHeight="733.0" fitWidth="515.0" layoutX="469.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets.icon/prawn-spicy-soup.png" />
+            <Image url="@../assets.icon/stories-unsplash.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="893.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
@@ -63,6 +38,11 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#e67f1ff2" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" wrappingWidth="147.19998168945312">
+         <font>
+            <Font name="Corbel Bold" size="35.0" />
+         </font>
+      </Text>
       <TextField fx:id="txtUserId" layoutX="58.0" layoutY="203.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
          <font>
             <Font size="23.0" />
@@ -93,11 +73,11 @@
             <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <JFXButton layoutX="53.0" layoutY="556.0" onAction="#btnRegisterOnAction" prefHeight="21.0" prefWidth="354.0" ripplerFill="WHITE" style="-fx-background-color: #E67F1F; -fx-background-radius: 20;" text="Sign Up" textFill="WHITE">
+      <JFXButton layoutX="53.0" layoutY="556.0" onAction="#btnRegisterOnAction" prefHeight="21.0" prefWidth="354.0" ripplerFill="WHITE" style="-fx-background-color: #030303; -fx-background-radius: 20; -fx-border-color: #E67F1F; -fx-border-radius: 20; -fx-border-width: 2;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </JFXButton>
-      <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="#e67f1f" />
    </children>
 </AnchorPane>
