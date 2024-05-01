@@ -25,9 +25,9 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#131313" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
-      <Label layoutX="55.0" layoutY="20.0" prefHeight="26.0" prefWidth="130.0" text="Welcome User !" textFill="WHITE">
+      <Label layoutX="55.0" layoutY="17.0" prefHeight="27.0" prefWidth="146.0" text="Welcome User !" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Button layoutX="38.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="LOGIN" textFill="WHITE">
@@ -188,7 +188,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Circle fill="#12c401" layoutX="32.0" layoutY="34.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#12c401" layoutX="32.0" layoutY="31.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="489.0" layoutY="168.0" text=" 04 : 44" textFill="WHITE">
          <font>
             <Font name="System Bold" size="64.0" />

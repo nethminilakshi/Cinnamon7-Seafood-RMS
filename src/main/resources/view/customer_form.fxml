@@ -5,89 +5,112 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" opacity="0.87" prefHeight="600.0" prefWidth="570.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.CustomerFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #131313;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.CustomerFormController">
    <children>
-      <Text fill="#c61313" layoutX="176.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Details" wrappingWidth="178.13671875">
+      <ImageView fitHeight="700.0" fitWidth="1000.0" layoutX="-3.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets.icon/bg.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="-1.0" opacity="0.56" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Text fill="WHITE" layoutX="24.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Details">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Label layoutX="22.0" layoutY="90.0" prefHeight="20.0" prefWidth="113.0" text="Customer Id*">
+      <TextField fx:id="txtId" layoutX="34.0" layoutY="132.0" prefHeight="45.0" prefWidth="435.0" promptText="Customer ID" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtId" layoutX="143.0" layoutY="87.0" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
-      <Label layoutX="23.0" layoutY="136.0" prefHeight="20.0" prefWidth="113.0" text="Name*">
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="txtName" layoutX="34.0" layoutY="237.0" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtName" layoutX="143.0" layoutY="133.0" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
-      <Label layoutX="22.0" layoutY="181.0" prefHeight="20.0" prefWidth="113.0" text="Address*">
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="txtAddress" layoutX="515.0" layoutY="132.0" prefHeight="45.0" prefWidth="435.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtAddress" layoutX="143.0" layoutY="178.0" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
-      <Label layoutX="23.0" layoutY="224.0" prefHeight="20.0" prefWidth="113.0" text="Contact number*">
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="txtContact" layoutX="515.0" layoutY="237.0" onAction="#btnSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtContact" layoutX="143.0" layoutY="222.0" onAction="#btnSearchOnAction" opacity="0.61" prefHeight="25.0" prefWidth="379.0" style="-fx-background-color: white;" />
-      <TableView fx:id="tblCustomer" layoutX="11.0" layoutY="269.0" prefHeight="227.0" prefWidth="543.0" style="-fx-background-color: #E8DFCA;">
+            <Font size="18.0" />
+         </font></TextField>
+      <TableView fx:id="tblCustomer" fixedCellSize="2.0" layoutX="34.0" layoutY="330.0" prefHeight="284.0" prefWidth="931.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="104.0" text="Id" />
-          <TableColumn fx:id="colName" minWidth="8.0" prefWidth="109.0" text="Name" />
-            <TableColumn fx:id="colAddress" prefWidth="205.0" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="124.0" text="Contact" />
+          <TableColumn fx:id="colId" prefWidth="129.59997940063477" text="ID" />
+          <TableColumn fx:id="colName" minWidth="8.0" prefWidth="238.4000244140625" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="297.3332214355469" text="Address" />
+            <TableColumn fx:id="colContact" minWidth="0.0" prefWidth="265.86669921875" text="Contact" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="509.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: FF8E8F; -fx-background-radius: 15;" text="Update" textFill="#222020">
+      <JFXButton buttonType="RAISED" layoutX="752.0" layoutY="637.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #E67F1F; -fx-background-radius: 15;" text="Update" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="121.0" layoutY="509.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: A6CF98; -fx-background-radius: 15;" text="Clear">
+      <JFXButton buttonType="RAISED" layoutX="637.0" layoutY="637.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="399.0" layoutY="509.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: FF8E8F; -fx-background-radius: 15;" text="Save">
+      <JFXButton buttonType="RAISED" layoutX="866.0" layoutY="637.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #E67F1F; -fx-background-radius: 15;" text="Save" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="480.0" layoutY="509.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: A6CF98; -fx-background-radius: 15;" text="Delete">
+      <JFXButton buttonType="RAISED" layoutX="523.0" layoutY="637.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="475.0" layoutY="553.0" onAction="#btnBackOnAction" prefHeight="27.0" prefWidth="57.0" style="-fx-background-color: grey;" text="Back">
+      <JFXButton buttonType="RAISED" layoutX="34.0" layoutY="637.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black;" text="Back" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="75.0" fitWidth="64.0" layoutX="490.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="921.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
          </image>
+         <effect>
+            <ColorAdjust contrast="0.15" hue="1.0" />
+         </effect>
       </ImageView>
-      <Label layoutX="477.0" layoutY="41.0" opacity="0.76" prefHeight="20.0" prefWidth="91.0" text="Cinnamon-7" textFill="#611212">
+      <Label layoutX="770.0" layoutY="47.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="455.0" layoutY="54.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
+      <Label layoutX="757.0" layoutY="15.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="11.0" />
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="103.0" text="Customer ID*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="515.0" layoutY="103.0" text="Address*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="207.0" text="Name*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="515.0" layoutY="207.0" text="Contact Number*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
    </children>
