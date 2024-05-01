@@ -11,15 +11,15 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.LoginFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="184.0" stroke="BLACK" strokeType="INSIDE" width="668.0" />
-      <ImageView fitHeight="744.0" fitWidth="691.0" layoutX="-3.0" layoutY="158.0" pickOnBounds="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="902.0" stroke="BLACK" strokeType="INSIDE" width="1202.0" />
+      <ImageView fitHeight="744.0" fitWidth="720.0" layoutX="-7.0" layoutY="158.0" pickOnBounds="true">
          <image>
             <Image url="@../assets.icon/dark-fast-food.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030303" height="902.0" layoutX="658.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="544.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030303" height="902.0" layoutX="688.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="514.0" />
       <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="39.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
