@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="05/01">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/CustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/PlaceOrderFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/PlaceOrderFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/CustomerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/PlaceOrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/PlaceOrderRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/placeOrder_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/placeOrder_form.fxml" afterDir="false" />
+    <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="login page">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/AnyDesk.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/fernando-andrade-TrD7yA09Vg8-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/gcapi.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/ingredients-near-pizza.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/noodles.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/prawn-spicy-soup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/prawn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets.icon/stories-unsplash.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +81,26 @@
       <recent name="C:\Users\Nethu\Documents\Nethmi backup\Restaurant-Management\src\main\resources\assets.icon" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="LauncherWrapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lk.ijse.restaurantManagement.LauncherWrapper" />
+      <module name="Restaurant-Management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.ijse.restaurantManagement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LauncherWrapper" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -127,7 +142,7 @@
       <workItem from="1714363204569" duration="27066000" />
       <workItem from="1714419593823" duration="706000" />
       <workItem from="1714451111533" duration="4575000" />
-      <workItem from="1714572327507" duration="1279000" />
+      <workItem from="1714572327507" duration="9624000" />
     </task>
     <task id="LOCAL-00001" summary="04/30">
       <option name="closed" value="true" />
@@ -161,7 +176,55 @@
       <option name="project" value="LOCAL" />
       <updated>1714573907856</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714578185060</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714578185060</updated>
+    </task>
+    <task id="LOCAL-00006" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714579301509</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714579301509</updated>
+    </task>
+    <task id="LOCAL-00007" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714580006990</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714580006990</updated>
+    </task>
+    <task id="LOCAL-00008" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714581037810</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714581037810</updated>
+    </task>
+    <task id="LOCAL-00009" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714591232494</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714591232494</updated>
+    </task>
+    <task id="LOCAL-00010" summary="login page">
+      <option name="closed" value="true" />
+      <created>1714591244193</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714591244194</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +233,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="04/30" />
     <MESSAGE value="05/01" />
-    <option name="LAST_COMMIT_MESSAGE" value="05/01" />
+    <MESSAGE value="login page" />
+    <option name="LAST_COMMIT_MESSAGE" value="login page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

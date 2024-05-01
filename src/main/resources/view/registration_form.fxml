@@ -3,65 +3,101 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="406.0" prefWidth="617.0" style="-fx-background-color: E2F4C5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.RegisterFormController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.RegisterFormController">
    <children>
-      <ImageView fitHeight="413.0" fitWidth="624.0" layoutX="-3.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="1000.0" layoutY="-300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0">
+         <fill>
+            <RadialGradient centerX="0.7123893889705691" centerY="0.6590909018661038" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Text fill="#fffffff2" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" wrappingWidth="147.19998168945312">
+         <font>
+            <Font name="Corbel Bold" size="35.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="424.0" fitWidth="417.0" layoutX="509.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
          <image>
-            <Image url="@../assets.icon/pexels-robinstickel-70497.jpg" />
+            <Image url="@../assets.icon/prawn-spicy-soup.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="519.0" layoutY="6.0" opacity="0.93" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="893.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
          </image>
+         <effect>
+            <ColorAdjust contrast="0.15" hue="1.0" />
+         </effect>
       </ImageView>
-      <Label layoutX="515.0" layoutY="44.0" opacity="0.76" prefHeight="21.0" prefWidth="92.0" text="Cinnamon-7" textFill="#611212">
+      <Label layoutX="699.0" layoutY="36.0" prefHeight="26.0" prefWidth="178.0" text="Cinnamon-7" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="492.0" layoutY="60.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
+      <Label layoutX="701.0" layoutY="71.0" prefHeight="8.0" prefWidth="159.0" text="Seafood Restaurant" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="11.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="298.0" layoutY="86.0" opacity="0.58" prefHeight="300.0" prefWidth="231.0" style="-fx-background-color: white; -fx-background-radius: 15;">
-         <children>
-            <Text fill="#bf190df2" layoutX="69.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up!" wrappingWidth="104.0">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtUserId" layoutX="30.0" layoutY="76.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: black;" />
-            <TextField fx:id="txtUserName" layoutX="30.0" layoutY="134.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: black;" />
-            <TextField fx:id="txtPassword" layoutX="29.0" layoutY="194.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: black;" />
-            <Label layoutX="14.0" layoutY="51.0" text="UserId" textFill="#070606">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="109.0" text="Username" textFill="#070606">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="12.0" layoutY="168.0" text=" Password" textFill="#070606">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton layoutX="75.0" layoutY="242.0" onAction="#btnRegisterOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: B47B84; -fx-background-radius: 20;" text="Sign Up">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </AnchorPane>
+      <TextField fx:id="txtUserId" layoutX="58.0" layoutY="203.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUserName" layoutX="57.0" layoutY="324.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassword" layoutX="58.0" layoutY="445.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <Label layoutX="68.0" layoutY="174.0" text="User ID" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="295.0" text="Username" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="416.0" prefHeight="28.0" prefWidth="110.0" text=" Password" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="53.0" layoutY="556.0" onAction="#btnRegisterOnAction" prefHeight="21.0" prefWidth="354.0" ripplerFill="WHITE" style="-fx-background-color: #E67F1F; -fx-background-radius: 20;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="WHITE" />
    </children>
 </AnchorPane>

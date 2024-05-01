@@ -9,19 +9,19 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootNode" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.LoginFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="902.0" stroke="BLACK" strokeType="INSIDE" width="1202.0" />
-      <ImageView fitHeight="744.0" fitWidth="720.0" layoutX="-7.0" layoutY="158.0" pickOnBounds="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030303" height="708.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <ImageView fitHeight="613.0" fitWidth="611.0" layoutX="-8.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/dark-fast-food.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030303" height="902.0" layoutX="688.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="514.0" />
-      <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="39.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="23.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
          </image>
@@ -29,49 +29,54 @@
             <ColorAdjust contrast="0.15" hue="1.0" />
          </effect>
       </ImageView>
-      <Label layoutX="137.0" layoutY="73.0" prefHeight="35.0" prefWidth="247.0" text="Seafood Restaurant" textFill="WHITE">
+      <Label layoutX="94.0" layoutY="55.0" prefHeight="7.0" prefWidth="166.0" text="Seafood Restaurant" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="137.0" layoutY="37.0" prefHeight="54.0" prefWidth="279.0" text="Cinnamon 7" textFill="WHITE">
+      <Label layoutX="94.0" layoutY="22.0" prefHeight="0.0" prefWidth="279.0" text="Cinnamon 7" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="782.0" layoutY="281.0" prefHeight="21.0" prefWidth="134.0" text="Username" textFill="WHITE">
+      <Label layoutX="607.0" layoutY="210.0" prefHeight="21.0" prefWidth="134.0" text="Username" textFill="WHITE">
          <font>
-            <Font name="Corbel" size="24.0" />
+            <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserId" layoutX="772.0" layoutY="316.0" prefHeight="54.0" prefWidth="354.0" style="-fx-background-radius: 30;">
+      <TextField fx:id="txtUserId" layoutX="597.0" layoutY="241.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Label layoutX="782.0" layoutY="402.0" prefHeight="21.0" prefWidth="134.0" text="Password" textFill="WHITE">
+      <Label layoutX="607.0" layoutY="322.0" prefHeight="21.0" prefWidth="134.0" text="Password" textFill="WHITE">
          <font>
-            <Font name="Corbel" size="24.0" />
+            <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="835.0" layoutY="662.0" prefHeight="27.0" prefWidth="102.0" text="New User?" textFill="WHITE">
+      <PasswordField fx:id="txtPassword" layoutX="597.0" layoutY="353.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="650.0" layoutY="578.0" prefHeight="27.0" prefWidth="102.0" text="New User?" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Hyperlink layoutX="929.0" layoutY="658.0" onAction="#linkRegistrationOnAction" prefHeight="35.0" prefWidth="134.0" text="Register Here">
+      <Hyperlink layoutX="744.0" layoutY="574.0" onAction="#linkRegistrationOnAction" prefHeight="35.0" prefWidth="134.0" text="Register Here">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Hyperlink>
-      <JFXButton layoutX="772.0" layoutY="564.0" onAction="#btnLoginOnAction" prefHeight="21.0" prefWidth="354.0" style="-fx-background-color: #E67F1F; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+      <JFXButton layoutX="597.0" layoutY="470.0" onAction="#btnLoginOnAction" prefHeight="21.0" prefWidth="354.0" style="-fx-background-color: #E67F1F; -fx-background-radius: 20;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </JFXButton>
-      <Label layoutX="893.0" layoutY="166.0" text="LOGIN" textFill="WHITE">
+      <Label layoutX="718.0" layoutY="90.0" text="LOGIN" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="Corbel Bold" size="35.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtPassword" layoutX="772.0" layoutY="451.0" prefHeight="54.0" prefWidth="354.0" style="-fx-background-radius: 30;" />
+      <Line endX="10.4666748046875" endY="1.52587890625E-5" layoutX="802.0" layoutY="139.0" startX="-75.5999755859375" startY="3.0517578125E-5" stroke="WHITE" />
    </children>
 </AnchorPane>
