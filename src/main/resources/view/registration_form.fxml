@@ -38,7 +38,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Text fill="#e67f1ff2" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" wrappingWidth="147.19998168945312">
+      <Text fill="#fffffff2" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" wrappingWidth="147.19998168945312">
          <font>
             <Font name="Corbel Bold" size="35.0" />
          </font>
@@ -73,11 +73,11 @@
             <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <JFXButton layoutX="53.0" layoutY="556.0" onAction="#btnRegisterOnAction" prefHeight="21.0" prefWidth="354.0" ripplerFill="WHITE" style="-fx-background-color: #030303; -fx-background-radius: 20; -fx-border-color: #E67F1F; -fx-border-radius: 20; -fx-border-width: 2;" text="Sign Up" textFill="WHITE">
+      <JFXButton layoutX="53.0" layoutY="556.0" onAction="#btnRegisterOnAction" prefHeight="21.0" prefWidth="354.0" ripplerFill="WHITE" style="-fx-background-color: #E67F1F; -fx-background-radius: 20;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </JFXButton>
-      <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="#e67f1f" />
+      <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="WHITE" />
    </children>
 </AnchorPane>
