@@ -170,7 +170,6 @@ public class ItemFormController {
     private void clearFields() {
         txtId.setText("");
         txtName.setText("");
-        //cmbType.getTypeSelector();
         txtQtyOnHand.setText("");
         txtUnitPrice.setText("");
         cmbStatus.setValue("");

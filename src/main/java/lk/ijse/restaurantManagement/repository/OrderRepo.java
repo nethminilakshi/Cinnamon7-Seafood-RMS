@@ -1,5 +1,6 @@
 package lk.ijse.restaurantManagement.repository;
 
+import com.mysql.cj.xdevapi.Session;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Order;
 
@@ -26,11 +27,14 @@ public class OrderRepo {
         String sql = "INSERT INTO orders VALUES(?, ?, ?,?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
-        pstm.setString(1, order.getOrderId());
+        pstm.setInt(1, order.getOrderId());
         pstm.setString(2, order.getOrderType());
         pstm.setString(3, order.getCusId());
         pstm.setString(4, order.getDate());
 
         return pstm.executeUpdate() > 0;
     }
+
+
+
 }

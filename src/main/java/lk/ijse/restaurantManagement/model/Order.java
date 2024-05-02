@@ -7,7 +7,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Data
 public class Order {
-    private String orderId;
+    private int orderId;
     private String orderType;
     private String cusId;
     private String date;

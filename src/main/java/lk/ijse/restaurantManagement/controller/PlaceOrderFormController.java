@@ -1,7 +1,6 @@
 package lk.ijse.restaurantManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +24,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 public class PlaceOrderFormController {
@@ -78,7 +76,7 @@ public class PlaceOrderFormController {
     private TextField txtDescription;
 
     @FXML
-    private TextField txtOrderType;
+    private ComboBox<String> cmbOrderType;
 
 
     @FXML
@@ -103,10 +101,18 @@ public class PlaceOrderFormController {
         setCellValueFactory();
         loadNextOrderId();
         setDate();
-        //getCustomerontact();
+        getOrderList();
         getItemCodes();
     }
-
+    private String[] typeList={"takeAway","dineIn"};
+    public void getOrderList(){
+        List<String> typelist = new ArrayList<>();
+        for(String data: typeList){
+            typelist.add(data);
+        }
+        ObservableList<String> obList= FXCollections.observableArrayList(typelist);
+        cmbOrderType.setItems(obList);
+    }
     private void getItemCodes() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
@@ -161,10 +167,13 @@ public class PlaceOrderFormController {
         if (currentId != null) {
             String[] split = currentId.split("O");
 //            System.out.println("Arrays.toString(split) = " + Arrays.toString(split));
-            int id = Integer.parseInt(split[1]);    //2
-            return "O" + ++id;
+         //  try {
+                int id = Integer.parseInt(split[1]);    //2
+                return "O" + ++id;
+         //  }catch (ArrayIndexOutOfBoundsException e){
 
-        }
+            }
+       // }
         return "01";
     }
 
@@ -248,8 +257,8 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
-        String orderId = txtOrderId.getText();
-        String orderType= txtOrderType.getText();
+        int orderId = Integer.parseInt(txtOrderId.getText());
+        String orderType= String.valueOf(cmbOrderType.getValue());
         String cusId = txtId.getText();
         String date = String.valueOf(Date.valueOf(LocalDate.now()));
 
@@ -305,7 +314,7 @@ public class PlaceOrderFormController {
 
     }
 
-    public void btnSearchOnAction(ActionEvent event) {
+    public void btnsearchOnAction(ActionEvent event) {
         String contact = txtContact.getText();
 
         try {
@@ -315,7 +324,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        initialize();
     }
-
 
 }

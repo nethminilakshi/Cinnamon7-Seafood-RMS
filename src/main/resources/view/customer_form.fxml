@@ -20,7 +20,7 @@
             <Image url="@../assets.icon/bg.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="-1.0" opacity="0.56" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="-1.0" opacity="0.54" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Text fill="WHITE" layoutX="24.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Details">
          <font>
             <Font name="System Bold" size="36.0" />

@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 
 public class OrderDetail {
-    private String orderId;
+    private int orderId;
     private String itemId;
     private int qty;
     private double unitPrice;
