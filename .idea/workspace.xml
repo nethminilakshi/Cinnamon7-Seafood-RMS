@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="login page">
+    <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="registration page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderDetailRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderDetailRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/PlaceOrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/PlaceOrderRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/tables_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/tables_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets.icon/AnyDesk.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets.icon/gcapi.dll" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +137,7 @@
       <workItem from="1714363204569" duration="27066000" />
       <workItem from="1714419593823" duration="706000" />
       <workItem from="1714451111533" duration="4575000" />
-      <workItem from="1714572327507" duration="9624000" />
+      <workItem from="1714572327507" duration="12842000" />
     </task>
     <task id="LOCAL-00001" summary="04/30">
       <option name="closed" value="true" />
@@ -221,25 +219,53 @@
       <option name="project" value="LOCAL" />
       <updated>1714591244194</updated>
     </task>
-    <task id="LOCAL-00011" summary="login page">
+    <task id="LOCAL-00011" summary="registration page">
       <option name="closed" value="true" />
-      <created>1714592645573</created>
+      <created>1714592084902</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1714592645573</updated>
+      <updated>1714592084902</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="registration page">
+      <option name="closed" value="true" />
+      <created>1714593349307</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714593349307</updated>
+    </task>
+    <task id="LOCAL-00013" summary="registration page">
+      <option name="closed" value="true" />
+      <created>1714594542647</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714594542647</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="04/30" />
     <MESSAGE value="05/01" />
     <MESSAGE value="login page" />
-    <option name="LAST_COMMIT_MESSAGE" value="login page" />
+    <MESSAGE value="registration page" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
