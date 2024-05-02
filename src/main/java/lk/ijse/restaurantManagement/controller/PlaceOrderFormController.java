@@ -163,18 +163,14 @@ public class PlaceOrderFormController {
     }
 
     private String nextId(String currentId) {
-
         if (currentId != null) {
             String[] split = currentId.split("O");
 //            System.out.println("Arrays.toString(split) = " + Arrays.toString(split));
-         //  try {
-                int id = Integer.parseInt(split[1]);    //2
-                return "O" + ++id;
-         //  }catch (ArrayIndexOutOfBoundsException e){
+            int id = Integer.parseInt(split[1]);    //2
+            return "O" + ++id;
 
-            }
-       // }
-        return "01";
+        }
+        return "O1";
     }
 
 
@@ -257,7 +253,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
-        int orderId = Integer.parseInt(txtOrderId.getText());
+        String orderId = txtOrderId.getText();
         String orderType= String.valueOf(cmbOrderType.getValue());
         String cusId = txtId.getText();
         String date = String.valueOf(Date.valueOf(LocalDate.now()));

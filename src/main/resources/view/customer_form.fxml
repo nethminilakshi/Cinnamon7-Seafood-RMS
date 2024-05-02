@@ -42,7 +42,7 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TableView fx:id="tblCustomer" fixedCellSize="2.0" layoutX="34.0" layoutY="330.0" prefHeight="284.0" prefWidth="931.0">
+      <TableView fx:id="tblCustomer" editable="true" fixedCellSize="2.0" layoutX="34.0" layoutY="330.0" prefHeight="284.0" prefWidth="931.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="129.59997940063477" text="ID" />
           <TableColumn fx:id="colName" minWidth="8.0" prefWidth="238.4000244140625" text="Name" />
