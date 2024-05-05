@@ -7,11 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Customer;
 import lk.ijse.restaurantManagement.model.Item;
+import lk.ijse.restaurantManagement.model.tm.CustomerTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
@@ -214,6 +216,15 @@ public class ItemFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         initialize();
+    }
+
+    public void tblClickOnAction(MouseEvent mouseEvent) {
+        ItemTm selectedItem = tblItem.getSelectionModel().getSelectedItem();
+        txtId.setText(selectedItem.getId());
+        txtName.setText(selectedItem.getDescription());
+        txtQtyOnHand.setText(selectedItem.getQtyOnHand());
+        txtUnitPrice.setText(selectedItem.getUnitPrice());
+        cmbStatus.setValue(selectedItem.getStatus());
     }
 }
 

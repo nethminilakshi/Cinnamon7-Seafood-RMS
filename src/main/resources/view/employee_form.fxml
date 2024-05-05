@@ -17,7 +17,7 @@
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.EmployeeFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
-      <Text fill="WHITE" layoutX="34.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Details">
+      <Text fill="#bf3636" layoutX="34.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Details">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -95,14 +95,14 @@
             <ColorAdjust contrast="0.15" hue="1.0" />
          </effect>
       </ImageView>
-      <Label layoutX="767.0" layoutY="25.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7" textFill="#c64a6f">
+      <Label layoutX="767.0" layoutY="25.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon-7" textFill="#c64a6f">
          <font>
-            <Font name="System Bold" size="28.0" />
+            <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
       <Label layoutX="780.0" layoutY="57.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
       <Label layoutX="45.0" layoutY="267.0" prefHeight="30.0" prefWidth="93.0" text="Position*" textFill="WHITE">

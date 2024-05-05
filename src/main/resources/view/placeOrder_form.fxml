@@ -10,10 +10,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Pane" prefHeight="566.0" prefWidth="788.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PlaceOrderFormController">
+<AnchorPane fx:id="Pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PlaceOrderFormController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="197.0" layoutY="19.0" prefHeight="34.0" prefWidth="207.0" text="Place Order Form" textFill="#bf3636f7">
          <font>
             <Font name="System Bold" size="23.0" />
@@ -77,22 +79,7 @@
             <Image url="@../assets.icon/icons8-purchase-order-48.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="680.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets.icon/food-png-6.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="680.0" layoutY="54.0" opacity="0.76" prefHeight="21.0" prefWidth="92.0" text="Cinnamon-7" textFill="#611212">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="661.0" layoutY="70.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
-         <font>
-            <Font name="System Bold Italic" size="11.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="13.0" layoutY="80.0" prefHeight="463.0" prefWidth="279.0" style="-fx-background-color: #E8DFCA; -fx-background-radius: 25;">
+      <AnchorPane layoutX="13.0" layoutY="80.0" prefHeight="609.0" prefWidth="279.0" style="-fx-background-color: #E8DFCA; -fx-background-radius: 25;">
          <children>
             <Label layoutX="19.0" layoutY="21.0" text="Order Id:">
                <font>

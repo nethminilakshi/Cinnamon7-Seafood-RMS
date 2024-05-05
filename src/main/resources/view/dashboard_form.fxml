@@ -21,6 +21,7 @@
             <Image url="@../assets.icon/pasta.jpg" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
       <Label layoutX="368.0" layoutY="40.0" prefHeight="23.0" prefWidth="237.0" text="WE are the Super Food" textFill="#ae0a0af7">
          <font>
             <Font name="Courier New Bold" size="18.0" />
@@ -36,17 +37,16 @@
             <Font name="System Bold" size="64.0" />
          </font>
       </Label>
+      <Label fx:id="lblEmployeeCount" layoutX="597.0" layoutY="474.0" prefHeight="72.0" prefWidth="60.0" text="52" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
       <Label layoutX="762.0" layoutY="52.0" prefHeight="25.0" prefWidth="154.0" text="Seafood Restaurant" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="749.0" layoutY="20.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
       <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="913.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
@@ -119,9 +119,9 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Label fx:id="lblEmployeeCount" layoutX="597.0" layoutY="474.0" prefHeight="72.0" prefWidth="60.0" text="52" textFill="WHITE">
+      <Label layoutX="749.0" layoutY="20.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon-7" textFill="#c64a6f">
          <font>
-            <Font name="System Bold" size="48.0" />
+            <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="151.0" layoutX="276.0" layoutY="459.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="220.0">
