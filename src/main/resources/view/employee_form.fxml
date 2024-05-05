@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.EmployeeFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Text fill="WHITE" layoutX="34.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Details">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <Label layoutX="528.0" layoutY="79.0" text="Address*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="79.0" text="Employee ID*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="44.0" layoutY="113.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Employee ID" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAddress" layoutX="526.0" layoutY="113.0" prefHeight="45.0" prefWidth="435.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="45.0" layoutY="179.0" text="Name*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="44.0" layoutY="210.0" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="528.0" layoutY="179.0" text="Contact Number*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtContact" layoutX="526.0" layoutY="210.0" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="655.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="533.0" layoutY="655.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="647.0" layoutY="655.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="762.0" layoutY="655.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a36264; -fx-background-radius: 15;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="876.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="931.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/food-png-6.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="0.15" hue="1.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="767.0" layoutY="25.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="780.0" layoutY="57.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="267.0" prefHeight="30.0" prefWidth="93.0" text="Position*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="526.0" layoutY="267.0" text="Basic Salary*" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSalary" layoutX="526.0" layoutY="297.0" prefHeight="45.0" prefWidth="435.0" promptText="Basic Salary" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cmbPosition" layoutX="44.0" layoutY="297.0" prefHeight="45.0" prefWidth="435.0" promptText="Position" />
+      <TableView fx:id="tblEmployee" layoutX="49.0" layoutY="365.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="151.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="181.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="171.0" text="Address" />
+            <TableColumn fx:id="colContact" prefWidth="139.0" text="Contact" />
+            <TableColumn fx:id="colPosition" prefWidth="147.0" text="Position" />
+            <TableColumn fx:id="colBasicSalary" prefWidth="126.0" text="BasicSalary" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

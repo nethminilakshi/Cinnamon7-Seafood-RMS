@@ -1,10 +1,12 @@
 package lk.ijse.restaurantManagement.repository;
 
+import javafx.scene.control.Alert;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Customer;
 import lk.ijse.restaurantManagement.model.Item;
 import lk.ijse.restaurantManagement.model.OrderDetail;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -108,5 +110,31 @@ public class ItemRepo {
             itemList.add(item);
         }
         return itemList;
+    }
+
+    public static boolean delete(String description) throws SQLException {
+        String sql = "DELETE FROM Item WHERE description = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+        pstm.setObject(1, description);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean save(Item item) throws SQLException {
+
+        String sql = "INSERT INTO Item VALUES(?, ?, ?, ?,?)";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setObject(1, item.getId());
+        pstm.setObject(2, item.getDescription());
+        pstm.setObject(3, item.getQtyOnHand());
+        pstm.setObject(4, item.getUnitPrice());
+        pstm.setObject(5,item.getStatus());
+
+        return pstm.executeUpdate()>0;
     }
 }

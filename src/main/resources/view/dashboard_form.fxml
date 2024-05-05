@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -11,60 +10,43 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="dashboard" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.DashboardFormController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="894.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="894.0" layoutX="120.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/pasta.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#131313" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
-      <Label layoutX="55.0" layoutY="17.0" prefHeight="27.0" prefWidth="146.0" text="Welcome User !" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="38.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="LOGIN" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="38.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="CUSTOMER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="38.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="38.0" layoutY="372.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="38.0" layoutY="432.0" mnemonicParsing="false" onAction="#btnInventoryOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="INVENTOTY" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="38.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="PLACE ORDER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Label layoutX="368.0" layoutY="40.0" prefHeight="23.0" prefWidth="237.0" text="WE are the Super Food" textFill="#fffffff7">
+      <Label layoutX="368.0" layoutY="40.0" prefHeight="23.0" prefWidth="237.0" text="WE are the Super Food" textFill="#ae0a0af7">
          <font>
             <Font name="Courier New Bold" size="18.0" />
          </font>
       </Label>
+      <Label layoutX="510.0" layoutY="241.0" text="Thursday, May 2" textFill="#d01313">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="489.0" layoutY="168.0" text=" 04 : 44">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="762.0" layoutY="52.0" prefHeight="25.0" prefWidth="154.0" text="Seafood Restaurant" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="749.0" layoutY="20.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
       <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="913.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
@@ -86,24 +68,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="638.0" onAction="#btnExitOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #31363F; -fx-background-radius: 20;" text="Exit" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </JFXButton>
-      <Label layoutX="762.0" layoutY="52.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="749.0" layoutY="20.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon 7" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="151.0" layoutX="757.0" layoutY="459.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="220.0">
          <fill>
             <LinearGradient endX="0.5568182251670144" endY="0.4507576231703614">
@@ -188,20 +152,9 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Circle fill="#12c401" layoutX="32.0" layoutY="31.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="489.0" layoutY="168.0" text=" 04 : 44" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="64.0" />
-         </font>
-      </Label>
       <Label layoutX="713.0" layoutY="217.0" text="AM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="510.0" layoutY="241.0" text="Thursday, May 2" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
    </children>

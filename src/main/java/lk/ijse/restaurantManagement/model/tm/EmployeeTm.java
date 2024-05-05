@@ -1,4 +1,4 @@
-package lk.ijse.restaurantManagement.model;
+package lk.ijse.restaurantManagement.model.tm;
 
 import lombok.*;
 
@@ -6,14 +6,11 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 
-public class Employee {
+public class EmployeeTm {
     private String employeeId;
     private String name;
     private String address;
     private String contact;
-    private String positon;
-    private String basicSalary;
-
-
+    private  String position;
+    private  String basicSalary;
 }
-

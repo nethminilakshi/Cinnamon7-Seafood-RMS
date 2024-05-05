@@ -119,23 +119,19 @@ public class ItemFormController {
     }
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String id = txtId.getText();
-
-        String sql = "DELETE FROM Item WHERE id = ?";
+        String description = txtName.getText();
 
         try {
-            PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                    .prepareStatement(sql);
-            pstm.setObject(1, id);
-
-            if(pstm.executeUpdate() > 0) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Item deleted!").show();
-                clearFields();
+            boolean isDeleted = ItemRepo.delete(description);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
         initialize();
+
     }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
@@ -145,19 +141,11 @@ public class ItemFormController {
         String unitPrice = txtUnitPrice.getText();
         String status=String.valueOf(cmbStatus.getValue());
 
-        String sql = "INSERT INTO Item VALUES(?, ?, ?, ?,?)";
+        Item item = new Item(id, name, qtyOnHand,unitPrice,status);
 
         try {
-            Connection connection = DbConnection.getInstance().getConnection();
-            PreparedStatement pstm = connection.prepareStatement(sql);
 
-            pstm.setObject(1, id);
-            pstm.setObject(2, name);
-            pstm.setObject(3, qtyOnHand);
-            pstm.setObject(4, unitPrice);
-            pstm.setObject(5,status);
-
-            boolean isSaved = pstm.executeUpdate() > 0;
+            boolean isSaved = ItemRepo.save(item);
             if(isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item saved!").show();
                 clearFields();
@@ -191,7 +179,7 @@ public class ItemFormController {
         try {
             boolean isUpdated = ItemRepo.update(item);
             if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Item updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

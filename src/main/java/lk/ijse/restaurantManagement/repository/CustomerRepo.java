@@ -2,7 +2,6 @@ package lk.ijse.restaurantManagement.repository;
 
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Customer;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +17,7 @@ public class CustomerRepo {
                 .prepareStatement(sql);
 
         pstm.setObject(1, customer.getCusId());
-        pstm.setObject(2, customer.getName());
+        pstm.setObject(2,customer.getName());
         pstm.setObject(3, customer.getAddress());
         pstm.setObject(4, customer.getContact());
 
@@ -37,8 +36,7 @@ public class CustomerRepo {
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
-
-        pstm.setObject(1, customer.getCusId());
+        pstm.setObject(1,customer.getCusId());
         pstm.setObject(2, customer.getName());
         pstm.setObject(3, customer.getAddress());
         pstm.setObject(4, customer.getContact());
@@ -46,23 +44,23 @@ public class CustomerRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static Customer searchByContact(String contact) throws SQLException {
+    public static Customer searchByContact(String id) throws SQLException {
         String sql = "SELECT * FROM Customer WHERE contact = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, contact);
+        pstm.setObject(1, id);
         ResultSet resultSet = pstm.executeQuery();
 
         Customer customer = null;
 
         if (resultSet.next()) {
-            String Contact = resultSet.getString(1);
-            String cusId = resultSet.getString(2);
-            String name = resultSet.getString(3);
-            String address = resultSet.getString(4);
+            String cusId = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            String contact = resultSet.getString(4);
 
-            customer = new Customer(Contact, cusId, name, address);
+            customer = new Customer(cusId, name, address,contact);
         }
         return customer;
     }
@@ -78,28 +76,28 @@ public class CustomerRepo {
     }
 
     public static List<Customer> getAll() throws SQLException {
-        String sql = "SELECT * FROM Customer";
+        String sql = "SELECT * FROM customer";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
 
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customersList = new ArrayList<>();
         while (resultSet.next()) {
-            String contact = resultSet.getString(1);
-            String cusId = resultSet.getString(2);
-            String name = resultSet.getString(3);
-            String address = resultSet.getString(4);
+            String cusId = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            String contact = resultSet.getString(4);
 
-            Customer customer = new Customer(contact, cusId, name, address);
-            customerList.add(customer);
+            Customer customer = new Customer(cusId, name, address,contact);
+            customersList.add(customer);
         }
-        return customerList;
+        return customersList;
     }
 
-    public static List<String> getIds() throws SQLException {
-        String sql = "SELECT cusId FROM Customer";
+    public static List<String> getContact() throws SQLException {
+        String sql = "SELECT contact FROM Customer";
 
         Connection connection = DbConnection.getInstance().getConnection();
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();

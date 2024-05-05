@@ -135,7 +135,7 @@ public class DashboardFormController {
     }
 
     public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/customer_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Customerform.fxml"));
         Stage stage = (Stage) dashboard.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));

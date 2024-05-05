@@ -7,13 +7,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" opacity="0.99" prefHeight="610.0" prefWidth="580.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ItemFormController">
+<AnchorPane fx:id="root" opacity="0.99" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ItemFormController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="198.0" layoutY="14.0" prefHeight="26.0" prefWidth="138.0" text="Item Details" textFill="#9a2020">
          <font>
             <Font name="System Bold" size="23.0" />
@@ -80,7 +80,7 @@
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="72.0" opacity="0.82" prefHeight="267.0" prefWidth="576.0" style="-fx-background-radius: 20; -fx-region-border: 10; -fx-background-color: #D3B786; -fx-border-color: grey;">
          <children>
-            <TableView fx:id="tblItem" layoutX="16.0" layoutY="10.0" prefHeight="247.0" prefWidth="543.0">
+            <TableView fx:id="tblItem" layoutX="142.0" layoutY="10.0" prefHeight="247.0" prefWidth="543.0">
                <columns>
                   <TableColumn fx:id="colProductId" prefWidth="70.0" text="Product Id" />
                   <TableColumn fx:id="colDescription" prefWidth="181.0" text="Description" />
@@ -91,20 +91,5 @@
             </TableView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="67.0" fitWidth="64.0" layoutX="506.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets.icon/food-png-6.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="474.0" layoutY="45.0" opacity="0.76" prefHeight="21.0" prefWidth="119.0" text="Seafood Restaurant" textFill="#611212">
-         <font>
-            <Font name="System Bold Italic" size="11.0" />
-         </font>
-      </Label>
-      <Label layoutX="492.0" layoutY="32.0" opacity="0.76" prefHeight="21.0" prefWidth="92.0" text="Cinnamon-7" textFill="#611212">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

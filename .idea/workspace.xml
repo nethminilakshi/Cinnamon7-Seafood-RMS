@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="registration page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/MainFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/tm/EmployeeTm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/EmployeeRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/employee_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/main_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/CustomerFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/PlaceOrderFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/PlaceOrderFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/DashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/DashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/EmployeeFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/ItemFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/ItemFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/CustomerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/CustomerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderDetailRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderDetailRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/OrderRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/ItemRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/ItemRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/customer_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboard_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/item_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/item_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,7 +157,12 @@
       <workItem from="1714419593823" duration="706000" />
       <workItem from="1714451111533" duration="4575000" />
       <workItem from="1714572327507" duration="12842000" />
-      <workItem from="1714669502517" duration="2444000" />
+      <workItem from="1714669502517" duration="4982000" />
+      <workItem from="1714713798923" duration="13195000" />
+      <workItem from="1714792339342" duration="5796000" />
+      <workItem from="1714813946116" duration="582000" />
+      <workItem from="1714831543003" duration="12702000" />
+      <workItem from="1714885504881" duration="6541000" />
     </task>
     <task id="LOCAL-00001" summary="04/30">
       <option name="closed" value="true" />
@@ -264,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714644075083</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="registration page">
+      <option name="closed" value="true" />
+      <created>1714672574452</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714672574452</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
