@@ -21,8 +21,8 @@ public class MainFormController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/dashboard_form.fxml"));
 
         Pane registerPane = fxmlLoader.load();
-        mainPane.getChildren().clear();
-        mainPane.getChildren().add(registerPane);
+        root.getChildren().clear();
+        root.getChildren().add(registerPane);
 
         // setButtonActive(btnHome);
     }
@@ -35,7 +35,7 @@ public class MainFormController {
         root.getChildren().add(registerPane);
     }
 
-    public void btnIReservationOnAction(ActionEvent actionEvent) throws IOException {
+    public void btnReservationOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/reservation_form.fxml"));
         Pane registerPane = fxmlLoader.load();
         root.getChildren().clear();

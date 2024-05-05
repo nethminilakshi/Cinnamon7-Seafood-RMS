@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Optional;
 public class PlaceOrderFormController {
     @FXML
-    private AnchorPane Pane;
+    private AnchorPane root;
 
     @FXML
     private JFXButton btnAddToCart;
@@ -244,7 +244,7 @@ public class PlaceOrderFormController {
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
-        Stage stage = (Stage) Pane.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Dashboard Form");

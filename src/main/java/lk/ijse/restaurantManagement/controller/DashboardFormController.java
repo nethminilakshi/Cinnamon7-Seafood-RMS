@@ -21,7 +21,7 @@ public class DashboardFormController {
     private AnchorPane bodyPane;
 
     @FXML
-    private AnchorPane dashboard;
+    private AnchorPane root;
 
     @FXML
     private Label lblCustomerCount;
@@ -93,14 +93,14 @@ public class DashboardFormController {
 
         Scene scene = new Scene(rootNode);
 
-        Stage stage = (Stage) this.dashboard.getScene().getWindow();
+        Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Login Form");
     }
 
     public void btnPlaceOrderOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/placeOrder_form.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("placeOrder Form");
@@ -109,7 +109,7 @@ public class DashboardFormController {
 
     public void btnInventoryOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/inventory_form.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Inventory Form");
@@ -118,7 +118,7 @@ public class DashboardFormController {
 
     public void btnEmployeeOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/employee_form.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Employee Form");
@@ -127,7 +127,7 @@ public class DashboardFormController {
 
     public void btnItemOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/item_form.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Item Form");
@@ -136,7 +136,7 @@ public class DashboardFormController {
 
     public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Customerform.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Customer Form");
@@ -145,7 +145,7 @@ public class DashboardFormController {
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
-        Stage stage = (Stage) dashboard.getScene().getWindow();
+        Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("Login Form");
@@ -157,7 +157,7 @@ public class DashboardFormController {
 
         Scene scene = new Scene(rootNode);
 
-        Stage stage = (Stage) this.dashboard.getScene().getWindow();
+        Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Login Form");
     }

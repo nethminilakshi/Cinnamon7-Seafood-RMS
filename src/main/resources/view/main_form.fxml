@@ -8,11 +8,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPain" prefHeight="700.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.MainFormController">
+<AnchorPane fx:id="mainPane" prefHeight="700.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.MainFormController">
    <children>
       <AnchorPane fx:id="sidePane" prefHeight="700.0" prefWidth="255.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#131313" height="700.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
-      <Label layoutX="32.0" layoutY="37.0" prefHeight="72.0" prefWidth="174.0" text="Welcome User !" textFill="#a80a0a">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#131313" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
+      <Label layoutX="32.0" layoutY="37.0" prefHeight="72.0" prefWidth="201.0" text="Welcome Nethmi !" textFill="#aea5a5">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -27,12 +27,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="39.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
+      <Button layoutX="39.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -56,7 +56,7 @@
          </font>
       </JFXButton>
       <AnchorPane fx:id="root" layoutX="255.0" prefHeight="700.0" prefWidth="1000.0" />
-      <Button layoutX="41.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnIReservationOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="RESERVATION" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnReservationOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="RESERVATION" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
