@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Pane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PlaceOrderFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PlaceOrderFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="198.0" layoutY="16.0" prefHeight="53.0" prefWidth="309.0" text="Place Order Form" textFill="#bf3636f7">
@@ -45,12 +45,13 @@
       </JFXButton>
       <TableView fx:id="tblOrderCart" layoutX="412.0" layoutY="314.0" prefHeight="225.0" prefWidth="565.0" style="-fx-background-color: white;">
          <columns>
-            <TableColumn fx:id="colItemCode" text="Code" />
-            <TableColumn fx:id="colDescription" prefWidth="155.0" text="Description" />
+            <TableColumn fx:id="colItemCode" prefWidth="67.0" text="Code" />
+            <TableColumn fx:id="colDescription" prefWidth="112.0" text="Description" />
             <TableColumn fx:id="colQty" prefWidth="53.0" text="Qty" />
-            <TableColumn fx:id="colUnitPrice" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="91.0" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="106.0" text="Action" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="81.0" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="95.0" text="Total" />
+            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="88.0" text="Date" />
+            <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="67.0" text="Action" />
          </columns>
       </TableView>
       <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="638.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Back">
@@ -75,7 +76,7 @@
          </font>
       </Label>
       <TextField fx:id="txtNetTotal" layoutX="883.0" layoutY="575.0" prefHeight="33.0" prefWidth="91.0" />
-      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="695.0" layoutY="647.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="706.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/icons8-purchase-order-48.png" />
          </image>

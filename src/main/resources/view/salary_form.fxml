@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -10,8 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.SalaryFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.SalaryFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Text fill="#bf3636" layoutX="68.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary Details">
@@ -29,12 +32,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="48.0" layoutY="144.0" prefHeight="45.0" prefWidth="435.0" promptText="SalaryId" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtAddress" layoutX="532.0" layoutY="144.0" prefHeight="45.0" prefWidth="435.0" promptText="EmployeeId" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtSalaryId" layoutX="48.0" layoutY="144.0" prefHeight="45.0" prefWidth="435.0" promptText="SalaryId" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -44,7 +42,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="48.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" promptText="Date" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtDate" layoutX="48.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" promptText="Date" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -54,7 +52,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="532.0" layoutY="248.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Amount" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtAmount" layoutX="532.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" promptText="Amount" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -77,5 +75,29 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
+      <TableView fx:id="tblSalary" layoutX="45.0" layoutY="322.0" onMouseClicked="#tblOnClickAction" prefHeight="295.0" prefWidth="922.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="200.0" text="SalaryId" />
+            <TableColumn fx:id="colEmployeeId" prefWidth="266.0" text="EmployeeId" />
+            <TableColumn fx:id="colAmount" prefWidth="245.0" text="Amount(Rs)" />
+            <TableColumn fx:id="colDate" prefWidth="210.0" text="Date" />
+         </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="814.0" layoutY="651.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="474.0" layoutY="651.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="650.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #94948f;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ComboBox fx:id="cmbEmployeeId" layoutX="532.0" layoutY="144.0" onAction="#cmbIdOnAction" prefHeight="45.0" prefWidth="435.0" />
    </children>
 </AnchorPane>

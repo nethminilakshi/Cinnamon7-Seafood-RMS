@@ -54,7 +54,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="56.0" layoutY="211.0" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtName" layoutX="56.0" layoutY="211.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>

@@ -1,14 +1,12 @@
-package lk.ijse.restaurantManagement.model.tm;
+package lk.ijse.restaurantManagement.model;
 
 import com.jfoenix.controls.JFXButton;
-import lk.ijse.restaurantManagement.model.Cart;
 import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
-public class CartTm extends Cart {
+public class Cart {
     private String id;
     private String description;
     private int qty;

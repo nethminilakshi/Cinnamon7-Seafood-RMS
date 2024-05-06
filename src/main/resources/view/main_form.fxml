@@ -11,7 +11,7 @@
 <AnchorPane fx:id="mainPane" prefHeight="700.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.MainFormController">
    <children>
       <AnchorPane fx:id="sidePane" prefHeight="700.0" prefWidth="255.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#131313" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#363535f4" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="255.0" />
       <Label layoutX="32.0" layoutY="37.0" prefHeight="72.0" prefWidth="201.0" text="Welcome Nethmi !" textFill="#aea5a5">
          <font>
             <Font name="System Bold" size="22.0" />

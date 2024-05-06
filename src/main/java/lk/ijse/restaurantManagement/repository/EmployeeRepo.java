@@ -99,5 +99,21 @@ public class EmployeeRepo {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT employeeId FROM Employee";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        List<String> idList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while (resultSet.next()) {
+            idList.add(resultSet.getString(1));
+        }
+        return idList;
+    }
 }
 

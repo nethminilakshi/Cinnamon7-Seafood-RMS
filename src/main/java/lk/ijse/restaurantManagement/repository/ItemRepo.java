@@ -30,8 +30,8 @@ public class ItemRepo {
         return idList;
     }
 
-    public static Item searchById(String id) throws SQLException {
-        String sql = "SELECT * FROM Item WHERE id = ?";
+    public static Item searchByDescription(String id) throws SQLException {
+        String sql = "SELECT * FROM Item WHERE description = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -136,5 +136,28 @@ public class ItemRepo {
         pstm.setObject(5,item.getStatus());
 
         return pstm.executeUpdate()>0;
+    }
+
+    public static Item searchById(String code) throws SQLException {
+        String sql = "SELECT * FROM Item WHERE id = ?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1, code);
+        ResultSet resultSet = pstm.executeQuery();
+
+        Item item = null;
+
+        if (resultSet.next()) {
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String qtyOnHand = resultSet.getString(3);
+            String unitPrice = resultSet.getString(4);
+            String status = resultSet.getString(5);
+
+            item = new Item(id, name, qtyOnHand, unitPrice, status);
+        }
+        return item;
     }
 }

@@ -198,11 +198,11 @@ public class ItemFormController {
         stage.centerOnScreen();
     }
 
-    public void btnSearchOnAction(ActionEvent actionEvent) {
-        String id = txtId.getText();
+    public void searchOnAction(ActionEvent actionEvent) {
+        String description  = txtName.getText();
 
         try {
-            Item item = ItemRepo.searchById(id);
+            Item item = ItemRepo.searchByDescription(description);
 
             if (item != null) {
                 txtId.setText(item.getId());

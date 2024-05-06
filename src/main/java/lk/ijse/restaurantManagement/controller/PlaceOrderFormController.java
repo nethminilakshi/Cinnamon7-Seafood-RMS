@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.CartTm;
+import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
 import lk.ijse.restaurantManagement.repository.OrderRepo;
@@ -59,6 +60,8 @@ public class PlaceOrderFormController {
 
     @FXML
     private TableColumn<?, ?> colUnitPrice;
+    @FXML
+    private TableColumn<?, ?> coldate;
 
     @FXML
     private TableView<CartTm> tblOrderCart;
@@ -103,6 +106,7 @@ public class PlaceOrderFormController {
         setDate();
         getOrderList();
         getItemCodes();
+        loadTable();
     }
     private String[] typeList={"takeAway","dineIn"};
     public void getOrderList(){
@@ -128,23 +132,27 @@ public class PlaceOrderFormController {
         }
     }
 
-   /* private void getCustomercontact() {
+   private void loadTable() {
+       ObservableList<CartTm> tmList = FXCollections.observableArrayList();
 
-        ObservableList<String> obList = FXCollections.observableArrayList();
+       for (CartTm cart : cartList) {
+           CartTm cartTm = new CartTm(
+                   cart.getId(),
+                   cart.getDescription(),
+                   cart.getQty(),
+                   cart.getUnitPrice(),
+                   cart.getTotal(),
+                   cart.getDate(),
+                   cart.getBtnRemove()
+           );
 
-        try {
-            List<String> contactList = CustomerRepo.getIds();
 
-            for (String id : idList) {
-                obList.add(id);
-            }
-            cmbCustomerId.setItems(obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-
+           tmList.add(cartTm);
+       }
+       tblOrderCart.setItems(tmList);
+       CartTm selectedItem = tblOrderCart.getSelectionModel().getSelectedItem();
+       System.out.println("selectedItem = " + selectedItem);
+   }
 
     private void setDate() {
         String now = String.valueOf(LocalDate.now());
@@ -181,6 +189,7 @@ public class PlaceOrderFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        coldate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
     }
 
@@ -191,6 +200,7 @@ public class PlaceOrderFormController {
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         double total = qty * unitPrice;
+        String date = txtDate.getText();
         JFXButton btnRemove = new JFXButton("remove");
         btnRemove.setCursor(Cursor.HAND);
 
@@ -224,7 +234,7 @@ public class PlaceOrderFormController {
             }
         }
 
-        CartTm cartTm = new CartTm(id, description, qty, unitPrice, total, btnRemove);
+        CartTm cartTm = new CartTm(id, description, qty, unitPrice, total,date, btnRemove);
 
         cartList.add(cartTm);
 
@@ -284,6 +294,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
     }
 
     @FXML
