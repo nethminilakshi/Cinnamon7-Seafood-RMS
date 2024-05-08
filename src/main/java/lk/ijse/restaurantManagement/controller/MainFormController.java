@@ -85,8 +85,8 @@ public class MainFormController {
         root.getChildren().add(registerPane);
     }
 
-    public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
+    public void btnTablesOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/tables_form.fxml"));
         Pane registerPane = fxmlLoader.load();
         root.getChildren().clear();
         root.getChildren().add(registerPane);

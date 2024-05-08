@@ -17,22 +17,17 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="40.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="DASHBOARD" textFill="WHITE" AnchorPane.bottomAnchor="473.0">
+      <Button layoutX="41.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="39.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="CUSTOMER" textFill="WHITE">
+      <Button layoutX="39.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="39.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -61,7 +56,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="LOGIN" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="DASHBOARD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="41.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnTablesOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="TABLES" textFill="WHITE" AnchorPane.bottomAnchor="301.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

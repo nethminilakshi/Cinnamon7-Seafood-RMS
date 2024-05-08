@@ -30,13 +30,13 @@ public class ItemRepo {
         return idList;
     }
 
-    public static Item searchByDescription(String id) throws SQLException {
+    public static Item searchByDescription(String description) throws SQLException {
         String sql = "SELECT * FROM Item WHERE description = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, id);
+        pstm.setObject(1, description);
         ResultSet resultSet = pstm.executeQuery();
 
         Item item = null;
@@ -66,7 +66,7 @@ public class ItemRepo {
     }
 
     public static boolean update(Item item) throws SQLException {
-        String sql = "UPDATE item SET description = ?, qtyOnHand = ?, unitPrice = ?,status = ? WHERE id = ?";
+        String sql = "UPDATE Item SET description = ?, qtyOnHand = ?, unitPrice = ?,status = ? WHERE id = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -138,26 +138,4 @@ public class ItemRepo {
         return pstm.executeUpdate()>0;
     }
 
-    public static Item searchById(String code) throws SQLException {
-        String sql = "SELECT * FROM Item WHERE id = ?";
-
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
-
-        pstm.setObject(1, code);
-        ResultSet resultSet = pstm.executeQuery();
-
-        Item item = null;
-
-        if (resultSet.next()) {
-            String id = resultSet.getString(1);
-            String name = resultSet.getString(2);
-            String qtyOnHand = resultSet.getString(3);
-            String unitPrice = resultSet.getString(4);
-            String status = resultSet.getString(5);
-
-            item = new Item(id, name, qtyOnHand, unitPrice, status);
-        }
-        return item;
-    }
 }

@@ -41,7 +41,7 @@ public class PlaceOrderFormController {
    private TextField txtContact;
 
     @FXML
-    private ComboBox<String> cmbItemCode;
+    private TextField txtCode;
 
     @FXML
     private TableColumn<?, ?> colAction;
@@ -105,7 +105,7 @@ public class PlaceOrderFormController {
         loadNextOrderId();
         setDate();
         getOrderList();
-        getItemCodes();
+       // getItemCodes();
         loadTable();
     }
     private String[] typeList={"takeAway","dineIn"};
@@ -116,20 +116,6 @@ public class PlaceOrderFormController {
         }
         ObservableList<String> obList= FXCollections.observableArrayList(typelist);
         cmbOrderType.setItems(obList);
-    }
-    private void getItemCodes() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-        try {
-            List<String> codeList = ItemRepo.getIds();
-            for (String code : codeList) {
-                obList.add(code);
-            }
-
-            cmbItemCode.setItems(obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
    private void loadTable() {
@@ -195,7 +181,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        String id = cmbItemCode.getValue();
+        String id = txtId.getText();
         String description = txtDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
@@ -298,12 +284,12 @@ public class PlaceOrderFormController {
     }
 
     @FXML
-    void cmbItemOnAction(ActionEvent event) {
-        String code = cmbItemCode.getValue();
+    void searchOnDescAction(ActionEvent event) {
+        String description = txtDescription.getText();
         try {
-            Item item = ItemRepo.searchById(code);
+            Item item = ItemRepo.searchByDescription(description);
             if (item != null) {
-                txtDescription.setText(item.getDescription());
+                txtCode.setText(item.getId());
                 txtUnitPrice.setText(String.valueOf(item.getUnitPrice()));
                 txtQtyOnHand.setText(String.valueOf(item.getQtyOnHand()));
             }
@@ -333,5 +319,6 @@ public class PlaceOrderFormController {
         }
         initialize();
     }
+
 
 }

@@ -140,13 +140,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbItemCode" layoutX="141.0" layoutY="339.0" onAction="#cmbItemOnAction" prefHeight="35.0" prefWidth="250.0" />
       <Label layoutX="27.0" layoutY="388.0" text="Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="141.0" layoutY="388.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="txtDescription" layoutX="141.0" layoutY="388.0" onAction="#searchOnDescAction" prefHeight="35.0" prefWidth="250.0" />
       <Label layoutX="22.0" layoutY="439.0" text="Unit Price:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -159,5 +158,6 @@
          </font>
       </Label>
       <TextField fx:id="txtQtyOnHand" layoutX="141.0" layoutY="483.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="txtCode" layoutX="141.0" layoutY="338.0" prefHeight="35.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

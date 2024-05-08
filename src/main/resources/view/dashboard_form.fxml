@@ -14,25 +14,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.DashboardFormController">
+<AnchorPane fx:id="root" prefHeight="701.0" prefWidth="1003.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.DashboardFormController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1050.0" layoutX="-1.0" layoutY="-100.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="799.0" fitWidth="1009.0" layoutX="-1.0" layoutY="-99.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/pasta.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutX="-1.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+      <ImageView fitHeight="700.0" fitWidth="594.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/photo_2024-05-07_11-49-42.jpg" />
+         </image>
+      </ImageView>
       <Label layoutX="368.0" layoutY="40.0" prefHeight="23.0" prefWidth="237.0" text="WE are the Super Food" textFill="#ae0a0af7">
          <font>
             <Font name="Courier New Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="510.0" layoutY="241.0" text="Thursday, May 2" textFill="#d01313">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="6.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1003.0" />
+      <Label layoutX="694.0" layoutY="241.0" text="Thursday, May 2" textFill="#d01313">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="489.0" layoutY="168.0" text=" 04 : 44">
+      <Label layoutX="673.0" layoutY="168.0" text=" 04 : 44">
          <font>
             <Font name="System Bold" size="64.0" />
          </font>
@@ -152,7 +157,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Label layoutX="713.0" layoutY="217.0" text="AM" textFill="WHITE">
+      <Label layoutX="897.0" layoutY="217.0" text="AM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
