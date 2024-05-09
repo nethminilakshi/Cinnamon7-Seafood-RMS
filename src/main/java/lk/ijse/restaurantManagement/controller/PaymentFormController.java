@@ -23,6 +23,7 @@ import lk.ijse.restaurantManagement.repository.SalaryRepo;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -71,7 +72,6 @@ public class PaymentFormController {
     private List<Payment>paymentList=new ArrayList<>();
 
     public void initialize(){
-
         try {
             autoGenarateId();
         } catch (ClassNotFoundException | SQLException e) {
@@ -171,6 +171,7 @@ public class PaymentFormController {
                         } catch (SQLException exception) {
                             new Alert(Alert.AlertType.ERROR, exception.getMessage()).show();
                         }
+                        clearFields();
                         initialize();
                     }
 
@@ -191,4 +192,16 @@ public class PaymentFormController {
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
         txtId.setText(new PaymentRepo().autoGenaratePaymentId());
     }
-}
+    @FXML
+    private void clearFields() {
+        txtId.setText("");
+        txtCusId.setText("");
+        txtOrderId.setText("");
+        txtAmount.setText("");
+    }
+    @FXML
+    public void btnClearOnAction(ActionEvent actionEvent) {
+            clearFields();
+        }
+    }
+

@@ -138,4 +138,22 @@ public class ItemRepo {
         return pstm.executeUpdate()>0;
     }
 
+    public String autoGenarateItemCode() throws SQLException {
+        String sql = "SELECT id from Item order by id desc limit 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()) {
+            String id = resultSet.getString("id");
+            String numericPart = id.replaceAll("\\D+","");
+            int newId = Integer.parseInt(numericPart) + 1;
+            return String.format("P%03d",newId);
+
+        }else {
+            return "p001";
+        }
+    }
 }

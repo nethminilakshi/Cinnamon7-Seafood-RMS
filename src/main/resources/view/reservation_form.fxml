@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="80.0" layoutY="30.0" prefHeight="53.0" prefWidth="334.0" text="Reservation Details" textFill="#cf3e3e">
@@ -40,7 +40,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="txtDate" layoutX="56.0" layoutY="349.0" onAction="#searchOnaction" prefHeight="45.0" prefWidth="435.0" promptText="Date" />
+      <DatePicker fx:id="txtDate" layoutX="56.0" layoutY="349.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Date" />
       <Label layoutX="56.0" layoutY="222.0" text="Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -48,7 +48,7 @@
       </Label>
       <TextField fx:id="txtDescription" layoutX="56.0" layoutY="257.0" prefHeight="45.0" prefWidth="435.0" promptText="Description" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
-            <Font size="29.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
       <Label layoutX="536.0" layoutY="118.0" text="Customer Id:" textFill="WHITE">

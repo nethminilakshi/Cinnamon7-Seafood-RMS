@@ -1,10 +1,15 @@
 package lk.ijse.restaurantManagement.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import lk.ijse.restaurantManagement.repository.ReservationRepo;
+import lk.ijse.restaurantManagement.repository.SalaryRepo;
 
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 public class ReservationFormController {
     @FXML
@@ -24,9 +29,19 @@ public class ReservationFormController {
 
     @FXML
     private TextField txtTime;
-
     @FXML
-    void searchOnaction(ActionEvent event) {
+    private AnchorPane root;
+
+    public void initialize(){
+
+        try {
+            autoGenarateId();
+        } catch (ClassNotFoundException | SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+    @FXML
+    void searchOnAction(ActionEvent event) {
 
     }
 
@@ -42,6 +57,11 @@ public class ReservationFormController {
     public void btnBackOnAction(javafx.event.ActionEvent actionEvent) {
     }
 
-    public void searchOnaction(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    private void autoGenarateId() throws SQLException, ClassNotFoundException {
+        txtReservationId.setText(new ReservationRepo().autoGenarateSalaryId());
+    }
+
+    public void searchOnAction() {
     }
 }

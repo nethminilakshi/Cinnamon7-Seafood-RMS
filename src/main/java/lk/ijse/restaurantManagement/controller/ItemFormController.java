@@ -17,6 +17,7 @@ import lk.ijse.restaurantManagement.model.tm.CustomerTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
+import lk.ijse.restaurantManagement.repository.PaymentRepo;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -64,6 +65,12 @@ public class ItemFormController {
     private List<Item> itemList=new ArrayList<>();
     private Alert alert;
     public void initialize() {
+
+        try {
+            autoGenarateId();
+        } catch (ClassNotFoundException | SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
 
         this.itemList=getAllItems();
         getItemStatus();
@@ -155,6 +162,7 @@ public class ItemFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
         initialize();
     }
     private void clearFields() {
@@ -225,6 +233,10 @@ public class ItemFormController {
         txtQtyOnHand.setText(selectedItem.getQtyOnHand());
         txtUnitPrice.setText(selectedItem.getUnitPrice());
         cmbStatus.setValue(selectedItem.getStatus());
+    }
+    @FXML
+    private void autoGenarateId() throws SQLException, ClassNotFoundException {
+        txtId.setText(new ItemRepo().autoGenarateItemCode());
     }
 }
 

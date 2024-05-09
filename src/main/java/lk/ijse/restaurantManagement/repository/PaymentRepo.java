@@ -58,10 +58,8 @@ public class PaymentRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        // pstm.setObject(1, id);
-        ResultSet resultSet = pstm.executeQuery();
 
-        // Salary salary = null;
+        ResultSet resultSet = pstm.executeQuery();
 
         if (resultSet.next()) {
             String paymentId = resultSet.getString("paymentId");

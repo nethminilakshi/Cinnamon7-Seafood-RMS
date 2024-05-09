@@ -58,7 +58,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Label layoutX="148.0" layoutY="44.0" prefHeight="43.0" prefWidth="212.0" text="Come &amp; Taste" textFill="#d00000">
+      <Label layoutX="148.0" layoutY="44.0" prefHeight="43.0" prefWidth="212.0" text="Come &amp; Taste" textFill="#610c0c">
          <font>
             <Font name="System Bold Italic" size="29.0" />
          </font>
