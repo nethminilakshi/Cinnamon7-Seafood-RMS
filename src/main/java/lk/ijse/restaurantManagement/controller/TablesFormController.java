@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.Item;
 import lk.ijse.restaurantManagement.model.Tables;
+import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.model.tm.TablesTm;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
 import lk.ijse.restaurantManagement.repository.TablesRepo;
@@ -28,6 +29,9 @@ public class TablesFormController {
     private TableColumn<?, ?> colDescription;
 
     @FXML
+    private TableColumn<?, ?> colSeats;
+
+    @FXML
     private TableColumn<?, ?> colTableId;
 
     @FXML
@@ -37,13 +41,13 @@ public class TablesFormController {
     private Label lblFamilyTbl2;
 
     @FXML
-    private ImageView lblSingletbl;
-
-    @FXML
     private Label lblSingleTbl;
 
     @FXML
     private Label lbloutdoorTbl;
+
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private TableView<TablesTm> tblTables;
@@ -53,8 +57,10 @@ public class TablesFormController {
 
     @FXML
     private TextField txtTableId;
+
     @FXML
-    private AnchorPane root;
+    private TextField txtseats;
+
     private List<Tables> tablesList=new ArrayList<>();
     private String[] labelList={"lblFamilyTbl1","lblFamilyTbl2","lblSingleTbl","lbloutdoorTbl"};
 
@@ -80,7 +86,8 @@ public class TablesFormController {
         for (Tables tables : tablesList) {
             TablesTm tablesTm = new TablesTm(
                     tables.getTableId(),
-                    tables.getDescription()
+                    tables.getDescription(),
+                    tables.getNoOfSeats()
             );
 
 
@@ -94,6 +101,7 @@ public class TablesFormController {
     private void setCellValueFactory() {
         colTableId.setCellValueFactory(new PropertyValueFactory<>("tableId"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colSeats.setCellValueFactory(new PropertyValueFactory<>("noOfSeats"));
     }
 
 
@@ -129,9 +137,9 @@ public class TablesFormController {
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String tablesId = txtTableId.getText();
         String description = txtDescription.getText();
+        int noOfSeats = Integer.parseInt(txtseats.getText());
 
-
-        Tables tables = new Tables(tablesId,description);
+        Tables tables = new Tables(tablesId,description,noOfSeats);
         try {
             boolean isUpdated = TablesRepo.update(tables);
             if (isUpdated) {
@@ -150,14 +158,16 @@ public class TablesFormController {
     private void clearFields() {
         txtTableId.setText("");
         txtDescription.setText("");
+        txtseats.setText("");
 
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String tableId = txtTableId.getText();
         String description = txtDescription.getText();
+        int noOfSeats = Integer.parseInt(txtseats.getText());
 
-        Tables tables = new Tables(tableId,description);
+        Tables tables = new Tables(tableId,description,noOfSeats);
 
         try {
 
@@ -174,18 +184,23 @@ public class TablesFormController {
     }
 
     public void ClickOnAction(MouseEvent mouseEvent) {
+        TablesTm selectedItem = tblTables.getSelectionModel().getSelectedItem();
+        txtTableId.setText(selectedItem.getTableId());
+        txtDescription.setText(selectedItem.getDescription());
+        txtseats.setText(String.valueOf(selectedItem.getNoOfSeats()));
+
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
-        String description  = txtDescription.getText();
+        String tableId  = txtTableId.getText();
 
         try {
-            Tables tables = TablesRepo.searchByDescription(description);
+            Tables tables = TablesRepo.searchById(tableId);
 
             if (tables != null) {
                 txtTableId.setText(tables.getTableId());
                 txtDescription.setText(tables.getDescription());
-
+                txtseats.setText(String.valueOf(tables.getNoOfSeats()));
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

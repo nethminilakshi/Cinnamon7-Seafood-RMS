@@ -33,7 +33,7 @@ public class DashboardFormController {
     private Label lblItemCount;
     private int customerCount;
     private int itemCount;
-
+    private int employeeCount;
     public void initialize() {
         try {
             customerCount = getCustomerCount();
@@ -48,6 +48,13 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         setItemCount(itemCount);
+
+        try {
+            employeeCount = getEmployeeCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setEmployeeCount(employeeCount);
     }
 
     private void setItemCount(int itemCount) {
@@ -86,6 +93,25 @@ public class DashboardFormController {
             customerCount = resultSet.getInt("customer_count");
         }
         return customerCount;
+    }
+
+    private int getEmployeeCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS employee_count FROM Employee";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int employeeCount = 0;
+        if(resultSet.next()) {
+            employeeCount = resultSet.getInt("employee_count");
+        }
+        return employeeCount;
+    }
+
+    private void setEmployeeCount(int employeeCount) {
+        lblEmployeeCount.setText(String.valueOf(employeeCount));
     }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {

@@ -9,4 +9,5 @@ import lombok.*;
 public class Tables {
     private String tableId;
     private String description;
+    private int noOfSeats;
 }

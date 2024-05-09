@@ -16,8 +16,10 @@ import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.repository.SalaryRepo;
 
+import javax.management.JMRuntimeException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class SalaryFormController {
     private TextField txtAmount;
 
     @FXML
-    private TextField txtDate;
+    private DatePicker txtDate;
 
     @FXML
     private TextField txtSalaryId;
@@ -122,7 +124,7 @@ public class SalaryFormController {
         txtSalaryId.setText(selectedItem.getSalaryId());
         cmbEmployeeId.setValue(selectedItem.getEmployeeId());
         txtAmount.setText(String.valueOf(selectedItem.getAmount()));
-        txtDate.setText(selectedItem.getDate());
+        txtDate.setValue(LocalDate.parse(selectedItem.getDate()));
         
     }
     @FXML
@@ -134,7 +136,7 @@ public class SalaryFormController {
         txtSalaryId.setText("");
         cmbEmployeeId.setValue("");
         txtAmount.setText("");
-        txtDate.setText("");
+        txtDate.setValue(LocalDate.parse(""));
     }
 
      @FXML
@@ -142,7 +144,7 @@ public class SalaryFormController {
         String salaryId = txtSalaryId.getText();
         String employeeId = cmbEmployeeId.getValue();
         double amount = Double.parseDouble(txtAmount.getText());
-        String date = txtDate.getText();
+        String date = String.valueOf(txtDate.getValue());
 
 
         Salary salary = new Salary(salaryId, employeeId, amount,date);
@@ -157,6 +159,7 @@ public class SalaryFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
         initialize();
     }
     @FXML
@@ -180,7 +183,7 @@ public class SalaryFormController {
             if (salary != null) {
                 txtSalaryId.setText(salary.getSalaryId());
                 txtAmount.setText(String.valueOf(salary.getAmount()));
-                txtDate.setText(salary.getDate());
+                txtDate.setValue(LocalDate.parse(salary.getDate()));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -188,4 +191,5 @@ public class SalaryFormController {
 
 
     }
+
 }

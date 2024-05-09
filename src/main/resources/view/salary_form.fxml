@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -42,11 +43,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDate" layoutX="48.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" promptText="Date" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="532.0" layoutY="217.0" text="Salary Amount*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -88,16 +84,17 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="474.0" layoutY="651.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Pay" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="643.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Pay" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="650.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #94948f;" text="Back" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="650.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
       <ComboBox fx:id="cmbEmployeeId" layoutX="532.0" layoutY="144.0" onAction="#cmbIdOnAction" prefHeight="45.0" prefWidth="435.0" />
+      <DatePicker fx:id="txtDate" layoutX="48.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" />
    </children>
 </AnchorPane>
