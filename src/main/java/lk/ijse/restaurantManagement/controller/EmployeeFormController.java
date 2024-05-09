@@ -124,7 +124,7 @@ public class EmployeeFormController {
     }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/main_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(rootNode));

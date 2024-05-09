@@ -96,7 +96,7 @@ public class CustomerRepo {
         return customersList;
     }
 
-    public static List<String> getContact() throws SQLException {
+    public static List<String> getContact() throws SQLException { //usage for placeOrderForm
         String sql = "SELECT contact FROM Customer";
 
         Connection connection = DbConnection.getInstance().getConnection();

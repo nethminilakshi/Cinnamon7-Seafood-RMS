@@ -96,6 +96,9 @@ public class PlaceOrderFormController {
 
     @FXML
     private TextField txtUnitPrice;
+
+    @FXML
+    private TextField txtPaymentId;
     private final ObservableList<CartTm> cartList = FXCollections.observableArrayList();
     private double netTotal = 0;
 
@@ -105,7 +108,6 @@ public class PlaceOrderFormController {
         loadNextOrderId();
         setDate();
         getOrderList();
-       // getItemCodes();
         loadTable();
     }
     private String[] typeList={"takeAway","dineIn"};
@@ -181,7 +183,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        String id = txtId.getText();
+        String id = txtCode.getText();
         String description = txtDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
@@ -239,7 +241,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));

@@ -101,7 +101,7 @@ public class CustomerFormController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));

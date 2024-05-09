@@ -99,7 +99,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="133.0" text="Order Id:" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="132.0" text="Order Id:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -135,29 +135,29 @@
          </font>
       </Label>
       <TextField fx:id="txtCustomerName" layoutX="667.0" layoutY="231.0" prefHeight="35.0" prefWidth="250.0" />
-      <Label layoutX="27.0" layoutY="342.0" text="Code:" textFill="WHITE">
+      <Label layoutX="27.0" layoutY="382.0" text="Code:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="388.0" text="Description:" textFill="WHITE">
+      <Label layoutX="27.0" layoutY="428.0" text="Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="141.0" layoutY="388.0" onAction="#searchOnDescAction" prefHeight="35.0" prefWidth="250.0" />
-      <Label layoutX="22.0" layoutY="439.0" text="Unit Price:" textFill="WHITE">
+      <TextField fx:id="txtDescription" layoutX="141.0" layoutY="428.0" onAction="#searchOnDescAction" prefHeight="35.0" prefWidth="250.0" />
+      <Label layoutX="22.0" layoutY="479.0" text="Unit Price:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUnitPrice" layoutX="141.0" layoutY="435.0" prefHeight="35.0" prefWidth="250.0" />
-      <Label layoutX="21.0" layoutY="487.0" text="QtyOnHand:" textFill="WHITE">
+      <TextField fx:id="txtUnitPrice" layoutX="141.0" layoutY="475.0" prefHeight="35.0" prefWidth="250.0" />
+      <Label layoutX="21.0" layoutY="527.0" text="QtyOnHand:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQtyOnHand" layoutX="141.0" layoutY="483.0" prefHeight="35.0" prefWidth="250.0" />
-      <TextField fx:id="txtCode" layoutX="141.0" layoutY="338.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="txtQtyOnHand" layoutX="141.0" layoutY="523.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="txtCode" layoutX="141.0" layoutY="378.0" prefHeight="35.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

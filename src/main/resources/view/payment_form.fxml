@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PaymentFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Label layoutX="191.0" layoutY="24.0" prefHeight="53.0" prefWidth="309.0" text="Payment Details" textFill="#bf3636f7">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="929.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/food-png-6.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="0.15" hue="1.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="760.0" layoutY="25.0" prefHeight="40.0" prefWidth="173.0" text="Cinnamon-7" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="778.0" layoutY="57.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblPayment" layoutX="60.0" layoutY="307.0" prefHeight="316.0" prefWidth="878.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="colPaymentId" prefWidth="142.0" text="PaymentId" />
+            <TableColumn fx:id="colCustomerId" prefWidth="200.0" text="CustomerId" />
+            <TableColumn fx:id="colOrderId" prefWidth="211.0" text="OrderId" />
+            <TableColumn fx:id="colPayMethod" prefWidth="183.0" text="PayMethod" />
+            <TableColumn fx:id="colAmount" prefWidth="141.0" text="Amount(Rs)" />
+         </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="60.0" layoutY="648.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Back">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="797.0" layoutY="642.0" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="60.0" layoutY="121.0" text="Payment Id:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="175.0" layoutY="115.0" prefHeight="35.0" prefWidth="250.0" promptText="Payment Id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="234.0" layoutY="246.0" text="PayMethod:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="538.0" layoutY="121.0" text="Order Id:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtOrderId" layoutX="656.0" layoutY="115.0" prefHeight="35.0" prefWidth="250.0" promptText="Order Id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cmbPayMethod" layoutX="354.0" layoutY="242.0" prefHeight="35.0" prefWidth="250.0" promptText="Method" />
+      <Label layoutX="538.0" layoutY="186.0" text="Amount:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAmount" layoutX="656.0" layoutY="180.0" prefHeight="35.0" prefWidth="250.0" promptText="Amount">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="50.0" layoutY="186.0" text="Customer Id" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCusId" layoutX="175.0" layoutY="180.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Customer Id">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

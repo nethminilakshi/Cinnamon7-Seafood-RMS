@@ -28,7 +28,6 @@ public class MainFormController {
     }
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        //  setButtonActive(btnHome);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/dashboard_form.fxml"));
         Pane registerPane = fxmlLoader.load();
         root.getChildren().clear();
@@ -87,6 +86,13 @@ public class MainFormController {
 
     public void btnTablesOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/tables_form.fxml"));
+        Pane registerPane = fxmlLoader.load();
+        root.getChildren().clear();
+        root.getChildren().add(registerPane);
+    }
+
+    public void btnPaymentOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/payment_form.fxml"));
         Pane registerPane = fxmlLoader.load();
         root.getChildren().clear();
         root.getChildren().add(registerPane);

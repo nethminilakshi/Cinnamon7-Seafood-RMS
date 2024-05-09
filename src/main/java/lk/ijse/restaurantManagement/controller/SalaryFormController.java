@@ -161,7 +161,7 @@ public class SalaryFormController {
     }
     @FXML
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/salary_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
@@ -186,6 +186,6 @@ public class SalaryFormController {
             throw new RuntimeException(e);
         }
 
-       // txtQty.requestFocus();
+
     }
 }

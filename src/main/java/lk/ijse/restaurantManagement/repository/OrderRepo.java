@@ -2,6 +2,7 @@ package lk.ijse.restaurantManagement.repository;
 
 import com.mysql.cj.xdevapi.Session;
 import lk.ijse.restaurantManagement.db.DbConnection;
+import lk.ijse.restaurantManagement.model.Customer;
 import lk.ijse.restaurantManagement.model.Order;
 
 import java.sql.Connection;
@@ -36,5 +37,25 @@ public class OrderRepo {
     }
 
 
+    public static Order searchById(String cusId) throws SQLException {
+        String sql = "SELECT * FROM Orders WHERE cusId = ?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
 
+        pstm.setObject(1, cusId);
+        ResultSet resultSet = pstm.executeQuery();
+
+        Order orders = null;
+
+        if (resultSet.next()) {
+            String orderId = resultSet.getString(1);
+            String orderType = resultSet.getString(2);
+            String CusId = resultSet.getString(3);
+            String date = resultSet.getString(4);
+
+            orders = new Order(orderId, orderType, CusId,date);
+        }
+        return orders;
+
+    }
 }
