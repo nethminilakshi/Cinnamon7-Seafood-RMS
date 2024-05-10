@@ -11,17 +11,24 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Salary;
 import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.repository.SalaryRepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import javax.management.JMRuntimeException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SalaryFormController {
 
@@ -192,4 +199,22 @@ public class SalaryFormController {
 
     }
 
+    public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+            JasperDesign jasperDesign =
+                    JRXmlLoader.load("src/main/resources/reports/salaryPayments.jrxml");
+            JasperReport jasperReport =
+                    JasperCompileManager.compileReport(jasperDesign);
+
+            Map<String, Object> data = new HashMap<>();
+            data.put("salaryId",txtSalaryId.getText());
+            data.put("employeeId",cmbEmployeeId.getValue());
+
+            JasperPrint jasperPrint =
+                    JasperFillManager.fillReport(
+                            jasperReport,
+                            data,
+                            DbConnection.getInstance().getConnection());
+
+            JasperViewer.viewReport(jasperPrint,false);
+    }
 }

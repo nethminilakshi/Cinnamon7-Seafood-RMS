@@ -84,7 +84,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="344.0" layoutY="643.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Pay" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="351.0" layoutY="643.0" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Pay" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -96,5 +96,10 @@
       </JFXButton>
       <ComboBox fx:id="cmbEmployeeId" layoutX="532.0" layoutY="144.0" onAction="#cmbIdOnAction" prefHeight="45.0" prefWidth="435.0" />
       <DatePicker fx:id="txtDate" layoutX="48.0" layoutY="248.0" prefHeight="45.0" prefWidth="435.0" />
+      <JFXButton buttonType="RAISED" layoutX="571.0" layoutY="643.0" onAction="#btnReceiptOnAction" prefHeight="39.0" prefWidth="199.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Receipt" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
