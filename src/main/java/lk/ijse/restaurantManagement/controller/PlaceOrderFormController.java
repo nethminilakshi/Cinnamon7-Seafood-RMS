@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.CartTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
-import lk.ijse.restaurantManagement.repository.CustomerRepo;
-import lk.ijse.restaurantManagement.repository.ItemRepo;
-import lk.ijse.restaurantManagement.repository.OrderRepo;
-import lk.ijse.restaurantManagement.repository.PlaceOrderRepo;
+import lk.ijse.restaurantManagement.repository.*;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -105,11 +102,17 @@ public class PlaceOrderFormController {
 
     public void initialize() {
         setCellValueFactory();
-        loadNextOrderId();
+      //  loadNextOrderId();
         setDate();
         getOrderList();
         loadTable();
-    }
+
+        try {
+            autoGenarateId();
+        } catch (ClassNotFoundException | SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        }
     private String[] typeList={"takeAway","dineIn"};
     public void getOrderList(){
         List<String> typelist = new ArrayList<>();
@@ -147,7 +150,7 @@ public class PlaceOrderFormController {
         txtDate.setText(now );
     }
 
-    private void loadNextOrderId() {
+  /*  private void loadNextOrderId() {
         try {
             String currentId = OrderRepo.currentId();
             String nextId = nextId(currentId);
@@ -156,7 +159,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     private String nextId(String currentId) {
         if (currentId != null) {
@@ -238,7 +241,6 @@ public class PlaceOrderFormController {
         }
         txtNetTotal.setText(String.valueOf(netTotal));
     }
-
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
@@ -322,5 +324,26 @@ public class PlaceOrderFormController {
         initialize();
     }
 
+    @FXML
+    private void autoGenarateId() throws SQLException, ClassNotFoundException {
+        txtOrderId.setText(new OrderRepo().autoGenarateOrderId());
+    }
+    @FXML
+    public void btnClearOnAction(ActionEvent actionEvent) {
+        clearFields();
 
+    }
+
+    private void clearFields() {
+       // txtOrderId.setText("");
+       // txtDate.setText("");
+        txtCode.setText("");
+        txtDescription.setText("");
+        txtUnitPrice.setText("");
+        txtQtyOnHand.setText("");
+        txtContact.setText("");
+        txtId.setText("");
+        txtCustomerName.setText("");
+        txtNetTotal.setText("");
+    }
 }

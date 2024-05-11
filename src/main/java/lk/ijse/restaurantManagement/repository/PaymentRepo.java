@@ -3,6 +3,7 @@ package lk.ijse.restaurantManagement.repository;
 import javafx.scene.control.Button;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Item;
+import lk.ijse.restaurantManagement.model.Order;
 import lk.ijse.restaurantManagement.model.Payment;
 
 import java.sql.Connection;
@@ -52,6 +53,8 @@ public class PaymentRepo {
         }
         return paymentList;
     }
+
+
 
     public String autoGenaratePaymentId() throws SQLException, ClassNotFoundException {
         String sql = "SELECT paymentId from Payment order by paymentId desc limit 1";

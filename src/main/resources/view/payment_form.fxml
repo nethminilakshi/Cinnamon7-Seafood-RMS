@@ -82,7 +82,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtOrderId" layoutX="656.0" layoutY="115.0" prefHeight="35.0" prefWidth="250.0" promptText="Order Id">
+      <TextField fx:id="txtOrderId" layoutX="656.0" layoutY="115.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Order Id">
          <font>
             <Font size="18.0" />
          </font>
@@ -103,7 +103,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCusId" layoutX="175.0" layoutY="180.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Customer Id">
+      <TextField fx:id="txtCusId" layoutX="175.0" layoutY="180.0" prefHeight="35.0" prefWidth="250.0" promptText="Customer Id">
          <font>
             <Font size="18.0" />
          </font>

@@ -21,6 +21,7 @@ import lk.ijse.restaurantManagement.model.tm.CustomerTm;
 import lk.ijse.restaurantManagement.model.tm.EmployeeTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
+import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,36 +30,46 @@ import java.util.List;
 
 public class CustomerFormController {
     @FXML
-    private TableColumn<?, ?> colId;
-
-    @FXML
     private TableColumn<?, ?> colAddress;
-
-    @FXML
-    private TableColumn<?, ?> colName;
 
     @FXML
     private TableColumn<?, ?> colContact;
 
     @FXML
+    private TableColumn<?, ?> colId;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
     private AnchorPane root;
+
     @FXML
     private TableView<CustomerTm> tblCustomers;
-    @FXML
-    private TextField txtId;
 
     @FXML
     private TextField txtAddress;
 
     @FXML
-    private TextField txtName;
+    private TextField txtContact;
 
     @FXML
-    private TextField txtContact;
+    private TextField txtId;
+
+    @FXML
+    private TextField txtName;
+
 
     private List<Customer> customerList = new ArrayList<>();
 
     public void initialize() {
+
+        try {
+            autoGenarateId();
+        } catch (ClassNotFoundException | SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
         this.customerList = getAllCustomers();
         setCellValueFactory();
         loadCustomerTable();
@@ -101,7 +112,7 @@ public class CustomerFormController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/mainCustomer_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
@@ -154,6 +165,7 @@ public class CustomerFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
         initialize();
     }
 
@@ -176,7 +188,10 @@ public class CustomerFormController {
         }
         initialize();
     }
-
+    @FXML
+    private void autoGenarateId() throws SQLException, ClassNotFoundException {
+        txtId.setText(new CustomerRepo().autoGenarateCustomerId());
+    }
     @FXML
     void txtSearchOnAction(ActionEvent event) {
         String contact = txtContact.getText();

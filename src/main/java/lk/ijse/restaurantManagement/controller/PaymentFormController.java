@@ -77,6 +77,7 @@ public class PaymentFormController {
         } catch (ClassNotFoundException | SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
         this.paymentList = getAllPayments();
         setCellValueFactory();
         loadItemTable();
@@ -115,7 +116,6 @@ public class PaymentFormController {
                     payment.getOrderId(),
                     payment.getPayMethod(),
                     payment.getAmount()
-                  //  payment.getPayButton()
             );
             tmList.add(paymentTm);
         }
@@ -177,17 +177,7 @@ public class PaymentFormController {
 
                 })
     ;}
-    public void searchOnAction(ActionEvent actionEvent) {
-        String cusId = txtCusId.getText();
 
-        try {
-            Order order = OrderRepo.searchById(cusId);
-            txtOrderId.setText(order.getOrderId());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        initialize();
-    }
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
         txtId.setText(new PaymentRepo().autoGenaratePaymentId());
@@ -203,5 +193,18 @@ public class PaymentFormController {
     public void btnClearOnAction(ActionEvent actionEvent) {
             clearFields();
         }
+
+    public void searchOnAction(ActionEvent event) {
+        String orderId = txtOrderId.getText();
+
+        try {
+            Order order = OrderRepo.searchById(orderId);
+            txtOrderId.setText(order.getOrderId());
+            txtCusId.setText(order.getCusId());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        initialize();
+    }
     }
 

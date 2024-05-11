@@ -70,6 +70,7 @@ public class SalaryFormController {
         } catch (ClassNotFoundException | SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
         this.salaryList = getAllSalaries();
         setCellValueFactory();
         loadCustomerTable();  
@@ -195,8 +196,6 @@ public class SalaryFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CustomerRepo {
     public static boolean save(Customer customer) throws SQLException {
-//        In here you can now save your customer
+
         String sql = "INSERT INTO Customer VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -109,4 +109,22 @@ public class CustomerRepo {
         }
         return idList;
     }
+
+    public String autoGenarateCustomerId() throws SQLException {
+        String sql = "SELECT cusId from Customer order by cusId desc limit 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        if (resultSet.next()) {
+            String cusId = resultSet.getString("cusId");
+            String numericPart = cusId.replaceAll("\\D+","");
+            int newCusId = Integer.parseInt(numericPart) + 1;
+            return String.format("C%03d",newCusId);
+
+        }else {
+            return "C001";
+        }
+        }
 }

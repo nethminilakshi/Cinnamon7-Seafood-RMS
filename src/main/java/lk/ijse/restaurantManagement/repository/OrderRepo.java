@@ -18,7 +18,7 @@ public class OrderRepo {
         PreparedStatement pstm = connection.prepareStatement(sql);
         ResultSet resultSet = pstm.executeQuery();
 
-        if(resultSet.next()) {
+        if (resultSet.next()) {
             return resultSet.getString(1);
         }
         return null;
@@ -37,25 +37,46 @@ public class OrderRepo {
     }
 
 
-    public static Order searchById(String cusId) throws SQLException {
-        String sql = "SELECT * FROM Orders WHERE cusId = ?";
+    public static Order searchById(String orderId) throws SQLException {
+        String sql = "SELECT * FROM Orders WHERE orderId = ?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, cusId);
+        pstm.setObject(1, orderId);
         ResultSet resultSet = pstm.executeQuery();
 
         Order orders = null;
 
         if (resultSet.next()) {
-            String orderId = resultSet.getString(1);
+            String orderid = resultSet.getString(1);
             String orderType = resultSet.getString(2);
-            String CusId = resultSet.getString(3);
+            String cusId = resultSet.getString(3);
             String date = resultSet.getString(4);
 
-            orders = new Order(orderId, orderType, CusId,date);
+            orders = new Order(orderid, orderType, cusId, date);
         }
         return orders;
 
+    }
+
+    public String autoGenarateOrderId() throws SQLException {
+        String sql = "SELECT orderId from Orders order by orderId desc limit 1";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        // pstm.setObject(1, id);
+        ResultSet resultSet = pstm.executeQuery();
+
+        // Salary salary = null;
+
+        if (resultSet.next()) {
+            String orderId = resultSet.getString("orderId");
+            String numericPart = orderId.replaceAll("\\D+", "");
+            int newOrderId = Integer.parseInt(numericPart) + 1;
+            return String.format("Od%03d", newOrderId);
+
+        } else {
+            return "Od001";
+        }
     }
 }

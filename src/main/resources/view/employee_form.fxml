@@ -32,7 +32,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="44.0" layoutY="113.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Employee ID" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtId" layoutX="44.0" layoutY="113.0" prefHeight="45.0" prefWidth="435.0" promptText="Employee ID" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="526.0" layoutY="210.0" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtContact" layoutX="526.0" layoutY="210.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>

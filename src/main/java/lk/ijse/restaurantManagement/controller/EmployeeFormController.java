@@ -11,10 +11,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.restaurantManagement.model.Customer;
 import lk.ijse.restaurantManagement.model.Employee;
 import lk.ijse.restaurantManagement.model.tm.EmployeeTm;
+import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
+import lk.ijse.restaurantManagement.repository.SalaryRepo;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -66,6 +69,12 @@ public class EmployeeFormController {
     private List<Employee> employeeList = new ArrayList<>();
 
     public void initialize() {
+        try {
+            autoGenarateId();
+        } catch (ClassNotFoundException | SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
         this.employeeList = getAllEmployees();
         getPositionList();
         setCellValueFactory();
@@ -156,10 +165,10 @@ public class EmployeeFormController {
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
-        String employeeId = txtId.getText();
+        String contact = txtContact.getText();
 
         try {
-            Employee employee = EmployeeRepo.searchById(employeeId);
+            Employee employee = EmployeeRepo.searchByContact(contact);
 
             if (employee != null) {
                 txtId.setText(employee.getEmployeeId());
@@ -176,20 +185,20 @@ public class EmployeeFormController {
         initialize();
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String employeeId = txtId.getText();
+    public void btnUpdateOnAction(ActionEvent event) {
+        String employeeId=txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
         String contact = txtContact.getText();
         String position = String.valueOf(cmbPosition.getValue());
         String basicSalary = txtSalary.getText();
 
-        Employee employee = new Employee(employeeId, name, address, contact,position, basicSalary);
+        Employee employee = new Employee(employeeId, name, address,contact, position, basicSalary);
 
         try {
             boolean isUpdated = EmployeeRepo.update(employee);
             if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "employee updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -210,10 +219,10 @@ public class EmployeeFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String employeeId= txtId.getText();
+        String contact= txtContact.getText();
 
         try {
-            boolean isDeleted = EmployeeRepo.delete(employeeId);
+            boolean isDeleted = EmployeeRepo.delete(contact);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee deleted!").show();
             }
@@ -232,5 +241,9 @@ public class EmployeeFormController {
         txtContact.setText(selectedItem.getContact());
         cmbPosition.setValue(selectedItem.getPosition());
         txtSalary.setText(selectedItem.getBasicSalary());
+    }
+    @FXML
+    private void autoGenarateId() throws SQLException, ClassNotFoundException {
+        txtId.setText(new EmployeeRepo().autoGenarateEmployeeId());
     }
 }
