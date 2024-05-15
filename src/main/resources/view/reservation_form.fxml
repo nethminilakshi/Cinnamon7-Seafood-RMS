@@ -11,10 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="80.0" layoutY="30.0" prefHeight="53.0" prefWidth="334.0" text="Reservation Details" textFill="#cf3e3e">
          <font>
             <Font name="System Bold" size="36.0" />

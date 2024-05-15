@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.Item;
 import lk.ijse.restaurantManagement.model.Tables;
+import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.model.tm.TablesTm;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
@@ -33,6 +34,9 @@ public class TablesFormController {
 
     @FXML
     private TableColumn<?, ?> colTableId;
+
+    @FXML
+    private TableColumn<?, ?> colTables;
 
     @FXML
     private Label lblFamilyTbl1;
@@ -59,10 +63,13 @@ public class TablesFormController {
     private TextField txtTableId;
 
     @FXML
+    private TextField txtTables;
+
+    @FXML
     private TextField txtseats;
 
-    private List<Tables> tablesList=new ArrayList<>();
-    private String[] labelList={"lblFamilyTbl1","lblFamilyTbl2","lblSingleTbl","lbloutdoorTbl"};
+    private List<Tables> tablesList = new ArrayList<>();
+    private String[] labelList = {"lblFamilyTbl1","lblFamilyTbl2","lblSingleTbl","lbloutdoorTbl"};
 
     private void initialize() {
         this.tablesList=getAllTables();
@@ -87,6 +94,7 @@ public class TablesFormController {
             TablesTm tablesTm = new TablesTm(
                     tables.getTableId(),
                     tables.getDescription(),
+                    tables.getNoOfTables(),
                     tables.getNoOfSeats()
             );
 
@@ -101,20 +109,19 @@ public class TablesFormController {
     private void setCellValueFactory() {
         colTableId.setCellValueFactory(new PropertyValueFactory<>("tableId"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colTables.setCellValueFactory(new PropertyValueFactory<>("noOfTables"));
         colSeats.setCellValueFactory(new PropertyValueFactory<>("noOfSeats"));
     }
-
-
 
     public void addOnAction(ActionEvent actionEvent) {
 
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String description = txtDescription.getText();
+        String tableId = txtTableId.getText();
 
         try {
-            boolean isDeleted = TablesRepo.delete(description);
+            boolean isDeleted = TablesRepo.delete(tableId);
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Table deleted!").show();
             }
@@ -135,11 +142,12 @@ public class TablesFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String tablesId = txtTableId.getText();
+        String tableId = txtTableId.getText();
         String description = txtDescription.getText();
+        int noOfTables = Integer.parseInt(txtTables.getText());
         int noOfSeats = Integer.parseInt(txtseats.getText());
 
-        Tables tables = new Tables(tablesId,description,noOfSeats);
+        Tables tables = new Tables(tableId,description,noOfTables,noOfSeats);
         try {
             boolean isUpdated = TablesRepo.update(tables);
             if (isUpdated) {
@@ -158,6 +166,7 @@ public class TablesFormController {
     private void clearFields() {
         txtTableId.setText("");
         txtDescription.setText("");
+        txtTables.setText("");
         txtseats.setText("");
 
     }
@@ -165,9 +174,10 @@ public class TablesFormController {
     public void btnSaveOnAction(ActionEvent actionEvent) {
         String tableId = txtTableId.getText();
         String description = txtDescription.getText();
+        int noOftables = Integer.parseInt(txtTables.getText());
         int noOfSeats = Integer.parseInt(txtseats.getText());
 
-        Tables tables = new Tables(tableId,description,noOfSeats);
+        Tables tables = new Tables(tableId,description,noOftables,noOfSeats);
 
         try {
 
@@ -187,6 +197,7 @@ public class TablesFormController {
         TablesTm selectedItem = tblTables.getSelectionModel().getSelectedItem();
         txtTableId.setText(selectedItem.getTableId());
         txtDescription.setText(selectedItem.getDescription());
+        txtTables.setText(String.valueOf(selectedItem.getNoOfTables()));
         txtseats.setText(String.valueOf(selectedItem.getNoOfSeats()));
 
     }
@@ -200,8 +211,10 @@ public class TablesFormController {
             if (tables != null) {
                 txtTableId.setText(tables.getTableId());
                 txtDescription.setText(tables.getDescription());
+                txtTables.setText(String.valueOf(tables.getNoOfTables()));
                 txtseats.setText(String.valueOf(tables.getNoOfSeats()));
             }
+
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
@@ -209,9 +222,6 @@ public class TablesFormController {
     }
 
 
-   /* public void ClickOnAction(MouseEvent mouseEvent) {
-        labelList selectedItem = lblFamilyTbl1.getLabelFor().;
-        colDescription.setText(selectedItem.());
-
-    }*/
+    public void lblClickOnAction(MouseEvent mouseEvent) {
+    }
 }

@@ -13,27 +13,29 @@ import java.util.List;
 
 public class TablesRepo {
     public static boolean save(Tables tables) throws SQLException {
-        String sql = "INSERT INTO Tables VALUES(?, ?, ?)";
+        String sql = "INSERT INTO Tables VALUES(?, ?, ?, ?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setObject(1, tables.getTableId());
         pstm.setObject(2, tables.getDescription());
-        pstm.setObject(3,tables.getNoOfSeats());
+        pstm.setObject(3,tables.getNoOfTables());
+        pstm.setObject(4,tables.getNoOfSeats());
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Tables tables) throws SQLException {
-        String sql = "UPDATE Tables SET description = ?, noOfSeats = ? WHERE tableId = ?";
+        String sql = "UPDATE Tables SET description = ?, noOfTables = ?, noOfSeats = ? WHERE tableId = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
         pstm.setObject(1, tables.getTableId());
         pstm.setObject(2, tables.getDescription());
-        pstm.setObject(3,tables.getNoOfSeats());
+        pstm.setObject(3, tables.getNoOfTables());
+        pstm.setObject(4, tables.getNoOfSeats());
 
         return pstm.executeUpdate() > 0;
     }
@@ -58,11 +60,12 @@ public class TablesRepo {
 
         List<Tables> tablesList = new ArrayList<>();
         while (resultSet.next()) {
-            String tablesId = resultSet.getString(1);
+            String tableId = resultSet.getString(1);
             String description = resultSet.getString(2);
-            int noOfSeats = resultSet.getInt(3);
+            int noOfTables = resultSet.getInt(3);
+            int noOfSeats = resultSet.getInt(4);
 
-            Tables tables = new Tables(tablesId, description, noOfSeats);
+            Tables tables = new Tables(tableId, description,noOfTables, noOfSeats);
             tablesList.add(tables);
         }
         return tablesList;
@@ -82,10 +85,11 @@ public class TablesRepo {
         if (resultSet.next()) {
             String tableId = resultSet.getString(1);
             String Description = resultSet.getString(2);
-            int noOfseats = resultSet.getInt(3);
+            int noOfTables = resultSet.getInt(3);
+            int noOfseats = resultSet.getInt(4);
 
 
-            tables = new Tables(tableId, Description, noOfseats);
+            tables = new Tables(tableId, Description, noOfTables, noOfseats);
         }
         return tables;
     }

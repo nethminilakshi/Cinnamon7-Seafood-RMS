@@ -20,7 +20,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="924.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="924.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
          </image>
@@ -28,94 +28,95 @@
             <ColorAdjust contrast="0.15" hue="1.0" />
          </effect>
       </ImageView>
-      <Label layoutX="755.0" layoutY="29.0" prefHeight="40.0" prefWidth="173.0" text="Cinnamon-7" textFill="#c64a6f">
+      <Label layoutX="755.0" layoutY="9.0" prefHeight="40.0" prefWidth="173.0" text="Cinnamon-7" textFill="#c64a6f">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="773.0" layoutY="61.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+      <Label layoutX="773.0" layoutY="41.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#6f6666" height="305.0" layoutX="18.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="965.0" />
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="36.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <ImageView fitHeight="160.0" fitWidth="226.0" layoutX="41.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#6f6666" height="305.0" layoutX="18.0" layoutY="85.0" stroke="WHITE" strokeType="INSIDE" width="965.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="36.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <ImageView fitHeight="160.0" fitWidth="226.0" layoutX="41.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/photo_2024-05-07_11-49-40%20(2).jpg" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="443.0" layoutY="344.0" onAction="#addOnAction" prefHeight="44.0" prefWidth="116.0" style="-fx-background-radius: 30; -fx-background-color: #42694c;" text="Add" textFill="#b50b0b">
+      <JFXButton buttonType="RAISED" layoutX="443.0" layoutY="332.0" onAction="#addOnAction" prefHeight="44.0" prefWidth="116.0" style="-fx-background-radius: 30; -fx-background-color: #42694c;" text="Add" textFill="#b50b0b">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="298.0" layoutY="121.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <ImageView fitHeight="166.0" fitWidth="210.0" layoutX="302.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="298.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <ImageView fitHeight="166.0" fitWidth="210.0" layoutX="302.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/photo_2024-05-07_11-49-40.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblFamilyTbl1" layoutX="40.0" layoutY="284.0" onMouseClicked="#ClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-I" textFill="#834040">
+      <Label fx:id="lblFamilyTbl1" layoutX="40.0" layoutY="276.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-I" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblFamilyTbl2" layoutX="301.0" layoutY="284.0" onMouseClicked="#ClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-II" textFill="#834040">
+      <Label fx:id="lblFamilyTbl2" layoutX="301.0" layoutY="274.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-II" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="553.0" layoutY="119.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <ImageView fitHeight="153.0" fitWidth="210.0" layoutX="560.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="552.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <ImageView fitHeight="153.0" fitWidth="210.0" layoutX="559.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/photo_2024-05-07_12-09-41.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblSingleTbl" layoutX="560.0" layoutY="281.0" onMouseClicked="#ClickOnAction" prefHeight="40.0" prefWidth="206.0" text="     Single Table" textFill="#834040">
+      <Label fx:id="lblSingleTbl" layoutX="559.0" layoutY="275.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="206.0" text="     Single Table" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="808.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
-      <ImageView fitHeight="153.0" fitWidth="119.0" layoutX="816.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#e2e8ee" height="205.0" layoutX="807.0" layoutY="113.0" stroke="BLACK" strokeType="INSIDE" width="133.0" />
+      <ImageView fitHeight="153.0" fitWidth="119.0" layoutX="815.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/photo_2024-05-07_12-09-32.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lbloutdoorTbl" layoutX="817.0" layoutY="283.0" onMouseClicked="#ClickOnAction" prefHeight="40.0" prefWidth="113.0" text="Outdor Table" textFill="#834040">
+      <Label fx:id="lbloutdoorTbl" layoutX="816.0" layoutY="276.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="113.0" text="Outdor Table" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="455.0" prefHeight="27.0" prefWidth="98.0" text="Table Id:" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="427.0" prefHeight="27.0" prefWidth="98.0" text="Table Id:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTableId" layoutX="147.0" layoutY="451.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="Table Id">
+      <TextField fx:id="txtTableId" layoutX="151.0" layoutY="423.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="Table Id">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="36.0" layoutY="518.0" text="Description:" textFill="WHITE">
+      <Label layoutX="27.0" layoutY="479.0" text="Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="148.0" layoutY="514.0" prefHeight="39.0" prefWidth="283.0" promptText="Description">
+      <TextField fx:id="txtDescription" layoutX="150.0" layoutY="475.0" prefHeight="39.0" prefWidth="283.0" promptText="Description">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TableView fx:id="tblTables" layoutX="463.0" layoutY="432.0" prefHeight="242.0" prefWidth="407.0" style="-fx-background-color: white;">
+      <TableView fx:id="tblTables" layoutX="463.0" layoutY="420.0" onMouseClicked="#ClickOnAction" prefHeight="242.0" prefWidth="407.0" style="-fx-background-color: white;">
          <columns>
-            <TableColumn fx:id="colTableId" prefWidth="111.0" text="TableId" />
-            <TableColumn fx:id="colDescription" prefWidth="209.0" text="Description" />
-            <TableColumn fx:id="colSeats" prefWidth="86.0" text="No Of Seats" />
+            <TableColumn fx:id="colTableId" prefWidth="85.0" text="TableId" />
+            <TableColumn fx:id="colDescription" prefWidth="157.0" text="Description" />
+            <TableColumn fx:id="colTables" prefWidth="87.0" text="No Of Tables" />
+            <TableColumn fx:id="colSeats" prefWidth="77.0" text="No Of Seats" />
          </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="635.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="646.0" onAction="#btnDeleteOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -125,27 +126,37 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="127.0" layoutY="635.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="127.0" layoutY="646.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="236.0" layoutY="635.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a36264; -fx-background-radius: 15;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="236.0" layoutY="646.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a36264; -fx-background-radius: 15;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="349.0" layoutY="636.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Save" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="349.0" layoutY="647.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Label layoutX="35.0" layoutY="574.0" text="No Of Seats:" textFill="WHITE">
+      <Label layoutX="28.0" layoutY="531.0" text="No Of Tables:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtseats" layoutX="147.0" layoutY="570.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="No Of Seats">
+      <TextField fx:id="txtTables" layoutX="150.0" layoutY="527.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="No Of Tables">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="28.0" layoutY="582.0" text="No Of Seats:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtseats" layoutX="149.0" layoutY="578.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="No Of Seats">
          <font>
             <Font size="18.0" />
          </font>

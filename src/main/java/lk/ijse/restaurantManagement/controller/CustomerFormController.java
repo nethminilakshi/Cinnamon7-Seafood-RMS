@@ -42,6 +42,9 @@ public class CustomerFormController {
     private TableColumn<?, ?> colName;
 
     @FXML
+    private TableColumn<?, ?> colEmail;
+
+    @FXML
     private AnchorPane root;
 
     @FXML
@@ -59,6 +62,8 @@ public class CustomerFormController {
     @FXML
     private TextField txtName;
 
+    @FXML
+    private TextField txtEmail;
 
     private List<Customer> customerList = new ArrayList<>();
 
@@ -80,6 +85,7 @@ public class CustomerFormController {
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
     }
 
     private List<Customer> getAllCustomers() {
@@ -100,7 +106,8 @@ public class CustomerFormController {
                     customer.getCusId(),
                     customer.getName(),
                     customer.getAddress(),
-                    customer.getContact()
+                    customer.getContact(),
+                    customer.getEmail()
             );
             tmList.add(customerTm);
         }
@@ -125,6 +132,7 @@ public class CustomerFormController {
         txtName.setText("");
         txtAddress.setText("");
         txtContact.setText("");
+        txtEmail.setText("");
     }
 
     @FXML
@@ -154,8 +162,9 @@ public class CustomerFormController {
         String name = txtName.getText();
         String address = txtAddress.getText();
         String contact = txtContact.getText();
+        String email = txtEmail.getText();
 
-        Customer customer = new Customer(cusId, name, address,contact);
+        Customer customer = new Customer(cusId, name, address,contact,email);
 
         try {
             boolean isSaved = CustomerRepo.save(customer);
@@ -175,8 +184,9 @@ public class CustomerFormController {
         String name = txtName.getText();
         String address = txtAddress.getText();
         String contact = txtContact.getText();
+        String email = txtEmail.getText();
 
-        Customer customer = new Customer(cusId, name, address,contact);
+        Customer customer = new Customer(cusId, name, address,contact,email);
 
         try {
             boolean isUpdated = CustomerRepo.update(customer);
@@ -204,6 +214,7 @@ public class CustomerFormController {
                 txtName.setText(customer.getName());
                 txtAddress.setText(customer.getAddress());
                 txtContact.setText(customer.getContact());
+                txtEmail.setText(customer.getEmail());
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -216,6 +227,7 @@ public class CustomerFormController {
         txtName.setText(selectedItem.getName());
         txtAddress.setText(selectedItem.getAddress());
         txtContact.setText(selectedItem.getContact());
+        txtEmail.setText(selectedItem.getEmail());
 
     }
 }

@@ -16,7 +16,7 @@
 
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F9EEC9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.PlaceOrderFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="709.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
       <Label layoutX="198.0" layoutY="16.0" prefHeight="53.0" prefWidth="309.0" text="Place Order Form" textFill="#bf3636f7">
          <font>
             <Font name="System Bold" size="36.0" />
@@ -28,7 +28,7 @@
          </font>
       </Label>
       <TextField fx:id="txtQty" layoutX="500.0" layoutY="575.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="76.0" />
-      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="857.0" layoutY="639.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: CA8787; -fx-background-radius: 15;" text="   Add to cart" textFill="WHITE">
+      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="847.0" layoutY="630.0" onAction="#btnAddToCartOnAction" prefHeight="33.0" prefWidth="120.0" style="-fx-background-color: CA8787; -fx-background-radius: 15;" text="   Add to cart" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -54,7 +54,7 @@
             <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="67.0" text="Action" />
          </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="638.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Back">
+      <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="630.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Back">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -62,7 +62,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="698.0" layoutY="638.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #CA8787; -fx-background-radius: 15;" text="    Place Order" textFill="WHITE">
+      <JFXButton fx:id="btnPlaceOrder" buttonType="RAISED" layoutX="699.0" layoutY="631.0" onAction="#btnPlaceOrderOnAction" prefHeight="34.0" prefWidth="120.0" style="-fx-background-color: #CA8787; -fx-background-radius: 15;" text="    Place Order" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -76,7 +76,7 @@
          </font>
       </Label>
       <TextField fx:id="txtNetTotal" layoutX="883.0" layoutY="575.0" prefHeight="33.0" prefWidth="91.0" />
-      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="706.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="706.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/icons8-purchase-order-48.png" />
          </image>
@@ -159,7 +159,7 @@
       </Label>
       <TextField fx:id="txtQtyOnHand" layoutX="141.0" layoutY="523.0" prefHeight="35.0" prefWidth="250.0" />
       <TextField fx:id="txtCode" layoutX="141.0" layoutY="378.0" prefHeight="35.0" prefWidth="250.0" />
-      <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="636.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="628.0" onAction="#btnClearOnAction" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

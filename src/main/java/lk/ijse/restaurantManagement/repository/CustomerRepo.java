@@ -12,14 +12,15 @@ import java.util.List;
 public class CustomerRepo {
     public static boolean save(Customer customer) throws SQLException {
 
-        String sql = "INSERT INTO Customer VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO Customer VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
         pstm.setObject(1, customer.getCusId());
-        pstm.setObject(2,customer.getName());
+        pstm.setObject(2, customer.getName());
         pstm.setObject(3, customer.getAddress());
         pstm.setObject(4, customer.getContact());
+        pstm.setObject(5, customer.getEmail());
 
         return pstm.executeUpdate() > 0;
 
@@ -32,14 +33,15 @@ public class CustomerRepo {
     }
 
     public static boolean update(Customer customer) throws SQLException {
-        String sql = "UPDATE Customer SET cusId = ?, name = ?, address = ? WHERE contact = ?";
+        String sql = "UPDATE Customer SET cusId = ?, name = ?, address = ?, email = ? WHERE contact = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
-        pstm.setObject(1,customer.getCusId());
+        pstm.setObject(1, customer.getCusId());
         pstm.setObject(2, customer.getName());
         pstm.setObject(3, customer.getAddress());
         pstm.setObject(4, customer.getContact());
+        pstm.setObject(5, customer.getEmail());
 
         return pstm.executeUpdate() > 0;
     }
@@ -59,8 +61,9 @@ public class CustomerRepo {
             String name = resultSet.getString(2);
             String address = resultSet.getString(3);
             String contact = resultSet.getString(4);
+            String email = resultSet.getString(5);
 
-            customer = new Customer(cusId, name, address,contact);
+            customer = new Customer(cusId, name, address,contact,email);
         }
         return customer;
     }
@@ -89,8 +92,9 @@ public class CustomerRepo {
             String name = resultSet.getString(2);
             String address = resultSet.getString(3);
             String contact = resultSet.getString(4);
+            String email = resultSet.getString(5);
 
-            Customer customer = new Customer(cusId, name, address,contact);
+            Customer customer = new Customer(cusId, name, address,contact,email);
             customersList.add(customer);
         }
         return customersList;
