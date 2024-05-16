@@ -215,6 +215,8 @@ public class CustomerFormController {
                 txtAddress.setText(customer.getAddress());
                 txtContact.setText(customer.getContact());
                 txtEmail.setText(customer.getEmail());
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "Not Found Customer").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

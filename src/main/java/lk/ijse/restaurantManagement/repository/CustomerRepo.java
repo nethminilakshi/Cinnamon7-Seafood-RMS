@@ -114,6 +114,21 @@ public class CustomerRepo {
         return idList;
     }
 
+    public static int getCustomerCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS customer_count FROM Customer";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int customerCount = 0;
+        if(resultSet.next()) {
+            customerCount = resultSet.getInt("customer_count");
+        }
+        return customerCount;
+    }
+
 
     public String autoGenarateCustomerId() throws SQLException {
         String sql = "SELECT cusId from Customer order by cusId desc limit 1";

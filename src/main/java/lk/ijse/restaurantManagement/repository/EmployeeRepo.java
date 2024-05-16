@@ -3,6 +3,7 @@ package lk.ijse.restaurantManagement.repository;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Employee;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -116,6 +117,20 @@ public class EmployeeRepo {
         return idList;
     }
 
+    public static int getEmployeeCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS employee_count FROM Employee";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int employeeCount = 0;
+        if(resultSet.next()) {
+            employeeCount = resultSet.getInt("employee_count");
+        }
+        return employeeCount;
+    }
     public String autoGenarateEmployeeId() throws SQLException {
         String sql = "SELECT employeeId from Employee order by employeeId desc limit 1";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()

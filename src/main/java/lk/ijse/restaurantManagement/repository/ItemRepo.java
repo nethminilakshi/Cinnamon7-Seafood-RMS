@@ -138,6 +138,21 @@ public class ItemRepo {
         return pstm.executeUpdate()>0;
     }
 
+    public static int getItemCount() throws SQLException {
+        String sql = "SELECT COUNT(*) AS item_count FROM Item";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int itemCount = 0;
+        if(resultSet.next()) {
+            itemCount = resultSet.getInt("item_count");
+        }
+        return itemCount;
+    }
+
     public String autoGenarateItemCode() throws SQLException {
         String sql = "SELECT id from Item order by id desc limit 1";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
