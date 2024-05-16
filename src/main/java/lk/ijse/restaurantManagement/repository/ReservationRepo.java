@@ -11,19 +11,18 @@ import java.sql.SQLException;
 
 public class ReservationRepo {
     public static boolean add(Reservation reservation) throws SQLException {
-        String sql = "INSERT INTO Reservation VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Reservation VALUES(?, ?, ?, ?, ?, ?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setObject(1, reservation.getReserveId());
+        pstm.setObject(1, reservation.getReservationId());
         pstm.setObject(2, reservation.getDescription());
         pstm.setObject(3, reservation.getCusId());
-        pstm.setObject(4, reservation.getTableId());
-        pstm.setObject(5,reservation.getReqTablesQty());
-        pstm.setObject(6, reservation.getDate());
-        pstm.setObject(7, reservation.getTime());
-        pstm.setObject(8,reservation.getStatus());
+        pstm.setObject(4, reservation.getDate());
+        pstm.setObject(5, reservation.getTime());
+        pstm.setObject(6,reservation.getStatus());
+
 
         return pstm.executeUpdate()>0;
     }
@@ -39,23 +38,26 @@ public class ReservationRepo {
         Reservation reservation = null;
 
         if (resultSet.next()) {
-            String reserveId = resultSet.getString(1);
+            String reservationId = resultSet.getString(1);
             String description = resultSet.getString(2);
             String cusId = resultSet.getString(3);
-            String tableId = resultSet.getString(4);
-            int reqTablesQty = Integer.parseInt(resultSet.getString(5));
-            String date = resultSet.getString(6);
-            String time = resultSet.getString(7);
-            String status = resultSet.getString(8);
+            String date = resultSet.getString(4);
+            String time = resultSet.getString(5);
+            String status = resultSet.getString(6);
 
-            reservation = new Reservation(reserveId, description, cusId,tableId,reqTablesQty,date,time,status);
+
+            reservation = new Reservation(reservationId, description, cusId,date,time,status);
         }
         return reservation;
     }
 
+ //   public static Reservation searchByDate(String date) {
 
-    public String autoGenarateSalaryId() throws SQLException {
-        String sql = "SELECT reserveId from Reservation order by reserveId desc limit 1";
+  //  }
+
+
+    public String autoGenarateReservationId() throws SQLException {
+        String sql = "SELECT reservationId from Reservation order by reservationId desc limit 1";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 

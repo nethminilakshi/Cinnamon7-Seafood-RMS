@@ -2,7 +2,9 @@ package lk.ijse.restaurantManagement.repository;
 
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Item;
+import lk.ijse.restaurantManagement.model.OrderDetail;
 import lk.ijse.restaurantManagement.model.Tables;
+import lk.ijse.restaurantManagement.model.reservationDetails;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -109,5 +111,24 @@ public class TablesRepo {
         }
         return codeList;
 
+    }
+
+    public static boolean updateQty(reservationDetails rd) throws SQLException {
+        String sql = "UPDATE Tables SET noOfTables = noOfTables - ? WHERE tableId = ?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setInt(1, rd.getReqTablesQty());
+        pstm.setString(2, rd.getTableId());
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean updateQty(List<reservationDetails> reservationDetailsList) throws SQLException {
+        for (reservationDetails rd : reservationDetailsList) {
+            if (!updateQty(rd)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -107,7 +107,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbTableId" layoutX="174.0" layoutY="314.0" prefHeight="35.0" prefWidth="290.0" />
+      <ComboBox fx:id="cmbTableId" layoutX="174.0" layoutY="314.0" onAction="#cmbTablesOnAction" prefHeight="35.0" prefWidth="290.0" />
       <Label layoutX="534.0" layoutY="166.0" text="Cus Contact:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />

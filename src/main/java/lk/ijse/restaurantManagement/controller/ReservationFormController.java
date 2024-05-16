@@ -12,14 +12,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.restaurantManagement.model.Customer;
-import lk.ijse.restaurantManagement.model.Item;
-import lk.ijse.restaurantManagement.model.Reservation;
+import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.CartTm;
 import lk.ijse.restaurantManagement.model.tm.ReservationCartTm;
 import lk.ijse.restaurantManagement.repository.*;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -105,7 +104,7 @@ public class ReservationFormController {
        colReservationId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
        colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-       colTime.setCellValueFactory(new PropertyValueFactory<>("tableId"));
+       colTableId.setCellValueFactory(new PropertyValueFactory<>("tableId"));
        colRequiredTableQty.setCellValueFactory(new PropertyValueFactory<>("tablesQty"));
        colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
     }
@@ -167,72 +166,6 @@ public class ReservationFormController {
             throw new RuntimeException(e);
         }
     }
-    @FXML
-    public void btnAddOnAction(ActionEvent actionEvent) {
-        String reserveId = txtReservationId.getText();
-        String description = txtDescription.getText();
-        String cusId = txtCustomerId.getText();
-        String tableId = cmbTableId.getValue();
-        int reqTablesQty = Integer.parseInt(txtRequiredQty.getText());
-        String date = String.valueOf(txtDate.getValue());
-        String time = cmbTimeSlot.getValue();
-        String status = cmbStatus.getValue();
-
-        Reservation reservation = new Reservation(reserveId, description, cusId,tableId,reqTablesQty,date,time,status);
-
-        try {
-
-            boolean isSaved = ReservationRepo.add(reservation);
-            if(isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Reservation added!").show();
-                clearFields();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        clearFields();
-        initialize();
-    }
-
-    @FXML
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
-
-    }
-
-    @FXML
-    public void btnBackOnAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    public void searchOnAction() {
-    }
-
-    @FXML
-    public void btnClearOnAction(ActionEvent actionEvent) {
-        clearFields();
-    }
-
-    private void clearFields() {
-        txtDescription.setText("");
-        txtDate.setValue(LocalDate.parse(""));
-        txtAvailableQty.setText("");
-        cmbTableId.setValue("");
-        txtRequiredQty.setText("");
-        cmbStatus.setValue("");
-        txtCustomerId.setText("");
-        txtContact.setText("");
-        cmbTimeSlot.setValue("");
-    }
-
-    @FXML
-    public void btnCancelOnAction(ActionEvent actionEvent) {
-    }
 
     @FXML
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
@@ -280,14 +213,110 @@ public class ReservationFormController {
         txtRequiredQty.setText("");
 
     }
+    @FXML
+    public void btnAddOnAction(ActionEvent actionEvent) {
+        String reservationId = txtReservationId.getText();
+        String description= txtDescription.getText();
+        String cusId = txtCustomerId.getText();
+        String date = String.valueOf(Date.valueOf(LocalDate.now()));
+        String time = cmbTimeSlot.getValue();
+        String status = cmbStatus.getValue();
+
+        var reservation = new Reservation(reservationId,description, cusId, date,time,status);
+
+        List<reservationDetails> reservationDetailsList = new ArrayList<>();
+        for (int i = 0; i < tblReservationCart.getItems().size(); i++) {
+            ReservationCartTm tm = cartList.get(i);
+            reservationDetails od = new reservationDetails(
+                    reservationId,
+                    tm.getTableId(),
+                    tm.getTablesQty()
+
+            );
+            reservationDetailsList.add(od);
+        }
+
+        PlaceReservation ps = new PlaceReservation(reservation, reservationDetailsList);
+        try {
+            boolean isPlaced = PlaceReservationRepo.placeReservation(ps);
+            if(isPlaced) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Reservation Ok!").show();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Reservation not placed!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        clearFields();
+    }
+
+    @FXML
+    public void btnUpdateOnAction(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
+    }
+
+   /* @FXML
+    public void searchOnAction() {
+        String date  = String.valueOf(txtDate.getValue());
+
+        try {
+            Reservation reservation = ReservationRepo.searchByDate(date);
+
+            if (reservation != null) {
+                txtReservationId.setText(reservation.getReserveId());
+                cmbTableId.setValue(reservation.g());
+                txtAvailableQty.setText(reservation.);
+
+
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        initialize();
+    }*/
+
+    @FXML
+    public void btnClearOnAction(ActionEvent actionEvent) {
+        clearFields();
+    }
+
+    private void clearFields() {
+        txtDescription.setText("");
+       txtDate.setValue(LocalDate.parse(""));
+        txtAvailableQty.setText("");
+        cmbTableId.setValue("");
+        txtRequiredQty.setText("");
+        cmbStatus.setValue("");
+        cmbTimeSlot.setValue("");
+        txtCustomerId.setText("");
+        txtContact.setText("");
+    }
+
+    @FXML
+    public void btnCancelOnAction(ActionEvent actionEvent) {
+    }
+
+
 
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
-        txtReservationId.setText(new ReservationRepo().autoGenarateSalaryId());
+        txtReservationId.setText(new ReservationRepo().autoGenarateReservationId());
     }
 
 
     public void txtQtyOnAction(ActionEvent actionEvent) {
+        btnAddToCartOnAction(actionEvent);
     }
 
 
@@ -315,13 +344,12 @@ public class ReservationFormController {
             Reservation reservation = ReservationRepo.searchById(cusId);
 
             if (reservation != null) {
-                txtReservationId.setText(reservation.getReserveId());
+                txtReservationId.setText(reservation.getReservationId());
                 txtDescription.setText(reservation.getDescription());
                 txtCustomerId.setText(reservation.getCusId());
-                txtRequiredQty.setText(String.valueOf(reservation.getReqTablesQty()));
                 txtDate.setValue(LocalDate.parse(reservation.getDate()));
                 cmbTimeSlot.setValue(reservation.getTime());
-                cmbStatus.setValue(reservation.getStatus());
+
 
 
             }
@@ -329,5 +357,23 @@ public class ReservationFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         initialize();
+    }
+
+    public void cmbTablesOnAction(ActionEvent actionEvent) {
+        String tableId = cmbTableId.getValue();
+        try {
+            Tables tables = TablesRepo.searchById(tableId);
+            if (tables != null) {
+                txtAvailableQty.setText(String.valueOf(tables.getNoOfTables()));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        txtRequiredQty.requestFocus();
+    }
+
+    public void searchOnAction(ActionEvent actionEvent) {
     }
 }
