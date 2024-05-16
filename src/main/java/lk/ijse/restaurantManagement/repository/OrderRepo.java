@@ -1,6 +1,9 @@
 package lk.ijse.restaurantManagement.repository;
 
 import com.mysql.cj.xdevapi.Session;
+import javafx.scene.Node;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.Customer;
 import lk.ijse.restaurantManagement.model.Order;
@@ -79,4 +82,27 @@ public class OrderRepo {
             return "Od001";
         }
     }
-}
+
+    public static void OrdersCount(BarChart<String,Number> barChartOrders) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT date(date) AS order_date, COUNT(orderId) AS order_count FROM Orders GROUP BY date(date) ORDER BY order_date;";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+        while (resultSet.next()) {
+            String date = resultSet.getString("date");
+            int ordersCount = resultSet.getInt("OrdersCount");
+            series.getData().add(new XYChart.Data<>(date, ordersCount));
+        }
+
+        barChartOrders.getData().add(series);
+
+
+        }
+    }
+

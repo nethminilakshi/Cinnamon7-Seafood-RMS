@@ -1,9 +1,14 @@
 package lk.ijse.restaurantManagement.repository;
 
+import javafx.scene.Node;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import lk.ijse.restaurantManagement.db.DbConnection;
 import lk.ijse.restaurantManagement.model.OrderDetail;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -28,4 +33,7 @@ public class OrderDetailRepo {
 
         return pstm.executeUpdate() > 0;
     }
-}
+
+
+    }
+

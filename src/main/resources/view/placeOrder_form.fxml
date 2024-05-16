@@ -165,6 +165,15 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Button layoutX="776.0" layoutY="629.0" mnemonicParsing="false" onAction="#btnReceiptOnAction" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #a8bf62; -fx-background-radius: 35;" text="View Order Details" />
+      <Button layoutX="776.0" layoutY="629.0" mnemonicParsing="false" onAction="#btnReceiptOnAction" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #a8bf62; -fx-background-radius: 35; -fx-border-color: black; -fx-border-radius: 35;" text="View Order Details">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="787.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/icons8-maximum-order-32.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -153,16 +153,7 @@ public class PlaceOrderFormController {
         txtDate.setText(now );
     }
 
-  /*  private void loadNextOrderId() {
-        try {
-            String currentId = OrderRepo.currentId();
-            String nextId = nextId(currentId);
 
-            txtOrderId.setText(nextId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
 
     private String nextId(String currentId) {
         if (currentId != null) {
@@ -350,15 +341,15 @@ public class PlaceOrderFormController {
         txtNetTotal.setText("");
     }
 
-    public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
-        JasperDesign jasperDesign =
-                JRXmlLoader.load("src/main/resources/reports/salaryPayments.jrxml");
+   public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+       JasperDesign jasperDesign =
+                JRXmlLoader.load("src/main/resources/reports/order_details.jrxml");
         JasperReport jasperReport =
                 JasperCompileManager.compileReport(jasperDesign);
 
         Map<String, Object> data = new HashMap<>();
-        data.put("salaryId",txtSalaryId.getText());
-        data.put("employeeId",cmbEmployeeId.getValue());
+        data.put("orderId",txtOrderId.getText());
+        data.put("unitPrice",txtUnitPrice.getText());
 
         JasperPrint jasperPrint =
                 JasperFillManager.fillReport(

@@ -1,20 +1,24 @@
 package lk.ijse.restaurantManagement.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.db.DbConnection;
+import lk.ijse.restaurantManagement.repository.OrderDetailRepo;
+import lk.ijse.restaurantManagement.repository.OrderRepo;
 
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
     @FXML
@@ -34,7 +38,27 @@ public class DashboardFormController {
     private int customerCount;
     private int itemCount;
     private int employeeCount;
-    public void initialize() {
+
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblTime;
+
+    private volatile boolean stop = false;
+
+
+    @FXML
+    private BarChart<String, Number> barChartOrders;
+
+    public void initialize() throws SQLException {
+
+        timeNow();
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter dateformatter = DateTimeFormatter.ofPattern("EEEE, MMM dd");
+        String formattedDate = date.format(dateformatter);
+        lblDate.setText(formattedDate);
+
         try {
             customerCount = getCustomerCount();
         } catch (SQLException e) {
@@ -55,6 +79,27 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         setEmployeeCount(employeeCount);
+
+       // OrderRepo.OrdersCount(barChartOrders);
+    }
+
+
+    public void timeNow(){
+        Thread thread = new Thread(()->{
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+            while (!stop){
+                try {
+                    Thread.sleep(1000);
+                }catch (Exception e){
+                    System.out.println(e);
+                }
+                final String timenow = sdf.format(new Date());
+                Platform.runLater(()->{
+                    lblTime.setText(timenow);
+                });
+            }
+        });
+        thread.start();
     }
 
     private void setItemCount(int itemCount) {
@@ -124,67 +169,5 @@ public class DashboardFormController {
         stage.setTitle("Login Form");
     }
 
-    public void btnPlaceOrderOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/placeOrder_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
 
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("placeOrder Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnInventoryOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/inventory_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Inventory Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnEmployeeOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/employee_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Employee Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnItemOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/item_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Item Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Customerform.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Customer Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Login Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnExitOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
-
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Login Form");
-    }
 }
