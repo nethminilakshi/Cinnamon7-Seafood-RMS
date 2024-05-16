@@ -64,7 +64,7 @@ public class ReservationRepo {
         ResultSet resultSet = pstm.executeQuery();
 
         if (resultSet.next()) {
-            String reserveId = resultSet.getString("reserveId");
+            String reserveId = resultSet.getString("reservationId");
             String numericPart = reserveId.replaceAll("\\D+", "");
             int newReservationId = Integer.parseInt(numericPart) + 1;
             return String.format("R%03d", newReservationId);

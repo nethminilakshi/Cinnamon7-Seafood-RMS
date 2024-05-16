@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37007745-da76-41e6-b2e6-6e2aa94321a0" name="Changes" comment="regitration page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/PlaceReservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/reservationDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/PlaceReservationRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/ReservationDetailRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/ReservationNew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/newRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/ReservationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/controller/ReservationFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/model/tm/ReservationTm.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/ReservationRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/ReservationRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/TablesRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/restaurantManagement/repository/TablesRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/reservation_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/reservation_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +164,7 @@
       <workItem from="1715314263957" duration="4777000" />
       <workItem from="1715409057164" duration="32138000" />
       <workItem from="1715664827026" duration="25011000" />
-      <workItem from="1715830933077" duration="14282000" />
+      <workItem from="1715830933077" duration="20203000" />
     </task>
     <task id="LOCAL-00001" summary="04/30">
       <option name="closed" value="true" />
@@ -427,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715831214431</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="regitration page">
+      <option name="closed" value="true" />
+      <created>1715857484630</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715857484630</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

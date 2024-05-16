@@ -13,12 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.*;
-import lk.ijse.restaurantManagement.model.tm.CartTm;
 import lk.ijse.restaurantManagement.model.tm.ReservationCartTm;
 import lk.ijse.restaurantManagement.repository.*;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -218,7 +216,7 @@ public class ReservationFormController {
         String reservationId = txtReservationId.getText();
         String description= txtDescription.getText();
         String cusId = txtCustomerId.getText();
-        String date = String.valueOf(Date.valueOf(LocalDate.now()));
+        String date = String.valueOf(txtDate.getValue());
         String time = cmbTimeSlot.getValue();
         String status = cmbStatus.getValue();
 
@@ -265,26 +263,7 @@ public class ReservationFormController {
         stage.centerOnScreen();
     }
 
-   /* @FXML
-    public void searchOnAction() {
-        String date  = String.valueOf(txtDate.getValue());
 
-        try {
-            Reservation reservation = ReservationRepo.searchByDate(date);
-
-            if (reservation != null) {
-                txtReservationId.setText(reservation.getReserveId());
-                cmbTableId.setValue(reservation.g());
-                txtAvailableQty.setText(reservation.);
-
-
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-
-        initialize();
-    }*/
 
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -302,11 +281,6 @@ public class ReservationFormController {
         txtCustomerId.setText("");
         txtContact.setText("");
     }
-
-    @FXML
-    public void btnCancelOnAction(ActionEvent actionEvent) {
-    }
-
 
 
     @FXML
@@ -329,8 +303,10 @@ public class ReservationFormController {
             if (customer != null) {
                 txtCustomerId.setText(customer.getCusId());
                 txtContact.setText(customer.getContact());
+            } else {
+                    new Alert(Alert.AlertType.INFORMATION, "Not Found Customer").show();
+                }
 
-            }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
@@ -375,5 +351,22 @@ public class ReservationFormController {
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
+        String date  = String.valueOf(txtDate.getValue());
+
+        try {
+            ReservationNew reseve = newRepo.searchByDate(date);
+
+            if (reseve  != null) {
+                txtReservationId.setText(reseve.getReservationId());
+                cmbTableId.setValue(reseve.getTableId());
+                txtAvailableQty.setText(String.valueOf(reseve.getNoOfTables()));
+                txtDate.setValue(LocalDate.parse(reseve.getDate()));
+
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+
+        initialize();
     }
 }
