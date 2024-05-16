@@ -114,6 +114,7 @@ public class CustomerRepo {
         return idList;
     }
 
+
     public String autoGenarateCustomerId() throws SQLException {
         String sql = "SELECT cusId from Customer order by cusId desc limit 1";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()

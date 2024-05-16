@@ -93,4 +93,21 @@ public class TablesRepo {
         }
         return tables;
     }
+
+    public static List<String> getIds() throws SQLException {
+        String sql = "SELECT tableId FROM Tables";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        List<String> codeList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        while(resultSet.next()) {
+            codeList.add(resultSet.getString(1));
+        }
+        return codeList;
+
+    }
 }

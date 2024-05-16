@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -13,89 +17,79 @@
 
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationFormController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
-      <Label layoutX="80.0" layoutY="30.0" prefHeight="53.0" prefWidth="334.0" text="Reservation Details" textFill="#cf3e3e">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" width="1000.0" />
+      <Label layoutX="56.0" layoutY="28.0" prefHeight="53.0" prefWidth="334.0" text="Reservation Details" textFill="#cf3e3e">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="117.0" text="ReservationId:" textFill="WHITE">
+      <Label layoutX="29.0" layoutY="116.0" text="ReservationId:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="317.0" text="Date*" textFill="WHITE">
+      <Label layoutX="31.0" layoutY="224.0" text="Date:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="542.0" layoutY="227.0" text="Table Id:" textFill="WHITE">
+      <Label layoutX="29.0" layoutY="317.0" text="Table Id:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTableId" layoutX="534.0" layoutY="258.0" prefHeight="45.0" prefWidth="435.0" promptText="Table Id" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <DatePicker fx:id="txtDate" layoutX="172.0" layoutY="222.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="290.0" promptText="Date" />
+      <Label layoutX="29.0" layoutY="169.0" text="Description:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDescription" layoutX="172.0" layoutY="165.0" prefHeight="35.0" prefWidth="290.0" promptText="Description" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <DatePicker fx:id="txtDate" layoutX="56.0" layoutY="349.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Date" />
-      <Label layoutX="56.0" layoutY="222.0" text="Description:" textFill="WHITE">
+      <Label layoutX="532.0" layoutY="110.0" text="Customer Id:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="56.0" layoutY="257.0" prefHeight="45.0" prefWidth="435.0" promptText="Description" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtCustomerId" layoutX="665.0" layoutY="106.0" onAction="#searchOnIdAction" prefHeight="35.0" prefWidth="297.0" promptText="Customer Id" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="536.0" layoutY="118.0" text="Customer Id:" textFill="WHITE">
+      <Label layoutX="536.0" layoutY="222.0" text="Time:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCustomerId" layoutX="533.0" layoutY="151.0" prefHeight="45.0" prefWidth="435.0" promptText="Customer Id" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtReservationId" layoutX="172.0" layoutY="109.0" prefHeight="35.0" prefWidth="290.0" promptText="Reservation Id" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtTime" layoutX="534.0" layoutY="347.0" prefHeight="45.0" prefWidth="435.0" promptText="Time" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <Label layoutX="543.0" layoutY="317.0" text="Time" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtReservationId" layoutX="58.0" layoutY="154.0" prefHeight="45.0" prefWidth="435.0" promptText="Reservation Id" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <JFXButton buttonType="RAISED" layoutX="62.0" layoutY="627.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="31.0" layoutY="637.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="693.0" layoutY="627.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="493.0" layoutY="620.0" onAction="#btnClearOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #446f85; -fx-background-radius: 15;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="830.0" layoutY="627.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a36264; -fx-background-radius: 15;" text="Add" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="626.0" layoutY="620.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a36264; -fx-background-radius: 15;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="567.0" layoutY="627.0" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Delete" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="754.0" layoutY="620.0" onAction="#btnCancelOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #31363F; -fx-background-radius: 15;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="923.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="923.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/food-png-6.png" />
          </image>
@@ -103,15 +97,83 @@
             <ColorAdjust contrast="0.15" hue="1.0" />
          </effect>
       </ImageView>
-      <Label layoutX="759.0" layoutY="36.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon-7" textFill="#c64a6f">
+      <Label layoutX="759.0" layoutY="16.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon-7" textFill="#c64a6f">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="772.0" layoutY="68.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+      <Label layoutX="772.0" layoutY="48.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cmbTableId" layoutX="174.0" layoutY="314.0" prefHeight="35.0" prefWidth="290.0" />
+      <Label layoutX="534.0" layoutY="166.0" text="Cus Contact:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtContact" layoutX="665.0" layoutY="162.0" onAction="#searchContactOnAction" prefHeight="35.0" prefWidth="297.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="31.0" layoutY="455.0" text="Required Tables Qty:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtRequiredQty" layoutX="253.0" layoutY="452.0" onAction="#txtQtyOnAction" prefHeight="35.0" prefWidth="173.0" promptText="Required Tables" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cmbTimeSlot" layoutX="666.0" layoutY="219.0" prefHeight="35.0" prefWidth="297.0" promptText="Time Slot" />
+      <JFXButton buttonType="RAISED" layoutX="879.0" layoutY="620.0" onAction="#btnAddOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #8f5b71; -fx-background-radius: 15;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="187.0" layoutY="637.0" onAction="#btnAddToCartOnAction" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: CA8787; -fx-background-radius: 15;" text="   Add to cart" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets.icon/icons8-cart-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="30.0" layoutY="368.0" text="Available Tables Qty:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAvailableQty" layoutX="251.0" layoutY="366.0" prefHeight="35.0" prefWidth="171.0" promptText="Available Tables" style="-fx-background-color: white; -fx-background-radius: 5;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="34.0" layoutY="507.0" text="Reservation status" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbStatus" layoutX="253.0" layoutY="505.0" prefHeight="35.0" prefWidth="173.0" promptText="Available" />
+      <TableView fx:id="tblReservationCart" layoutX="474.0" layoutY="367.0" prefHeight="225.0" prefWidth="504.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="colReservationId" prefWidth="81.0" text="Reser Id" />
+            <TableColumn fx:id="colDate" prefWidth="99.0" text="Date" />
+            <TableColumn fx:id="colTime" prefWidth="86.0" text="Time" />
+            <TableColumn fx:id="colTableId" prefWidth="77.0" text="Table Id" />
+            <TableColumn fx:id="colRequiredTableQty" minWidth="0.0" prefWidth="72.0" text="Tables Qty" />
+            <TableColumn fx:id="colAction" prefWidth="86.0" text="Action" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -94,8 +94,6 @@ public class PlaceOrderFormController {
     @FXML
     private TextField txtUnitPrice;
 
-    @FXML
-    private TextField txtPaymentId;
     private final ObservableList<CartTm> cartList = FXCollections.observableArrayList();
     private double netTotal = 0;
 
@@ -104,14 +102,15 @@ public class PlaceOrderFormController {
         setCellValueFactory();
       //  loadNextOrderId();
         setDate();
-        getOrderList();
         loadTable();
+        getOrderList();
 
         try {
             autoGenarateId();
         } catch (ClassNotFoundException | SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
         }
     private String[] typeList={"takeAway","dineIn"};
     public void getOrderList(){

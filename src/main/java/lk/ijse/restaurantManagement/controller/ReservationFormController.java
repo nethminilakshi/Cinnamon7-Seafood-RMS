@@ -1,17 +1,74 @@
 package lk.ijse.restaurantManagement.controller;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.restaurantManagement.repository.ReservationRepo;
-import lk.ijse.restaurantManagement.repository.SalaryRepo;
+import javafx.stage.Stage;
+import lk.ijse.restaurantManagement.model.Customer;
+import lk.ijse.restaurantManagement.model.Item;
+import lk.ijse.restaurantManagement.model.Reservation;
+import lk.ijse.restaurantManagement.model.tm.CartTm;
+import lk.ijse.restaurantManagement.model.tm.ReservationCartTm;
+import lk.ijse.restaurantManagement.repository.*;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 
 public class ReservationFormController {
+
+
+    @FXML
+    private ComboBox<String> cmbStatus;
+
+    @FXML
+    private ComboBox<String> cmbTableId;
+
+    @FXML
+    private ComboBox<String> cmbTimeSlot;
+
+    @FXML
+    private TableColumn<?, ?> colAction;
+
+    @FXML
+    private TableColumn<?, ?> colDate;
+
+    @FXML
+    private TableColumn<?, ?> colRequiredTableQty;
+
+    @FXML
+    private TableColumn<?, ?> colReservationId;
+
+    @FXML
+    private TableColumn<?, ?> colTableId;
+
+    @FXML
+    private TableColumn<?, ?> colTime;
+
+    @FXML
+    private AnchorPane root;
+
+    @FXML
+    private TableView<ReservationCartTm> tblReservationCart;
+
+    @FXML
+    private TextField txtAvailableQty;
+
+    @FXML
+    private TextField txtContact;
+
     @FXML
     private TextField txtCustomerId;
 
@@ -22,39 +79,206 @@ public class ReservationFormController {
     private TextField txtDescription;
 
     @FXML
+    private TextField txtRequiredQty;
+
+    @FXML
     private TextField txtReservationId;
 
-    @FXML
-    private TextField txtTableId;
-
-    @FXML
-    private TextField txtTime;
-    @FXML
-    private AnchorPane root;
-
+    private final ObservableList<ReservationCartTm> cartList = FXCollections.observableArrayList();
     public void initialize(){
+
+        setCellValueFactory();
+        loadTable();
+        getStatus();
+        getTimeSlot();
+        getTableIds();
 
         try {
             autoGenarateId();
         } catch (ClassNotFoundException | SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
+    }
+
+    private void setCellValueFactory() {
+       colReservationId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
+       colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+       colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+       colTime.setCellValueFactory(new PropertyValueFactory<>("tableId"));
+       colRequiredTableQty.setCellValueFactory(new PropertyValueFactory<>("tablesQty"));
+       colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
+    }
+
+    private void loadTable() {
+        ObservableList<ReservationCartTm> tmList = FXCollections.observableArrayList();
+
+        for (ReservationCartTm cart : cartList) {
+            ReservationCartTm cartTm = new ReservationCartTm(
+                    cart.getReservationId(),
+                    cart.getDate(),
+                    cart.getTime(),
+                    cart.getTableId(),
+                    cart.getTablesQty(),
+                    cart.getBtnRemove()
+            );
+
+
+            tmList.add(cartTm);
+        }
+        tblReservationCart.setItems(tmList);
+        ReservationCartTm selectedItem = tblReservationCart.getSelectionModel().getSelectedItem();
+        System.out.println("selectedItem = " + selectedItem);
+    }
+
+    private String[] Status={"available","Reserved"};
+
+    public void getStatus(){
+        List<String> statusList = new ArrayList<>();
+        for(String data: Status){
+            statusList.add(data);
+        }
+        ObservableList<String> obList= FXCollections.observableArrayList(statusList);
+        cmbStatus.setItems(obList);
+    }
+
+    private String[] timeSlot={"morning","afternoon","evening","night"};
+
+    public void getTimeSlot(){
+        List<String> timeList = new ArrayList<>();
+        for(String data: timeSlot){
+            timeList.add(data);
+        }
+        ObservableList<String> obList= FXCollections.observableArrayList(timeList);
+        cmbTimeSlot.setItems(obList);
+    }
+
+    private void getTableIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        try {
+            List<String> idList = TablesRepo.getIds();
+            for (String code : idList) {
+                obList.add(code);
+            }
+
+            cmbTableId.setItems(obList);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
-    void searchOnAction(ActionEvent event) {
+    public void btnAddOnAction(ActionEvent actionEvent) {
+        String reserveId = txtReservationId.getText();
+        String description = txtDescription.getText();
+        String cusId = txtCustomerId.getText();
+        String tableId = cmbTableId.getValue();
+        int reqTablesQty = Integer.parseInt(txtRequiredQty.getText());
+        String date = String.valueOf(txtDate.getValue());
+        String time = cmbTimeSlot.getValue();
+        String status = cmbStatus.getValue();
+
+        Reservation reservation = new Reservation(reserveId, description, cusId,tableId,reqTablesQty,date,time,status);
+
+        try {
+
+            boolean isSaved = ReservationRepo.add(reservation);
+            if(isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Reservation added!").show();
+                clearFields();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        clearFields();
+        initialize();
+    }
+
+    @FXML
+    public void btnUpdateOnAction(ActionEvent actionEvent) {
 
     }
 
-    public void btnDeleteOnAction(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    public void btnBackOnAction(javafx.event.ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
     }
 
-    public void btnAddOnAction(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    public void searchOnAction() {
     }
 
-    public void btnUpdateOnAction(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    public void btnClearOnAction(ActionEvent actionEvent) {
+        clearFields();
     }
 
-    public void btnBackOnAction(javafx.event.ActionEvent actionEvent) {
+    private void clearFields() {
+        txtDescription.setText("");
+        txtDate.setValue(LocalDate.parse(""));
+        txtAvailableQty.setText("");
+        cmbTableId.setValue("");
+        txtRequiredQty.setText("");
+        cmbStatus.setValue("");
+        txtCustomerId.setText("");
+        txtContact.setText("");
+        cmbTimeSlot.setValue("");
+    }
+
+    @FXML
+    public void btnCancelOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void btnAddToCartOnAction(ActionEvent actionEvent) {
+        String reservationId = txtReservationId.getText();
+        String date = String.valueOf(txtDate.getValue());
+        String time = String.valueOf(cmbTimeSlot.getValue());
+        String tableId = String.valueOf(cmbTableId.getValue());
+        int tablesQty = Integer.parseInt(txtRequiredQty.getText());
+        JFXButton btnRemove = new JFXButton("cancel");
+        btnRemove.setCursor(Cursor.HAND);
+
+        btnRemove.setOnAction((e) -> {
+            ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to cancel?", yes, no).showAndWait();
+
+            if(type.orElse(no) == yes) {
+                int selectedIndex = tblReservationCart.getSelectionModel().getSelectedIndex();
+                cartList.remove(selectedIndex);
+
+                tblReservationCart.refresh();
+
+            }
+        });
+
+        for (int i = 0; i < tblReservationCart.getItems().size(); i++) {
+            if (tableId.equals(colTableId.getCellData(i))) {
+                tablesQty += cartList.get(i).getTablesQty();
+
+                cartList.get(i).setTablesQty(tablesQty);
+
+                tblReservationCart.refresh();
+
+                txtRequiredQty.setText("");
+                return;
+            }
+        }
+
+        ReservationCartTm cartTm = new ReservationCartTm(reservationId, date, time, tableId, tablesQty, btnRemove);
+
+        cartList.add(cartTm);
+
+        tblReservationCart.setItems(cartList);
+        txtRequiredQty.setText("");
+
     }
 
     @FXML
@@ -62,6 +286,48 @@ public class ReservationFormController {
         txtReservationId.setText(new ReservationRepo().autoGenarateSalaryId());
     }
 
-    public void searchOnAction() {
+
+    public void txtQtyOnAction(ActionEvent actionEvent) {
+    }
+
+
+    public void searchContactOnAction(ActionEvent actionEvent) {
+        String contact  = txtContact.getText();
+
+        try {
+            Customer customer = CustomerRepo.searchByContact(contact);
+
+            if (customer != null) {
+                txtCustomerId.setText(customer.getCusId());
+                txtContact.setText(customer.getContact());
+
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        initialize();
+    }
+
+    public void searchOnIdAction(ActionEvent actionEvent) {
+        String cusId  = txtCustomerId.getText();
+
+        try {
+            Reservation reservation = ReservationRepo.searchById(cusId);
+
+            if (reservation != null) {
+                txtReservationId.setText(reservation.getReserveId());
+                txtDescription.setText(reservation.getDescription());
+                txtCustomerId.setText(reservation.getCusId());
+                txtRequiredQty.setText(String.valueOf(reservation.getReqTablesQty()));
+                txtDate.setValue(LocalDate.parse(reservation.getDate()));
+                cmbTimeSlot.setValue(reservation.getTime());
+                cmbStatus.setValue(reservation.getStatus());
+
+
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        initialize();
     }
 }
