@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationDetailsFormControlller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
+      <TableView fx:id="tblReservation" layoutX="48.0" layoutY="137.0" prefHeight="330.0" prefWidth="661.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="colReservationId" prefWidth="101.0" text="ReservationId" />
+            <TableColumn fx:id="colDescription" prefWidth="156.0" text="Description" />
+            <TableColumn fx:id="colCustomerId" prefWidth="90.0" text="CustomerId" />
+            <TableColumn fx:id="colDate" prefWidth="108.0" text="Date" />
+            <TableColumn fx:id="colTime" minWidth="0.0" prefWidth="99.0" text="Time" />
+            <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="106.0" text="Status" />
+         </columns>
+      </TableView>
+      <Label layoutX="83.0" layoutY="44.0" prefHeight="47.0" prefWidth="288.0" text="Reservation details" textFill="#d36e5c">
+         <font>
+            <Font name="System Bold Italic" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="679.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/food-png-6.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="0.15" hue="1.0" />
+         </effect>
+      </ImageView>
+      <Label layoutX="510.0" layoutY="34.0" prefHeight="40.0" prefWidth="171.0" text="Cinnamon-7" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="533.0" layoutY="67.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="530.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

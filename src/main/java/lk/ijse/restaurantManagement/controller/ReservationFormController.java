@@ -369,4 +369,13 @@ public class ReservationFormController {
 
         initialize();
     }
+
+    public void btnReservationDetails(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/resevationDetails_form.fxml"));
+        Stage stage = (Stage) root.getScene().getWindow();
+
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("ReservationDetails Form");
+        stage.centerOnScreen();
+    }
 }
