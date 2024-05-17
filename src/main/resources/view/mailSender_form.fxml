@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.MailSenderContoller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcf7f7" height="500.0" onMouseEntered="#mouseEnter" onMouseExited="#mouseExit" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+      <Label layoutX="128.0" layoutY="26.0" prefHeight="30.0" prefWidth="202.0" text="Send Email" textFill="#e11313">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="91.0" text="Your gmail address :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="149.0" prefHeight="20.0" prefWidth="134.0" text="Receiver's gmail:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hypGmail" layoutX="174.0" layoutY="86.0" prefHeight="34.0" prefWidth="292.0" text="gmail">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <TextField fx:id="txtGmail" layoutX="163.0" layoutY="142.0" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-border-width: 0 0 3 0;">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="Message" layoutX="27.0" layoutY="258.0" prefHeight="147.0" prefWidth="417.0" style="-fx-background-color: blue;" />
+      <Label layoutX="25.0" layoutY="205.0" text="text only">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTitle" layoutX="143.0" layoutY="201.0" prefHeight="25.0" prefWidth="267.0" />
+      <Label layoutX="94.0" layoutY="205.0" prefHeight="17.0" prefWidth="46.0" text="title">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="43.0" fitWidth="67.0" layoutX="390.0" layoutY="429.0" onMouseClicked="#btnSendOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/icons8-send-48.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

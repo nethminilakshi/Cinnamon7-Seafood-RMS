@@ -171,9 +171,9 @@
             <TableColumn fx:id="colAction" prefWidth="86.0" text="Action" />
          </columns>
       </TableView>
-      <Button layoutX="656.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnReservationDetails" prefHeight="40.0" prefWidth="232.0" style="-fx-background-color: #9e9c98; -fx-background-radius: 30;" text="View Reservation Details" textFill="#8d5959">
+      <Button layoutX="598.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnReservationDetails" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #9e9c98; -fx-background-radius: 30;" text="View Reservation Details" textFill="#8d5959">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
    </children>

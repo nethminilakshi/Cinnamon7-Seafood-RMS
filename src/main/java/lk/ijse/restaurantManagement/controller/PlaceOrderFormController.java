@@ -359,4 +359,7 @@ public class PlaceOrderFormController {
 
         JasperViewer.viewReport(jasperPrint,false);
     }
+
+    public void btnGetReceipt(ActionEvent actionEvent) {
+    }
 }

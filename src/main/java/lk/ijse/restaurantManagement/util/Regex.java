@@ -79,8 +79,8 @@ public class Regex  {
     }
     public static boolean setTextColor(TextField location, javafx.scene.control.TextField field){
         if (Regex.isTextFiledsValid(location,field.getText())){
-           // field.setFocusColor(Paint.valueOf("Green"));
-           // field.setUnFocusColor(Paint.valueOf("Green"));
+          // field.setFocusColor(Paint.valueOf("Green"));
+          // field.setUnFocusColor(Paint.valueOf("Green"));
             return true;
         }else {
            // field.setFocusColor(Paint.valueOf("Red"));
