@@ -86,7 +86,7 @@ public class OrderRepo {
     public static void OrdersCount(BarChart<String,Number> barChartOrders) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT date(date) AS order_date, COUNT(orderId) AS order_count FROM Orders GROUP BY date(date) ORDER BY order_date;";
+        String sql = "SELECT date AS order_date, COUNT(*) AS order_count FROM Orders GROUP BY date ORDER BY order_date";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
 

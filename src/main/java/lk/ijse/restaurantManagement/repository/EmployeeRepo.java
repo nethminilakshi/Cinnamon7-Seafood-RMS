@@ -84,9 +84,9 @@ public class EmployeeRepo {
         pstm.setObject(1, employee.getEmployeeId());
         pstm.setObject(2, employee.getName());
         pstm.setObject(3, employee.getAddress());
-        pstm.setObject(4, employee.getContact());
-        pstm.setObject(5, employee.getPositon());
-        pstm.setObject(6, employee.getBasicSalary());
+        pstm.setObject(4, employee.getPositon());
+        pstm.setObject(5, employee.getBasicSalary());
+        pstm.setObject(6, employee.getContact());
 
         return pstm.executeUpdate() > 0;
     }

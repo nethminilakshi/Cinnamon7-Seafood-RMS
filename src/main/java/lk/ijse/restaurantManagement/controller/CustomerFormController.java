@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,6 +23,7 @@ import lk.ijse.restaurantManagement.model.tm.EmployeeTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
+import lk.ijse.restaurantManagement.util.Regex;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -231,5 +233,28 @@ public class CustomerFormController {
         txtContact.setText(selectedItem.getContact());
         txtEmail.setText(selectedItem.getEmail());
 
+    }
+
+    public void txtCustomerNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.DESC,txtName);
+    }
+
+    public void txtCustomerIContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.CONTACT,txtContact);
+    }
+
+    public void txtCustomerAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.ADDRESS,txtAddress);
+    }
+
+    public void txtCustomerEmailOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.EMAIL,txtEmail);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.DESC,txtName))return false;
+        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.CONTACT,txtContact))return false;
+        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.ADDRESS,txtAddress))return false;
+        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.EMAIL,txtEmail))return false;
+        return true;
     }
 }

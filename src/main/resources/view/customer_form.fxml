@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="536.0" layoutY="106.0" prefHeight="45.0" prefWidth="435.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtAddress" layoutX="536.0" layoutY="106.0" onKeyReleased="#txtCustomerAddressOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -64,7 +64,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="54.0" layoutY="189.0" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtName" layoutX="54.0" layoutY="189.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
@@ -74,12 +74,12 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="536.0" layoutY="189.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtContact" layoutX="536.0" layoutY="189.0" onAction="#txtSearchOnAction" onKeyReleased="#txtCustomerIContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TableView fx:id="tblCustomers" layoutX="49.0" layoutY="340.0" onMouseClicked="#tblOnClickAction" prefHeight="279.0" prefWidth="924.0">
+      <TableView fx:id="tblCustomers" layoutX="49.0" layoutY="340.0" onMouseClicked="#tblOnClickAction" prefHeight="279.0" prefWidth="924.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colId" prefWidth="146.0" text="ID" />
             <TableColumn fx:id="colName" prefWidth="230.0" text="Name" />
@@ -118,7 +118,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="294.0" layoutY="272.0" prefHeight="45.0" prefWidth="435.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5;">
+      <TextField fx:id="txtEmail" layoutX="294.0" layoutY="272.0" onKeyReleased="#txtCustomerEmailOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 5;">
          <font>
             <Font size="18.0" />
          </font>

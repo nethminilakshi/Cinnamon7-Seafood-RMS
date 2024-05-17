@@ -40,8 +40,8 @@ public class CustomerRepo {
         pstm.setObject(1, customer.getCusId());
         pstm.setObject(2, customer.getName());
         pstm.setObject(3, customer.getAddress());
-        pstm.setObject(4, customer.getContact());
-        pstm.setObject(5, customer.getEmail());
+        pstm.setObject(4, customer.getEmail());
+        pstm.setObject(5, customer.getContact());
 
         return pstm.executeUpdate() > 0;
     }

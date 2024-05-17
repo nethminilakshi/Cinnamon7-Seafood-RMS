@@ -79,8 +79,7 @@ public class DashboardFormController {
         }
         setEmployeeCount(employeeCount);
 
-
-       // OrderRepo.OrdersCount(barChartOrders);
+        // OrderRepo.OrdersCount(barChartOrders);
     }
 
 
@@ -105,9 +104,7 @@ public class DashboardFormController {
     private void setItemCount(int itemCount) {
         lblItemCount.setText(String.valueOf(itemCount));
     }
-
-
-
+    
     private void setCustomerCount(int customerCount) {
         lblCustomerCount.setText(String.valueOf(customerCount));
     }

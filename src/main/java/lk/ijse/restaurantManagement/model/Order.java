@@ -6,6 +6,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class Order {
     private String orderId;
     private String orderType;

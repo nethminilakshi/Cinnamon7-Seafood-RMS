@@ -25,7 +25,7 @@
             <Image url="@../assets.icon/icons8-food-100.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="800.0" fitWidth="1000.0" layoutX="-4.0" layoutY="40.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1000.0" layoutY="40.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/cocktails-4k-full-hd-wallpaper-preview.jpg" />
          </image>
@@ -84,7 +84,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Label fx:id="lblEmployeeCount" layoutX="76.0" layoutY="586.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  ">
+      <Label fx:id="lblEmployeeCount" layoutX="76.0" layoutY="586.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="   2 " textFill="#5e0000">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -135,12 +135,12 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblItemCount" layoutX="301.0" layoutY="588.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  ">
+      <Label fx:id="lblItemCount" layoutX="301.0" layoutY="588.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  3">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="lblCustomerCount" layoutX="537.0" layoutY="581.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  ">
+      <Label fx:id="lblCustomerCount" layoutX="537.0" layoutY="581.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  3" textFill="#5e0000">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -159,12 +159,12 @@
             <Font name="System Bold Italic" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="51.0" layoutY="128.0" prefHeight="59.0" prefWidth="293.0" text="monday,May,2024" textFill="#a3bcad">
+      <Label fx:id="lblDate" layoutX="51.0" layoutY="128.0" prefHeight="59.0" prefWidth="293.0" style="-fx-background-color: yelllow;" text="monday,May,2024" textFill="#a3bcad">
          <font>
             <Font name="System Bold Italic" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="62.0" layoutY="198.0" prefHeight="64.0" prefWidth="118.0" text="7:34">
+      <Label fx:id="lblTime" layoutX="62.0" layoutY="198.0" prefHeight="64.0" prefWidth="118.0" text="7:34" textFill="#a3bcad">
          <font>
             <Font name="System Bold Italic" size="32.0" />
          </font>
