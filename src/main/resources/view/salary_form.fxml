@@ -71,7 +71,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblSalary" layoutX="45.0" layoutY="322.0" onMouseClicked="#tblOnClickAction" prefHeight="295.0" prefWidth="922.0">
+      <TableView fx:id="tblSalary" layoutX="45.0" layoutY="322.0" onMouseClicked="#tblOnClickAction" prefHeight="295.0" prefWidth="922.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colId" prefWidth="200.0" text="SalaryId" />
             <TableColumn fx:id="colEmployeeId" prefWidth="266.0" text="EmployeeId" />

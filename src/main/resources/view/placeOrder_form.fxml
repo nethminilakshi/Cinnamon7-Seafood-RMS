@@ -44,7 +44,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblOrderCart" layoutX="412.0" layoutY="309.0" prefHeight="225.0" prefWidth="565.0" style="-fx-background-color: white;">
+      <TableView fx:id="tblOrderCart" layoutX="412.0" layoutY="309.0" prefHeight="225.0" prefWidth="565.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colItemCode" prefWidth="67.0" text="Code" />
             <TableColumn fx:id="colDescription" prefWidth="112.0" text="Description" />

@@ -85,7 +85,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cmbStatus" layoutX="313.0" layoutY="282.0" prefHeight="45.0" prefWidth="435.0" promptText="Choose Status" />
-      <TableView fx:id="tblItem" layoutX="55.0" layoutY="352.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0">
+      <TableView fx:id="tblItem" layoutX="55.0" layoutY="352.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colProductId" prefWidth="151.0" text="ProductId" />
             <TableColumn fx:id="colDescription" prefWidth="266.0" text="Description" />

@@ -121,7 +121,7 @@
          </font>
       </TextField>
       <ComboBox fx:id="cmbPosition" layoutX="44.0" layoutY="287.0" prefHeight="45.0" prefWidth="435.0" promptText="Position" />
-      <TableView fx:id="tblEmployee" layoutX="49.0" layoutY="362.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0">
+      <TableView fx:id="tblEmployee" layoutX="49.0" layoutY="362.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colId" prefWidth="151.0" text="ID" />
             <TableColumn fx:id="colName" prefWidth="181.0" text="Name" />

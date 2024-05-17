@@ -40,7 +40,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="tblPayment" layoutX="60.0" layoutY="307.0" prefHeight="316.0" prefWidth="878.0" style="-fx-background-color: white;">
+      <TableView fx:id="tblPayment" layoutX="60.0" layoutY="307.0" prefHeight="316.0" prefWidth="878.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colPaymentId" prefWidth="142.0" text="PaymentId" />
             <TableColumn fx:id="colCustomerId" prefWidth="200.0" text="CustomerId" />
