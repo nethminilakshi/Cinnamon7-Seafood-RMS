@@ -4,6 +4,8 @@ import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +14,6 @@ import javafx.util.Duration;
 import lk.ijse.restaurantManagement.sendEmail;
 
 import javax.mail.MessagingException;
-import java.awt.*;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 

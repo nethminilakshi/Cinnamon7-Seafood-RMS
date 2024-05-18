@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -32,36 +32,16 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="44.0" layoutY="113.0" prefHeight="45.0" prefWidth="435.0" promptText="Employee ID" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtAddress" layoutX="526.0" layoutY="113.0" prefHeight="45.0" prefWidth="435.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="45.0" layoutY="169.0" text="Name*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="44.0" layoutY="200.0" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="528.0" layoutY="169.0" text="Contact Number*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="526.0" layoutY="200.0" onAction="#txtSearchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Contact Number" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="643.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -115,11 +95,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSalary" layoutX="526.0" layoutY="287.0" prefHeight="45.0" prefWidth="435.0" promptText="Basic Salary" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <ComboBox fx:id="cmbPosition" layoutX="44.0" layoutY="287.0" prefHeight="45.0" prefWidth="435.0" promptText="Position" />
       <TableView fx:id="tblEmployee" layoutX="49.0" layoutY="362.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
@@ -131,5 +106,25 @@
             <TableColumn fx:id="colBasicSalary" prefWidth="126.0" text="BasicSalary" />
          </columns>
       </TableView>
+      <JFXTextField fx:id="txtId" layoutX="44.0" layoutY="113.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtName" layoutX="44.0" layoutY="200.0" onKeyReleased="#txtEmployeeNameOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtAddress" layoutX="526.0" layoutY="113.0" onKeyReleased="#txtEmployeeAddressOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtContact" layoutX="526.0" layoutY="200.0" onAction="#txtSearchOnAction" onKeyReleased="#txtEmployeeContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtSalary" layoutX="526.0" layoutY="287.0" onKeyReleased="#txtEmployeeSalaryOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
    </children>
 </AnchorPane>

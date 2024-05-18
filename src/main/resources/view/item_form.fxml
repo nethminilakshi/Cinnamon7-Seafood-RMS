@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -44,41 +44,21 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="56.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" promptText="Product ID" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="56.0" layoutY="181.0" text="Name*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="56.0" layoutY="211.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" promptText="Name" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="530.0" layoutY="89.0" text="QtyOnHand*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQtyOnHand" layoutX="528.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" promptText="QtyOnHand" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="528.0" layoutY="181.0" text="UnitPrice*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUnitPrice" layoutX="528.0" layoutY="211.0" prefHeight="45.0" prefWidth="435.0" promptText="UnitPrice" style="-fx-background-color: white; -fx-background-radius: 5;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="217.0" layoutY="289.0" prefHeight="30.0" prefWidth="93.0" text="Status*" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -119,5 +99,21 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="txtId" layoutX="56.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtName" layoutX="56.0" layoutY="211.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtQtyOnHand" layoutX="528.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtUnitPrice" layoutX="529.0" layoutY="211.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
    </children>
 </AnchorPane>

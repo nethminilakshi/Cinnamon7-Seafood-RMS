@@ -18,6 +18,7 @@ import lk.ijse.restaurantManagement.model.tm.CartTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.*;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -347,6 +348,7 @@ public class PlaceOrderFormController {
         JasperReport jasperReport =
                 JasperCompileManager.compileReport(jasperDesign);
 
+
         Map<String, Object> data = new HashMap<>();
         data.put("orderId",txtOrderId.getText());
         data.put("unitPrice",txtUnitPrice.getText());
@@ -360,6 +362,25 @@ public class PlaceOrderFormController {
         JasperViewer.viewReport(jasperPrint,false);
     }
 
-    public void btnGetReceipt(ActionEvent actionEvent) {
+    public void btnGetReceipt(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign =
+                JRXmlLoader.load("src/main/resources/reports/CustomerReceipt.jrxml");
+        JasperReport jasperReport =
+                JasperCompileManager.compileReport(jasperDesign);
+
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("orderId",txtOrderId.getText());
+        data.put("qty",txtQty.getText());
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        data,
+                        DbConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
+
+
     }
 }

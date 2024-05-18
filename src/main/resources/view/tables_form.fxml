@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -88,21 +88,11 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTableId" layoutX="151.0" layoutY="423.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="Table Id">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="27.0" layoutY="479.0" text="Description:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDescription" layoutX="150.0" layoutY="475.0" prefHeight="39.0" prefWidth="283.0" promptText="Description">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <TableView fx:id="tblTables" layoutX="459.0" layoutY="406.0" onMouseClicked="#ClickOnAction" prefHeight="242.0" prefWidth="407.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colTableId" prefWidth="85.0" text="TableId" />
@@ -141,20 +131,30 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTables" layoutX="150.0" layoutY="527.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="No Of Tables">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
       <Label layoutX="28.0" layoutY="582.0" text="No Of Seats:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtseats" layoutX="149.0" layoutY="578.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" promptText="No Of Seats">
+      <JFXTextField fx:id="txtTableId" layoutX="151.0" layoutY="422.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
-      </TextField>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDescription" layoutX="151.0" layoutY="474.0" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtTables" layoutX="149.0" layoutY="526.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtseats" layoutX="149.0" layoutY="577.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

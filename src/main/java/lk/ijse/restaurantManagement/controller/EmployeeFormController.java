@@ -1,5 +1,6 @@
 package lk.ijse.restaurantManagement.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,6 +20,8 @@ import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
 import lk.ijse.restaurantManagement.repository.SalaryRepo;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -53,19 +57,19 @@ public class EmployeeFormController {
     private TableView<EmployeeTm> tblEmployee;
 
     @FXML
-    private TextField txtAddress;
+    private JFXTextField txtAddress;
 
     @FXML
-    private TextField txtContact;
+    private JFXTextField txtContact;
 
     @FXML
-    private TextField txtId;
+    private JFXTextField txtId;
 
     @FXML
-    private TextField txtName;
+    private JFXTextField txtName;
 
     @FXML
-    private TextField txtSalary;
+    private JFXTextField txtSalary;
     private List<Employee> employeeList = new ArrayList<>();
 
     public void initialize() {
@@ -142,6 +146,7 @@ public class EmployeeFormController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        if(isValidate()){
         String employeeId= txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -162,7 +167,7 @@ public class EmployeeFormController {
         clearFields();
         initialize();
 //        now we should persist our customer model
-    }
+    }}
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
         String contact = txtContact.getText();
@@ -245,5 +250,29 @@ public class EmployeeFormController {
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
         txtId.setText(new EmployeeRepo().autoGenarateEmployeeId());
+    }
+
+    public void txtEmployeeSalaryOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT,txtSalary);
+    }
+
+    public void txtEmployeeContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.CONTACT,txtContact);
+    }
+
+    public void txtEmployeeAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.ADDRESS,txtAddress);
+    }
+
+    public void txtEmployeeNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.NAME,txtName);
+    }
+
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.NAME,txtName))return false;
+        if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
+        if(!Regex.setTextColor(TextField.ADDRESS,txtAddress))return false;
+        if(!Regex.setTextColor(TextField.AMOUNT,txtSalary))return false;
+        return true;
     }
 }

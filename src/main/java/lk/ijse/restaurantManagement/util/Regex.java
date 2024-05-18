@@ -1,6 +1,7 @@
 package lk.ijse.restaurantManagement.util;
 
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.scene.paint.Paint;
 
 import java.util.regex.Matcher;
@@ -77,14 +78,14 @@ public class Regex  {
         }
         return false;
     }
-    public static boolean setTextColor(TextField location, javafx.scene.control.TextField field){
+    public static boolean setTextColor(TextField location, JFXTextField field){
         if (Regex.isTextFiledsValid(location,field.getText())){
-          // field.setFocusColor(Paint.valueOf("Green"));
-          // field.setUnFocusColor(Paint.valueOf("Green"));
+            field.setFocusColor(Paint.valueOf("Green"));
+            field.setUnFocusColor(Paint.valueOf("Green"));
             return true;
         }else {
-           // field.setFocusColor(Paint.valueOf("Red"));
-           // field.setUnFocusColor(Paint.valueOf("Red"));
+            field.setFocusColor(Paint.valueOf("Red"));
+            field.setUnFocusColor(Paint.valueOf("Red"));
             return false;
         }
     }

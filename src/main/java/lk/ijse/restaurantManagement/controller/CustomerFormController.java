@@ -1,6 +1,7 @@
 package lk.ijse.restaurantManagement.controller;
 
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
@@ -13,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
@@ -30,6 +30,7 @@ import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
@@ -40,15 +41,13 @@ import java.util.List;
 public class CustomerFormController {
 
     @FXML
-    private ImageView nextbtn;
-    @FXML
-    private TextField txtGmailSend;
-
-    @FXML
     private TableColumn<?, ?> colAddress;
 
     @FXML
     private TableColumn<?, ?> colContact;
+
+    @FXML
+    private TableColumn<?, ?> colEmail;
 
     @FXML
     private TableColumn<?, ?> colId;
@@ -57,28 +56,29 @@ public class CustomerFormController {
     private TableColumn<?, ?> colName;
 
     @FXML
-    private TableColumn<?, ?> colEmail;
-
-    @FXML
     private AnchorPane root;
 
     @FXML
     private TableView<CustomerTm> tblCustomers;
 
     @FXML
-    private TextField txtAddress;
+    private JFXTextField txtAddress;
 
     @FXML
-    private TextField txtContact;
+    private JFXTextField txtContact;
 
     @FXML
-    private TextField txtId;
+    private JFXTextField txtEmail;
 
     @FXML
-    private TextField txtName;
+    private JFXTextField txtGmailSend;
 
     @FXML
-    private TextField txtEmail;
+    private JFXTextField txtId;
+
+    @FXML
+    private JFXTextField txtName;
+
     public static String gmail="";
 
     private List<Customer> customerList = new ArrayList<>();
@@ -250,25 +250,25 @@ public class CustomerFormController {
     }
 
     public void txtCustomerNameOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.DESC,txtName);
+        Regex.setTextColor(TextField.DESC,txtName);
     }
 
-    public void txtCustomerIContactOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.CONTACT,txtContact);
+    public void txtCustomerContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.CONTACT,txtContact);
     }
 
     public void txtCustomerAddressOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.ADDRESS,txtAddress);
+        Regex.setTextColor(TextField.ADDRESS,txtContact);
     }
 
     public void txtCustomerEmailOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.EMAIL,txtEmail);
     }
     public boolean isValidate(){
-        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.DESC,txtName))return false;
-        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.CONTACT,txtContact))return false;
-        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.ADDRESS,txtAddress))return false;
-        if(!Regex.setTextColor(lk.ijse.restaurantManagement.util.TextField.EMAIL,txtEmail))return false;
+        if(!Regex.setTextColor(TextField.DESC,txtName))return false;
+        if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
+        if(!Regex.setTextColor(TextField.ADDRESS,txtAddress))return false;
+        if(!Regex.setTextColor(TextField.EMAIL,txtEmail))return false;
         return true;
     }
 
@@ -326,7 +326,7 @@ public class CustomerFormController {
             scaleT.play();
 
             DropShadow glow = new DropShadow();
-//            glow.setColor(Color.valueOf("#EF233C"));
+            glow.setColor(Color.valueOf("#EF233C"));
             glow.setColor(Color.CORNFLOWERBLUE);
             glow.setWidth(15);
             glow.setHeight(15);

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -39,25 +39,16 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="607.0" layoutY="210.0" prefHeight="21.0" prefWidth="134.0" text="Username" textFill="WHITE">
+      <Label layoutX="607.0" layoutY="230.0" prefHeight="21.0" prefWidth="134.0" text="Username" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUserId" layoutX="597.0" layoutY="241.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
-         <font>
-            <Font size="18.0" />
-         </font></TextField>
-      <Label layoutX="607.0" layoutY="322.0" prefHeight="21.0" prefWidth="134.0" text="Password" textFill="WHITE">
+      <Label layoutX="607.0" layoutY="342.0" prefHeight="21.0" prefWidth="134.0" text="Password" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="22.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txtPassword" layoutX="597.0" layoutY="353.0" prefHeight="50.0" prefWidth="344.0" style="-fx-background-radius: 30;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
       <Label layoutX="650.0" layoutY="578.0" prefHeight="27.0" prefWidth="102.0" text="New User?" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -78,5 +69,15 @@
          </font>
       </Label>
       <Line endX="10.4666748046875" endY="1.52587890625E-5" layoutX="802.0" layoutY="139.0" startX="-75.5999755859375" startY="3.0517578125E-5" stroke="WHITE" />
+      <JFXTextField fx:id="txtUserId" layoutX="609.0" layoutY="250.0" prefHeight="50.0" prefWidth="320.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="txtPassword" layoutX="609.0" layoutY="364.0" prefHeight="39.0" prefWidth="320.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXPasswordField>
    </children>
 </AnchorPane>

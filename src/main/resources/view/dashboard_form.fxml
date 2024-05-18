@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -20,41 +18,34 @@
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.DashboardFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+      <ImageView fitHeight="800.0" fitWidth="1000.0" layoutY="-97.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets.icon/pasta.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle height="700.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
       <ImageView fitHeight="70.0" fitWidth="64.0" layoutX="70.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets.icon/icons8-food-100.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="800.0" fitWidth="1000.0" layoutY="40.0" opacity="0.76" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets.icon/cocktails-4k-full-hd-wallpaper-preview.jpg" />
-         </image>
-      </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="876.0" layoutY="636.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: #31363F; -fx-background-radius: 20;" text="Back" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
+      <Label layoutX="148.0" layoutY="36.0" prefHeight="50.0" prefWidth="259.0" text="Come &amp; Taste" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </JFXButton>
-      <Label layoutX="148.0" layoutY="44.0" prefHeight="50.0" prefWidth="259.0" text="Come &amp; Taste" textFill="#ff8787">
-         <font>
-            <Font name="System Bold Italic" size="34.0" />
+            <Font name="System Bold" size="34.0" />
          </font>
       </Label>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="132.0" layoutX="485.0" layoutY="535.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="187.0">
          <fill>
-            <LinearGradient endX="0.91700779862673" endY="0.3227955378623045" startX="0.0947867298578199" startY="0.11848341232227488">
+            <LinearGradient endX="0.5046855237452135" endY="0.7398571492367121">
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.41228070855140686" green="0.2982456088066101" blue="0.4736842215061188" />
+                        <Color red="1.0" green="0.6527777910232544" blue="0.3055555522441864" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.13535575568675995" green="0.2740618884563446" blue="0.28947368264198303" opacity="0.7300000190734863" />
+                        <Color red="1.0" green="0.5071429014205933" />
                      </color>
                   </Stop>
                </stops>
@@ -72,19 +63,19 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.05257066339254379" green="0.04020467773079872" blue="0.06578947603702545" />
+                        <Color red="1.0" green="0.35686275362968445" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.3778102695941925" green="0.3815789520740509" blue="0.15545809268951416" />
+                        <Color red="1.0" green="0.3686274588108063" blue="0.29019609093666077" />
                      </color>
                   </Stop>
                </stops>
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Label fx:id="lblEmployeeCount" layoutX="76.0" layoutY="586.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="   2 " textFill="#5e0000">
+      <Label fx:id="lblEmployeeCount" layoutX="76.0" layoutY="586.0" prefHeight="50.0" prefWidth="95.0" text="   2 " textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
@@ -96,16 +87,16 @@
       </Text>
       <Rectangle arcHeight="20.0" arcWidth="20.0" height="132.0" layoutX="260.0" layoutY="535.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="187.0">
          <fill>
-            <LinearGradient endX="0.5568182251670144" endY="0.815686533122968">
+            <LinearGradient endX="0.5568182251670144" endY="0.6687671018433472">
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.6184210777282715" green="0.3922392725944519" blue="0.5053301453590393" />
+                        <Color red="0.5982577800750732" green="0.737913191318512" blue="0.8026315569877625" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.31578946113586426" green="0.28421053290367126" blue="0.19736842811107635" />
+                        <Color red="0.6041398644447327" green="0.4399999976158142" blue="1.0" />
                      </color>
                   </Stop>
                </stops>
@@ -125,28 +116,28 @@
             <ColorAdjust contrast="0.15" hue="1.0" />
          </effect>
       </ImageView>
-      <Label layoutX="746.0" layoutY="20.0" prefHeight="40.0" prefWidth="173.0" text="Cinnamon-7" textFill="#c64a6f">
+      <Label layoutX="746.0" layoutY="20.0" prefHeight="40.0" prefWidth="173.0" text="Cinnamon-7" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="765.0" layoutY="52.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="#c64a6f">
+      <Label layoutX="765.0" layoutY="52.0" prefHeight="22.0" prefWidth="140.0" text="Seafood Restaurant" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblItemCount" layoutX="301.0" layoutY="588.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  3">
+      <Label fx:id="lblItemCount" layoutX="301.0" layoutY="588.0" prefHeight="50.0" prefWidth="95.0" text="  3" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="lblCustomerCount" layoutX="537.0" layoutY="581.0" prefHeight="50.0" prefWidth="95.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 7;" text="  3" textFill="#5e0000">
+      <Label fx:id="lblCustomerCount" layoutX="537.0" layoutY="581.0" prefHeight="50.0" prefWidth="95.0" text="  3" textFill="WHITE">
          <font>
             <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f2f2f2" height="370.0" layoutX="571.0" layoutY="142.0" opacity="0.79" stroke="BLACK" strokeType="INSIDE" width="370.0" />
-      <BarChart fx:id="barChartOrders" layoutX="581.0" layoutY="152.0" prefHeight="350.0" prefWidth="350.0">
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f2f2f2" height="347.0" layoutX="571.0" layoutY="165.0" opacity="0.79" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+      <BarChart fx:id="barChartOrders" layoutX="581.0" layoutY="191.0" prefHeight="311.0" prefWidth="350.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -154,19 +145,19 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Label layoutX="632.0" layoutY="97.0" prefHeight="34.0" prefWidth="173.0" text="Orders Details" textFill="#dda9a9">
+      <Label layoutX="670.0" layoutY="117.0" prefHeight="34.0" prefWidth="173.0" text="Orders Details" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="23.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="51.0" layoutY="128.0" prefHeight="59.0" prefWidth="293.0" style="-fx-background-color: yelllow;" text="monday,May,2024" textFill="#a3bcad">
+      <Label fx:id="lblDate" layoutX="139.0" layoutY="270.0" prefHeight="59.0" prefWidth="293.0" style="-fx-background-color: yelllow;" text="monday,May,2024" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="32.0" />
+            <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="62.0" layoutY="198.0" prefHeight="64.0" prefWidth="118.0" text="7:34" textFill="#a3bcad">
+      <Label fx:id="lblTime" layoutX="107.0" layoutY="185.0" prefHeight="116.0" prefWidth="416.0" text="7:34 PM" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="32.0" />
+            <Font name="System Bold" size="72.0" />
          </font>
       </Label>
    </children>

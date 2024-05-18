@@ -95,8 +95,8 @@ public class OrderRepo {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         while (resultSet.next()) {
-            String date = resultSet.getString("date");
-            int ordersCount = resultSet.getInt("OrdersCount");
+            String date = resultSet.getString("order_date");
+            int ordersCount = resultSet.getInt("order_count");
             series.getData().add(new XYChart.Data<>(date, ordersCount));
         }
 

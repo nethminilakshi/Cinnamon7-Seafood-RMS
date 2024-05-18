@@ -18,6 +18,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class DashboardFormController {
     @FXML
@@ -79,7 +80,7 @@ public class DashboardFormController {
         }
         setEmployeeCount(employeeCount);
 
-        // OrderRepo.OrdersCount(barChartOrders);
+         OrderRepo.OrdersCount(barChartOrders);
     }
 
 
@@ -92,9 +93,9 @@ public class DashboardFormController {
                 }catch (Exception e){
                     System.out.println(e);
                 }
-               // final String timenow = sdf.format(new Date());
+               final String timenow = sdf.format(new Date());
                 Platform.runLater(()->{
-                  //  lblTime.setText(timenow);
+                  lblTime.setText(timenow);
                 });
             }
         });
