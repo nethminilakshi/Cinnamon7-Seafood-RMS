@@ -113,7 +113,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbOrderType" layoutX="142.0" layoutY="235.0" prefHeight="35.0" prefWidth="250.0" promptText="Choose Type..." />
+      <ComboBox fx:id="cmbOrderType" layoutX="142.0" layoutY="235.0" prefHeight="30.0" prefWidth="250.0" promptText="Choose Type..." />
       <Label layoutX="493.0" layoutY="132.0" prefHeight="27.0" prefWidth="167.0" text="Customer Contact:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -169,47 +169,47 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <JFXTextField fx:id="txtOrderId" layoutX="142.0" layoutY="128.0" prefHeight="35.0" prefWidth="250.0" style="-fx-text-fill: white;">
+      <JFXTextField fx:id="txtOrderId" layoutX="142.0" layoutY="124.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDate" layoutX="142.0" layoutY="179.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtDate" layoutX="142.0" layoutY="179.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="667.0" layoutY="129.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtContact" layoutX="667.0" layoutY="129.0" onAction="#btnsearchOnAction" onKeyReleased="#txtAContactOnKeyReleased" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtId" layoutX="667.0" layoutY="179.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtId" layoutX="667.0" layoutY="175.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCustomerName" layoutX="667.0" layoutY="231.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtCustomerName" layoutX="667.0" layoutY="227.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCode" layoutX="142.0" layoutY="378.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtCode" layoutX="142.0" layoutY="371.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDescription" layoutX="141.0" layoutY="426.0" onAction="#searchOnDescAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtDescription" layoutX="141.0" layoutY="426.0" onAction="#searchOnDescAction" onKeyReleased="#txtDescOnKeyReleased" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtUnitPrice" layoutX="141.0" layoutY="475.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtUnitPrice" layoutX="141.0" layoutY="475.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtQtyOnHand" layoutX="142.0" layoutY="523.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtQtyOnHand" layoutX="142.0" layoutY="523.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>

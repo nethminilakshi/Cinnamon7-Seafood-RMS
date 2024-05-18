@@ -153,27 +153,32 @@ public class CustomerFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        clearFields();
+        if(isValidate()) {
+            clearFields();
+        }
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String contact = txtContact.getText();
+        if (isValidate()) {
+            String contact = txtContact.getText();
 
-        try {
-            boolean isDeleted = CustomerRepo.delete(contact);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+            try {
+                boolean isDeleted = CustomerRepo.delete(contact);
+                if (isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            clearFields();
+            initialize();
         }
-        clearFields();
-        initialize();
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        if (isValidate()){
         String cusId = txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -192,27 +197,29 @@ public class CustomerFormController {
         }
         clearFields();
         initialize();
-    }
+    }}
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String cusId=txtId.getText();
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String contact = txtContact.getText();
-        String email = txtEmail.getText();
+        if (isValidate()) {
+            String cusId = txtId.getText();
+            String name = txtName.getText();
+            String address = txtAddress.getText();
+            String contact = txtContact.getText();
+            String email = txtEmail.getText();
 
-        Customer customer = new Customer(cusId, name, address,contact,email);
+            Customer customer = new Customer(cusId, name, address, contact, email);
 
-        try {
-            boolean isUpdated = CustomerRepo.update(customer);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+            try {
+                boolean isUpdated = CustomerRepo.update(customer);
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            initialize();
         }
-        initialize();
     }
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
@@ -220,6 +227,7 @@ public class CustomerFormController {
     }
     @FXML
     void txtSearchOnAction(ActionEvent event) {
+        if (isValidate()){
         String contact = txtContact.getText();
 
         try {
@@ -236,7 +244,7 @@ public class CustomerFormController {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
+        }}
     }
 
     public void tblOnClickAction(MouseEvent mouseEvent) {
@@ -290,6 +298,7 @@ public class CustomerFormController {
     }
 
     public void btnNextOnAction(MouseEvent mouseEvent) {
+        if (isValidate()){
         gmail = txtGmailSend.getText();
         if (txtGmailSend.getText().equals("")){
             new Alert(Alert.AlertType.WARNING,"enter valid gmail address !").show();
@@ -312,7 +321,7 @@ public class CustomerFormController {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }}
 
     }
 

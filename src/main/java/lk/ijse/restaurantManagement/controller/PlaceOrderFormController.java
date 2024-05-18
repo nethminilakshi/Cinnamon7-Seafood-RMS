@@ -1,6 +1,7 @@
 package lk.ijse.restaurantManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.db.DbConnection;
@@ -17,6 +19,8 @@ import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.CartTm;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.*;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -38,12 +42,6 @@ public class PlaceOrderFormController {
 
     @FXML
     private JFXButton btnPlaceOrder;
-
-    @FXML
-   private TextField txtContact;
-
-    @FXML
-    private TextField txtCode;
 
     @FXML
     private TableColumn<?, ?> colAction;
@@ -69,35 +67,41 @@ public class PlaceOrderFormController {
     private TableView<CartTm> tblOrderCart;
 
     @FXML
-    private TextField txtId;
+    private JFXTextField txtCode;
 
     @FXML
-    private TextField txtCustomerName;
+    private JFXTextField txtContact;
 
     @FXML
-    private TextField txtDate;
+    private JFXTextField txtCustomerName;
 
     @FXML
-    private TextField txtDescription;
+    private JFXTextField txtDate;
+
+    @FXML
+    private JFXTextField txtDescription;
+
+    @FXML
+    private JFXTextField txtId;
+
+    @FXML
+    private JFXTextField txtNetTotal;
+
+    @FXML
+    private JFXTextField txtOrderId;
+
+    @FXML
+    private JFXTextField txtQty;
+
+    @FXML
+    private JFXTextField txtQtyOnHand;
+
+    @FXML
+    private JFXTextField txtUnitPrice;
 
     @FXML
     private ComboBox<String> cmbOrderType;
 
-
-    @FXML
-    private TextField txtNetTotal;
-
-    @FXML
-    private TextField txtOrderId;
-
-    @FXML
-    private TextField txtQty;
-
-    @FXML
-    private TextField txtQtyOnHand;
-
-    @FXML
-    private TextField txtUnitPrice;
 
     private final ObservableList<CartTm> cartList = FXCollections.observableArrayList();
     private double netTotal = 0;
@@ -181,6 +185,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
+        if (isValidate()){
         String id = txtCode.getText();
         String description = txtDescription.getText();
         int qty = Integer.parseInt(txtQty.getText());
@@ -227,7 +232,7 @@ public class PlaceOrderFormController {
         tblOrderCart.setItems(cartList);
         txtQty.setText("");
         calculateNetTotal();
-    }
+    }}
 
     private void calculateNetTotal() {
         netTotal = 0;
@@ -248,6 +253,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+        if (isValidate()){
         String orderId = txtOrderId.getText();
         String orderType= String.valueOf(cmbOrderType.getValue());
         String cusId = txtId.getText();
@@ -280,7 +286,7 @@ public class PlaceOrderFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
-    }
+    }}
 
     @FXML
     void searchOnDescAction(ActionEvent event) {
@@ -307,6 +313,7 @@ public class PlaceOrderFormController {
     }
 
     public void btnsearchOnAction(ActionEvent event) {
+        if (isValidate()){
         String contact = txtContact.getText();
 
         try {
@@ -317,7 +324,7 @@ public class PlaceOrderFormController {
             throw new RuntimeException(e);
         }
         initialize();
-    }
+    }}
 
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
@@ -325,8 +332,9 @@ public class PlaceOrderFormController {
     }
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
-        clearFields();
-
+        if (isValidate()) {
+            clearFields();
+        }
     }
 
     private void clearFields() {
@@ -343,6 +351,7 @@ public class PlaceOrderFormController {
     }
 
    public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        if (isValidate()){
        JasperDesign jasperDesign =
                 JRXmlLoader.load("src/main/resources/reports/order_details.jrxml");
         JasperReport jasperReport =
@@ -360,27 +369,41 @@ public class PlaceOrderFormController {
                         DbConnection.getInstance().getConnection());
 
         JasperViewer.viewReport(jasperPrint,false);
-    }
+    }}
 
     public void btnGetReceipt(ActionEvent actionEvent) throws JRException, SQLException {
-        JasperDesign jasperDesign =
-                JRXmlLoader.load("src/main/resources/reports/CustomerReceipt.jrxml");
-        JasperReport jasperReport =
-                JasperCompileManager.compileReport(jasperDesign);
+        if (isValidate()) {
+            JasperDesign jasperDesign =
+                    JRXmlLoader.load("src/main/resources/reports/CustomerReceipt.jrxml");
+            JasperReport jasperReport =
+                    JasperCompileManager.compileReport(jasperDesign);
 
 
-        Map<String, Object> data = new HashMap<>();
-        data.put("orderId",txtOrderId.getText());
-        data.put("qty",txtQty.getText());
+            Map<String, Object> data = new HashMap<>();
+            data.put("orderId", txtOrderId.getText());
+            data.put("qty", txtQty.getText());
 
-        JasperPrint jasperPrint =
-                JasperFillManager.fillReport(
-                        jasperReport,
-                        data,
-                        DbConnection.getInstance().getConnection());
+            JasperPrint jasperPrint =
+                    JasperFillManager.fillReport(
+                            jasperReport,
+                            data,
+                            DbConnection.getInstance().getConnection());
 
-        JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.viewReport(jasperPrint, false);
+        }
 
+    }
 
+    public void txtDescOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.DESC,txtDescription);
+    }
+
+    public void txtAContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.CONTACT,txtContact);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.DESC,txtDescription))return false;
+        if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
+        return true;
     }
 }

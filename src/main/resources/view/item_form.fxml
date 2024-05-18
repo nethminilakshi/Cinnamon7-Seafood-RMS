@@ -64,7 +64,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbStatus" layoutX="313.0" layoutY="282.0" prefHeight="45.0" prefWidth="435.0" promptText="Choose Status" />
+      <ComboBox fx:id="cmbStatus" layoutX="313.0" layoutY="282.0" prefHeight="38.0" prefWidth="425.0" promptText="Choose Status" />
       <TableView fx:id="tblItem" layoutX="55.0" layoutY="352.0" onMouseClicked="#tblClickOnAction" prefHeight="256.0" prefWidth="916.0" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colProductId" prefWidth="151.0" text="ProductId" />
@@ -99,19 +99,19 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtId" layoutX="56.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtId" layoutX="56.0" layoutY="123.0" prefHeight="38.0" prefWidth="425.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtName" layoutX="56.0" layoutY="211.0" onAction="#searchOnAction" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtName" layoutX="56.0" layoutY="211.0" onAction="#searchOnAction" onKeyReleased="#txtItemNameOnKeyReleased" prefHeight="38.0" prefWidth="425.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtQtyOnHand" layoutX="528.0" layoutY="123.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtQtyOnHand" layoutX="528.0" layoutY="123.0" onKeyReleased="#txtitemQtyOnKeyReleased" prefHeight="38.0" prefWidth="425.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtUnitPrice" layoutX="529.0" layoutY="211.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtUnitPrice" layoutX="529.0" layoutY="211.0" onKeyReleased="#txtItemUnitPriceOnKeyReleased" prefHeight="38.0" prefWidth="425.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>

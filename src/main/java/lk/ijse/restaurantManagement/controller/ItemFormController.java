@@ -1,4 +1,5 @@
 package lk.ijse.restaurantManagement.controller;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,6 +20,8 @@ import lk.ijse.restaurantManagement.model.tm.ItemTm;
 import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
 import lk.ijse.restaurantManagement.repository.PaymentRepo;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -52,16 +56,16 @@ public class ItemFormController {
     private AnchorPane root;
 
     @FXML
-    private TextField txtId;
+    private JFXTextField txtId;
 
     @FXML
-    private TextField txtName;
+    private JFXTextField txtName;
 
     @FXML
-    private TextField txtQtyOnHand;
+    private JFXTextField txtQtyOnHand;
 
     @FXML
-    private TextField txtUnitPrice;
+    private JFXTextField txtUnitPrice;
     private List<Item> itemList=new ArrayList<>();
     private Alert alert;
     public void initialize() {
@@ -128,22 +132,24 @@ public class ItemFormController {
     }
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String description = txtName.getText();
+        if (isValidate()) {
+            String description = txtName.getText();
 
-        try {
-            boolean isDeleted = ItemRepo.delete(description);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+            try {
+                boolean isDeleted = ItemRepo.delete(description);
+                if (isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            clearFields();
+            initialize();
         }
-        clearFields();
-        initialize();
-
     }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        if (isValidate()){
         String id = txtId.getText();
         String name = txtName.getText();
         String qtyOnHand = txtQtyOnHand.getText();
@@ -165,6 +171,8 @@ public class ItemFormController {
         clearFields();
         initialize();
     }
+    }
+
     private void clearFields() {
         txtId.setText("");
         txtName.setText("");
@@ -174,28 +182,31 @@ public class ItemFormController {
     }
     @FXML
     void btnClearOnAction(ActionEvent event) {
+        if (isValidate()){
         clearFields();
-    }
+    }}
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String id = txtId.getText();
-        String name = txtName.getText();
-        String qtyOnHand = txtQtyOnHand.getText();
-        String unitPrice = txtUnitPrice.getText();
-        String status=String.valueOf(cmbStatus.getValue());
+        if (isValidate()) {
+            String id = txtId.getText();
+            String name = txtName.getText();
+            String qtyOnHand = txtQtyOnHand.getText();
+            String unitPrice = txtUnitPrice.getText();
+            String status = String.valueOf(cmbStatus.getValue());
 
-        Item item = new Item(id,name,qtyOnHand,unitPrice,status);
-        try {
-            boolean isUpdated = ItemRepo.update(item);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Item updated!").show();
+            Item item = new Item(id, name, qtyOnHand, unitPrice, status);
+            try {
+                boolean isUpdated = ItemRepo.update(item);
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Item updated!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            clearFields();
+            initialize();
         }
-        clearFields();
-        initialize();
     }
 
     public void btnBackOnAction(ActionEvent actionEvent)throws IOException {
@@ -208,25 +219,26 @@ public class ItemFormController {
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
-        String description  = txtName.getText();
+        if (isValidate()) {
+            String description = txtName.getText();
 
-        try {
-            Item item = ItemRepo.searchByDescription(description);
+            try {
+                Item item = ItemRepo.searchByDescription(description);
 
-            if (item != null) {
-                txtId.setText(item.getId());
-                txtName.setText(item.getDescription());
-                txtQtyOnHand.setText(item.getQtyOnHand());
-                txtUnitPrice.setText(item.getUnitPrice());
-                cmbStatus.setValue(item.getStatus());
+                if (item != null) {
+                    txtId.setText(item.getId());
+                    txtName.setText(item.getDescription());
+                    txtQtyOnHand.setText(item.getQtyOnHand());
+                    txtUnitPrice.setText(item.getUnitPrice());
+                    cmbStatus.setValue(item.getStatus());
 
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            initialize();
         }
-        initialize();
     }
-
     public void tblClickOnAction(MouseEvent mouseEvent) {
         ItemTm selectedItem = tblItem.getSelectionModel().getSelectedItem();
         txtId.setText(selectedItem.getId());
@@ -238,6 +250,24 @@ public class ItemFormController {
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
         txtId.setText(new ItemRepo().autoGenarateItemCode());
+    }
+
+    public void txtItemUnitPriceOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT,txtUnitPrice);
+    }
+
+    public void txtitemQtyOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY,txtQtyOnHand);
+    }
+
+    public void txtItemNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.NAME,txtName);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.AMOUNT,txtUnitPrice))return false;
+        if(!Regex.setTextColor(TextField.QTY,txtQtyOnHand))return false;
+        if(!Regex.setTextColor(TextField.NAME,txtName))return false;
+        return true;
     }
 }
 

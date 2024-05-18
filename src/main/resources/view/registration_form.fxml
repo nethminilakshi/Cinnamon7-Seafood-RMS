@@ -64,17 +64,17 @@
          </font>
       </JFXButton>
       <Line endX="0.5333251953125" layoutX="270.0" layoutY="126.0" startX="-100.0" stroke="WHITE" />
-      <JFXTextField fx:id="txtUserId" layoutX="57.0" layoutY="203.0" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
+      <JFXTextField fx:id="txtUserId" layoutX="57.0" layoutY="203.0" onKeyReleased="#txtUserIdOnKeyReleased" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtUserName" layoutX="58.0" layoutY="324.0" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
+      <JFXTextField fx:id="txtUserName" layoutX="58.0" layoutY="324.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtPassword" layoutX="58.0" layoutY="445.0" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
+      <JFXTextField fx:id="txtPassword" layoutX="58.0" layoutY="445.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="50.0" prefWidth="344.0" style="-fx-text-fill: white;">
          <font>
             <Font size="18.0" />
          </font>

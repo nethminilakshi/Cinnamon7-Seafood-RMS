@@ -61,23 +61,13 @@ public class DashboardFormController {
 
         try {
             customerCount = CustomerRepo.getCustomerCount();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        setCustomerCount(customerCount);
-
-        try {
+            employeeCount = EmployeeRepo.getEmployeeCount();
             itemCount = ItemRepo.getItemCount();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        setCustomerCount(customerCount);
         setItemCount(itemCount);
-
-        try {
-            employeeCount = EmployeeRepo.getEmployeeCount();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         setEmployeeCount(employeeCount);
 
          OrderRepo.OrdersCount(barChartOrders);

@@ -69,12 +69,12 @@
          </font>
       </Label>
       <Line endX="10.4666748046875" endY="1.52587890625E-5" layoutX="802.0" layoutY="139.0" startX="-75.5999755859375" startY="3.0517578125E-5" stroke="WHITE" />
-      <JFXTextField fx:id="txtUserId" layoutX="609.0" layoutY="250.0" prefHeight="50.0" prefWidth="320.0">
+      <JFXTextField fx:id="txtUserId" layoutX="609.0" layoutY="250.0" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="50.0" prefWidth="320.0" style="-fx-text-fill: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="txtPassword" layoutX="609.0" layoutY="364.0" prefHeight="39.0" prefWidth="320.0">
+      <JFXPasswordField fx:id="txtPassword" layoutX="609.0" layoutY="364.0" onKeyReleased="#txtpwOnKeyReleased" prefHeight="39.0" prefWidth="320.0" style="-fx-text-fill: white;">
          <font>
             <Font size="18.0" />
          </font>

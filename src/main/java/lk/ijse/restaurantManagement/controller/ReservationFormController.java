@@ -1,6 +1,7 @@
 package lk.ijse.restaurantManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,11 +11,14 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.ReservationCartTm;
 import lk.ijse.restaurantManagement.repository.*;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -61,25 +65,25 @@ public class ReservationFormController {
     private TableView<ReservationCartTm> tblReservationCart;
 
     @FXML
-    private TextField txtAvailableQty;
+    private JFXTextField txtAvailableQty;
 
     @FXML
-    private TextField txtContact;
+    private JFXTextField txtContact;
 
     @FXML
-    private TextField txtCustomerId;
+    private JFXTextField txtCustomerId;
 
     @FXML
     private DatePicker txtDate;
 
     @FXML
-    private TextField txtDescription;
+    private JFXTextField txtDescription;
 
     @FXML
-    private TextField txtRequiredQty;
+    private JFXTextField txtRequiredQty;
 
     @FXML
-    private TextField txtReservationId;
+    private JFXTextField txtReservationId;
 
     private final ObservableList<ReservationCartTm> cartList = FXCollections.observableArrayList();
     public void initialize(){
@@ -167,6 +171,7 @@ public class ReservationFormController {
 
     @FXML
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         String reservationId = txtReservationId.getText();
         String date = String.valueOf(txtDate.getValue());
         String time = String.valueOf(cmbTimeSlot.getValue());
@@ -210,9 +215,11 @@ public class ReservationFormController {
         tblReservationCart.setItems(cartList);
         txtRequiredQty.setText("");
 
-    }
+    }}
+
     @FXML
     public void btnAddOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         String reservationId = txtReservationId.getText();
         String description= txtDescription.getText();
         String cusId = txtCustomerId.getText();
@@ -247,10 +254,6 @@ public class ReservationFormController {
         }
         clearFields();
     }
-
-    @FXML
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
-
     }
 
     @FXML
@@ -267,8 +270,9 @@ public class ReservationFormController {
 
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         clearFields();
-    }
+    }}
 
     private void clearFields() {
         txtDescription.setText("");
@@ -377,5 +381,23 @@ public class ReservationFormController {
         stage.setScene(new Scene(anchorPane));
         stage.setTitle("ReservationDetails Form");
         stage.centerOnScreen();
+    }
+
+    public void txtDescOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.DESC,txtDescription);
+    }
+
+    public void txtAContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.CONTACT,txtContact);
+    }
+
+    public void txtQtyOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY,txtRequiredQty);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.DESC,txtDescription))return false;
+        if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
+        if(!Regex.setTextColor(TextField.QTY,txtRequiredQty))return false;
+        return true;
     }
 }

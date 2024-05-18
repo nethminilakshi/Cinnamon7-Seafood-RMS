@@ -170,27 +170,30 @@ public class EmployeeFormController {
     }}
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
-        String contact = txtContact.getText();
+        if (isValidate()) {
+            String contact = txtContact.getText();
 
-        try {
-            Employee employee = EmployeeRepo.searchByContact(contact);
+            try {
+                Employee employee = EmployeeRepo.searchByContact(contact);
 
-            if (employee != null) {
-                txtId.setText(employee.getEmployeeId());
-                txtName.setText(employee.getName());
-                txtAddress.setText(employee.getAddress());
-                txtContact.setText(employee.getContact());
-                cmbPosition.setValue(employee.getPositon());
-                txtSalary.setText(employee.getBasicSalary());
+                if (employee != null) {
+                    txtId.setText(employee.getEmployeeId());
+                    txtName.setText(employee.getName());
+                    txtAddress.setText(employee.getAddress());
+                    txtContact.setText(employee.getContact());
+                    cmbPosition.setValue(employee.getPositon());
+                    txtSalary.setText(employee.getBasicSalary());
 
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            initialize();
         }
-        initialize();
     }
 
     public void btnUpdateOnAction(ActionEvent event) {
+        if (isValidate()){
         String employeeId=txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -209,7 +212,8 @@ public class EmployeeFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         initialize();
-    }
+    }}
+
     private void clearFields() {
         txtId.setText("");
         txtName.setText("");
@@ -220,10 +224,12 @@ public class EmployeeFormController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        clearFields();
+        if (isValidate()) {
+            clearFields();
+        }
     }
-
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         String contact= txtContact.getText();
 
         try {
@@ -236,6 +242,7 @@ public class EmployeeFormController {
         }
         clearFields();
         initialize();
+        }
     }
 
     public void tblClickOnAction(MouseEvent mouseEvent) {

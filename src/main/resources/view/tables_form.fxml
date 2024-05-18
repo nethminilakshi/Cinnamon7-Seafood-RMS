@@ -51,12 +51,12 @@
             <Image url="@../assets.icon/photo_2024-05-07_11-49-40.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblFamilyTbl1" layoutX="40.0" layoutY="276.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-I" textFill="#834040">
+      <Label fx:id="lblFamilyTbl1" layoutX="40.0" layoutY="276.0" prefHeight="40.0" prefWidth="210.0" text="      Family Table-I" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblFamilyTbl2" layoutX="301.0" layoutY="274.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="210.0" text="      Family Table-II" textFill="#834040">
+      <Label fx:id="lblFamilyTbl2" layoutX="301.0" layoutY="274.0" prefHeight="40.0" prefWidth="210.0" text="      Family Table-II" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -67,7 +67,7 @@
             <Image url="@../assets.icon/photo_2024-05-07_12-09-41.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lblSingleTbl" layoutX="559.0" layoutY="275.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="206.0" text="     Single Table" textFill="#834040">
+      <Label fx:id="lblSingleTbl" layoutX="559.0" layoutY="275.0" prefHeight="40.0" prefWidth="206.0" text="     Single Table" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -78,7 +78,7 @@
             <Image url="@../assets.icon/photo_2024-05-07_12-09-32.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lbloutdoorTbl" layoutX="816.0" layoutY="276.0" onMouseClicked="#lblClickOnAction" prefHeight="40.0" prefWidth="113.0" text="Outdor Table" textFill="#834040">
+      <Label fx:id="lbloutdoorTbl" layoutX="816.0" layoutY="276.0" prefHeight="40.0" prefWidth="113.0" text="Outdor Table" textFill="#834040">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -141,17 +141,17 @@
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDescription" layoutX="151.0" layoutY="474.0" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtDescription" layoutX="151.0" layoutY="474.0" onKeyReleased="#txtDescOnKeyReleased" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtTables" layoutX="149.0" layoutY="526.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtTables" layoutX="149.0" layoutY="526.0" onAction="#searchOnAction" onKeyReleased="#txtQtyTablesOnKeyReleased" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtseats" layoutX="149.0" layoutY="577.0" onAction="#searchOnAction" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtseats" layoutX="149.0" layoutY="577.0" onAction="#searchOnAction" onKeyReleased="#txtQtySeatsOnKeyReleased" prefHeight="39.0" prefWidth="283.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>

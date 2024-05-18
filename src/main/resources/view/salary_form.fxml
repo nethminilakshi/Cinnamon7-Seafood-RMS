@@ -96,7 +96,7 @@
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAmount" layoutX="532.0" layoutY="251.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtAmount" layoutX="532.0" layoutY="251.0" onKeyReleased="#txtSalaryOnKeyReleased" prefWidth="435.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>

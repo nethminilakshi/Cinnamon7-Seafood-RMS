@@ -1,5 +1,6 @@
 package lk.ijse.restaurantManagement.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,6 +20,8 @@ import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.model.tm.TablesTm;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
 import lk.ijse.restaurantManagement.repository.TablesRepo;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
@@ -57,16 +61,16 @@ public class TablesFormController {
     private TableView<TablesTm> tblTables;
 
     @FXML
-    private TextField txtDescription;
+    private JFXTextField txtDescription;
 
     @FXML
-    private TextField txtTableId;
+    private JFXTextField txtTableId;
 
     @FXML
-    private TextField txtTables;
+    private JFXTextField txtTables;
 
     @FXML
-    private TextField txtseats;
+    private JFXTextField txtseats;
 
     private List<Tables> tablesList = new ArrayList<>();
     private String[] labelList = {"lblFamilyTbl1","lblFamilyTbl2","lblSingleTbl","lbloutdoorTbl"};
@@ -118,6 +122,7 @@ public class TablesFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         String tableId = txtTableId.getText();
 
         try {
@@ -131,6 +136,7 @@ public class TablesFormController {
         clearFields();
         initialize();
     }
+    }
 
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
@@ -142,26 +148,29 @@ public class TablesFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        String tableId = txtTableId.getText();
-        String description = txtDescription.getText();
-        int noOfTables = Integer.parseInt(txtTables.getText());
-        int noOfSeats = Integer.parseInt(txtseats.getText());
+        if (isValidate()) {
+            String tableId = txtTableId.getText();
+            String description = txtDescription.getText();
+            int noOfTables = Integer.parseInt(txtTables.getText());
+            int noOfSeats = Integer.parseInt(txtseats.getText());
 
-        Tables tables = new Tables(tableId,description,noOfTables,noOfSeats);
-        try {
-            boolean isUpdated = TablesRepo.update(tables);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Table updated!").show();
+            Tables tables = new Tables(tableId, description, noOfTables, noOfSeats);
+            try {
+                boolean isUpdated = TablesRepo.update(tables);
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Table updated!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            initialize();
         }
-        initialize();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
         clearFields();
-    }
+    }}
 
     private void clearFields() {
         txtTableId.setText("");
@@ -172,27 +181,28 @@ public class TablesFormController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        String tableId = txtTableId.getText();
-        String description = txtDescription.getText();
-        int noOftables = Integer.parseInt(txtTables.getText());
-        int noOfSeats = Integer.parseInt(txtseats.getText());
+        if (isValidate()) {
+            String tableId = txtTableId.getText();
+            String description = txtDescription.getText();
+            int noOftables = Integer.parseInt(txtTables.getText());
+            int noOfSeats = Integer.parseInt(txtseats.getText());
 
-        Tables tables = new Tables(tableId,description,noOftables,noOfSeats);
+            Tables tables = new Tables(tableId, description, noOftables, noOfSeats);
 
-        try {
+            try {
 
-            boolean isSaved = TablesRepo.save(tables);
-            if(isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Table saved!").show();
-                clearFields();
+                boolean isSaved = TablesRepo.save(tables);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Table saved!").show();
+                    clearFields();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            clearFields();
+            initialize();
         }
-        clearFields();
-        initialize();
     }
-
     public void ClickOnAction(MouseEvent mouseEvent) {
         TablesTm selectedItem = tblTables.getSelectionModel().getSelectedItem();
         txtTableId.setText(selectedItem.getTableId());
@@ -222,6 +232,22 @@ public class TablesFormController {
     }
 
 
-    public void lblClickOnAction(MouseEvent mouseEvent) {
+
+    public void txtDescOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.DESC,txtDescription);
+    }
+
+    public void txtQtyTablesOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY,txtTables);
+    }
+
+    public void txtQtySeatsOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.QTY,txtseats);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.DESC,txtDescription))return false;
+        if(!Regex.setTextColor(TextField.QTY,txtTables))return false;
+        if(!Regex.setTextColor(TextField.QTY,txtseats))return false;
+        return true;
     }
 }

@@ -93,19 +93,19 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtId" layoutX="175.0" layoutY="117.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtId" layoutX="175.0" layoutY="117.0" prefHeight="35.0" prefWidth="250.0" promptText="PaymenrId" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtCusId" layoutX="175.0" layoutY="182.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtCusId" layoutX="175.0" layoutY="182.0" prefHeight="35.0" prefWidth="250.0" promptText="CustomerId" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtOrderId" layoutX="656.0" layoutY="117.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtOrderId" layoutX="656.0" layoutY="117.0" onAction="#searchOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Enter OrderId" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtAmount" layoutX="656.0" layoutY="182.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtAmount" layoutX="656.0" layoutY="182.0" onKeyReleased="#txtAmountOnKeyReleased" prefHeight="35.0" prefWidth="250.0" promptText="Amount" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>

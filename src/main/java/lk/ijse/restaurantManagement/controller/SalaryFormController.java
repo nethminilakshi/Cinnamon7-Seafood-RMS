@@ -1,5 +1,6 @@
 package lk.ijse.restaurantManagement.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -16,6 +18,8 @@ import lk.ijse.restaurantManagement.model.Salary;
 import lk.ijse.restaurantManagement.model.tm.SalaryTm;
 import lk.ijse.restaurantManagement.repository.EmployeeRepo;
 import lk.ijse.restaurantManagement.repository.SalaryRepo;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -49,14 +53,16 @@ public class SalaryFormController {
 
     @FXML
     private ComboBox<String> cmbEmployeeId;
+
     @FXML
-    private TextField txtAmount;
+    private JFXTextField txtAmount;
 
     @FXML
     private DatePicker txtDate;
 
     @FXML
-    private TextField txtSalaryId;
+    private JFXTextField txtSalaryId;
+
 
     @FXML
     private AnchorPane root;
@@ -137,7 +143,9 @@ public class SalaryFormController {
     }
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
-        clearFields();
+        if (isValidate()) {
+            clearFields();
+        }
     }
     @FXML
     private void clearFields() {
@@ -149,27 +157,29 @@ public class SalaryFormController {
 
      @FXML
      void btnSaveOnAction(ActionEvent actionEvent) {
-        String salaryId = txtSalaryId.getText();
-        String employeeId = cmbEmployeeId.getValue();
-        double amount = Double.parseDouble(txtAmount.getText());
-        String date = String.valueOf(txtDate.getValue());
+         if (isValidate()) {
+             String salaryId = txtSalaryId.getText();
+             String employeeId = cmbEmployeeId.getValue();
+             double amount = Double.parseDouble(txtAmount.getText());
+             String date = String.valueOf(txtDate.getValue());
 
 
-        Salary salary = new Salary(salaryId, employeeId, amount,date);
+             Salary salary = new Salary(salaryId, employeeId, amount, date);
 
-        try {
+             try {
 
-            boolean isSaved = SalaryRepo.save(salary);
-            if(isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Salary paid!").show();
-                clearFields();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        clearFields();
-        initialize();
-    }
+                 boolean isSaved = SalaryRepo.save(salary);
+                 if (isSaved) {
+                     new Alert(Alert.AlertType.CONFIRMATION, "Salary paid!").show();
+                     clearFields();
+                 }
+             } catch (SQLException e) {
+                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+             }
+             clearFields();
+             initialize();
+         }
+     }
     @FXML
     public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
@@ -199,6 +209,7 @@ public class SalaryFormController {
     }
 
     public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        if (isValidate()){
             JasperDesign jasperDesign =
                     JRXmlLoader.load("src/main/resources/reports/salaryPayments.jrxml");
             JasperReport jasperReport =
@@ -215,5 +226,13 @@ public class SalaryFormController {
                             DbConnection.getInstance().getConnection());
 
             JasperViewer.viewReport(jasperPrint,false);
+    }
+    }
+    public void txtSalaryOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT,txtAmount);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.AMOUNT,txtAmount))return false;
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package lk.ijse.restaurantManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.Customer;
@@ -20,6 +22,8 @@ import lk.ijse.restaurantManagement.repository.CustomerRepo;
 import lk.ijse.restaurantManagement.repository.OrderRepo;
 import lk.ijse.restaurantManagement.repository.PaymentRepo;
 import lk.ijse.restaurantManagement.repository.SalaryRepo;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -55,17 +59,16 @@ public class PaymentFormController {
     private TableView<PaymentTm> tblPayment;
 
     @FXML
-    private TextField txtAmount;
+    private JFXTextField txtAmount;
 
     @FXML
-    private TextField txtId;
+    private JFXTextField txtCusId;
 
     @FXML
-    private TextField txtCusId;
+    private JFXTextField txtId;
 
     @FXML
-    private TextField txtOrderId;
-
+    private JFXTextField txtOrderId;
     @FXML
     private JFXButton btnAdd;
 
@@ -143,40 +146,43 @@ public class PaymentFormController {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
-        String paymentId = txtId.getText();
-        String cusId = txtCusId.getText();
-        String orderId = txtOrderId.getText();
-        String payMethod = cmbPayMethod.getValue();
-        Double amount = Double.valueOf(txtAmount.getText());
+        if (isValidate()) {
+            String paymentId = txtId.getText();
+            String cusId = txtCusId.getText();
+            String orderId = txtOrderId.getText();
+            String payMethod = cmbPayMethod.getValue();
+            Double amount = Double.valueOf(txtAmount.getText());
 
-                Payment payment = new Payment(paymentId, cusId, orderId, payMethod, amount);
+            Payment payment = new Payment(paymentId, cusId, orderId, payMethod, amount);
 
-                btnAdd.setCursor(Cursor.HAND);
+            btnAdd.setCursor(Cursor.HAND);
 
-                btnAdd.setOnAction((e) -> {
-                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
-                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+            btnAdd.setOnAction((e) -> {
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to pay?", yes, no).showAndWait();
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to pay?", yes, no).showAndWait();
 
-                    if (type.orElse(no) == yes) {
+                if (type.orElse(no) == yes) {
 
-                        try {
+                    try {
 
-                            boolean isSaved = PaymentRepo.save(payment);
-                            if (isSaved) {
-                                new Alert(Alert.AlertType.CONFIRMATION, "paid!").show();
-                                //clearFields();
-                            }
-                        } catch (SQLException exception) {
-                            new Alert(Alert.AlertType.ERROR, exception.getMessage()).show();
+                        boolean isSaved = PaymentRepo.save(payment);
+                        if (isSaved) {
+                            new Alert(Alert.AlertType.CONFIRMATION, "paid!").show();
+                            //clearFields();
                         }
-                        clearFields();
-                        initialize();
+                    } catch (SQLException exception) {
+                        new Alert(Alert.AlertType.ERROR, exception.getMessage()).show();
                     }
+                    clearFields();
+                    initialize();
+                }
 
-                })
-    ;}
+            })
+            ;
+        }
+    }
 
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {
@@ -191,10 +197,13 @@ public class PaymentFormController {
     }
     @FXML
     public void btnClearOnAction(ActionEvent actionEvent) {
+        if (isValidate()) {
             clearFields();
+        }
         }
 
     public void searchOnAction(ActionEvent event) {
+        if (isValidate()){
         String orderId = txtOrderId.getText();
 
         try {
@@ -207,4 +216,13 @@ public class PaymentFormController {
         initialize();
     }
     }
+
+    public void txtAmountOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.AMOUNT,txtAmount);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.AMOUNT,txtAmount))return false;
+        return true;
+    }
+}
 

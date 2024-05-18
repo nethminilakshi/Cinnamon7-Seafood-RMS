@@ -1,16 +1,21 @@
 package lk.ijse.restaurantManagement.controller;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.db.DbConnection;
+import lk.ijse.restaurantManagement.util.Regex;
+import lk.ijse.restaurantManagement.util.TextField;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,18 +26,24 @@ import java.sql.SQLException;
 public class LoginFormController {
 
 
-    public TextField txtUserId;
-    public PasswordField txtPassword;
+    @FXML
+    private JFXPasswordField txtPassword;
+
+    @FXML
+    private JFXTextField txtUserId;
+    @FXML
     public AnchorPane rootNode;
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        String userId = txtUserId.getText();
-        String password = txtPassword.getText();
+        if (isValidate()) {
+            String userId = txtUserId.getText();
+            String password = txtPassword.getText();
 
-        try {
-            checkCredential(userId,password);
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
+            try {
+                checkCredential(userId, password);
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
+            }
         }
     }
 
@@ -78,5 +89,18 @@ public class LoginFormController {
         stage.setTitle("Registration Form");
 
         stage.show();
+    }
+
+    public void txtUsernameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.ID,txtUserId);
+    }
+
+    public void txtpwOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextField.PW,txtPassword);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextField.ID,txtUserId))return false;
+        if(!Regex.setTextColor(TextField.PW,txtPassword))return false;
+        return true;
     }
 }
