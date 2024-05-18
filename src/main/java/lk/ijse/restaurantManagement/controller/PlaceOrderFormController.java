@@ -313,7 +313,6 @@ public class PlaceOrderFormController {
     }
 
     public void btnsearchOnAction(ActionEvent event) {
-        if (isValidate()){
         String contact = txtContact.getText();
 
         try {
@@ -324,7 +323,7 @@ public class PlaceOrderFormController {
             throw new RuntimeException(e);
         }
         initialize();
-    }}
+    }
 
     @FXML
     private void autoGenarateId() throws SQLException, ClassNotFoundException {

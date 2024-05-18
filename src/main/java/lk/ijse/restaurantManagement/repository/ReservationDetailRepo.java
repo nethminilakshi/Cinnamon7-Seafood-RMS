@@ -1,10 +1,13 @@
 package lk.ijse.restaurantManagement.repository;
 
 import lk.ijse.restaurantManagement.db.DbConnection;
+import lk.ijse.restaurantManagement.model.Reservation;
 import lk.ijse.restaurantManagement.model.reservationDetails;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDetailRepo {
@@ -30,4 +33,24 @@ public class ReservationDetailRepo {
     }
 
 
+    public static List<reservationDetails> getAll() throws SQLException {
+        String sql = "SELECT * FROM Reservation_details";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        List<reservationDetails> reservationDetailsList = new ArrayList<>();
+        while (resultSet.next()) {
+            String reservationId = resultSet.getString(1);
+            String tableId = resultSet.getString(2);
+            int reqTablesQty = Integer.parseInt(resultSet.getString(3));
+
+
+            reservationDetails reservationDetails = new reservationDetails(reservationId, tableId, reqTablesQty);
+            reservationDetailsList.add(reservationDetails);
+        }
+        return reservationDetailsList;
+    }
 }

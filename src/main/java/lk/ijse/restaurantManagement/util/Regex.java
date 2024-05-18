@@ -55,7 +55,7 @@ public class Regex  {
                 field =  "^([A-z|\\s]{4,})$";
                 break;
             case UNITPRICE:
-                field =   "^([\\d]{3}|[\\d]{2}|[\\d]{1})$";
+                field =   "^([0-9]){1,}[.]([0-9]){1,}$";
                 break;
 
 

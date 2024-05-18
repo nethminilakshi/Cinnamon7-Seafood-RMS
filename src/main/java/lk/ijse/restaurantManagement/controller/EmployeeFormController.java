@@ -170,7 +170,7 @@ public class EmployeeFormController {
     }}
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
-        if (isValidate()) {
+
             String contact = txtContact.getText();
 
             try {
@@ -184,16 +184,18 @@ public class EmployeeFormController {
                     cmbPosition.setValue(employee.getPositon());
                     txtSalary.setText(employee.getBasicSalary());
 
+                }else {
+                    new Alert(Alert.AlertType.INFORMATION, "Not Found Customer").show();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
             initialize();
         }
-    }
+
 
     public void btnUpdateOnAction(ActionEvent event) {
-        if (isValidate()){
+       // if (isValidate()){
         String employeeId=txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -211,8 +213,10 @@ public class EmployeeFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
         initialize();
-    }}
+   // }
+}
 
     private void clearFields() {
         txtId.setText("");
@@ -259,9 +263,6 @@ public class EmployeeFormController {
         txtId.setText(new EmployeeRepo().autoGenarateEmployeeId());
     }
 
-    public void txtEmployeeSalaryOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(TextField.AMOUNT,txtSalary);
-    }
 
     public void txtEmployeeContactOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(TextField.CONTACT,txtContact);
@@ -279,7 +280,7 @@ public class EmployeeFormController {
         if(!Regex.setTextColor(TextField.NAME,txtName))return false;
         if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
         if(!Regex.setTextColor(TextField.ADDRESS,txtAddress))return false;
-        if(!Regex.setTextColor(TextField.AMOUNT,txtSalary))return false;
+
         return true;
     }
 }

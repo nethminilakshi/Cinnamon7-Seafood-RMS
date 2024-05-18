@@ -203,7 +203,7 @@ public class PaymentFormController {
         }
 
     public void searchOnAction(ActionEvent event) {
-        if (isValidate()){
+
         String orderId = txtOrderId.getText();
 
         try {
@@ -214,7 +214,7 @@ public class PaymentFormController {
             throw new RuntimeException(e);
         }
         initialize();
-    }
+
     }
 
     public void txtAmountOnKeyReleased(KeyEvent keyEvent) {

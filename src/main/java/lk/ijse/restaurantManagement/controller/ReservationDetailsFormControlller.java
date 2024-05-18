@@ -15,9 +15,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.Item;
 import lk.ijse.restaurantManagement.model.Reservation;
+import lk.ijse.restaurantManagement.model.reservationDetails;
 import lk.ijse.restaurantManagement.model.tm.ItemTm;
+import lk.ijse.restaurantManagement.model.tm.ReservationDetailsTm;
 import lk.ijse.restaurantManagement.model.tm.ReservationTm;
 import lk.ijse.restaurantManagement.repository.ItemRepo;
+import lk.ijse.restaurantManagement.repository.ReservationDetailRepo;
 import lk.ijse.restaurantManagement.repository.ReservationRepo;
 
 import java.io.IOException;
@@ -47,15 +50,66 @@ public class ReservationDetailsFormControlller {
 
     @FXML
     private TableView<ReservationTm> tblReservation;
+    @FXML
+    private TableColumn<?, ?> colreserveId;
+
+    @FXML
+    private TableView<ReservationDetailsTm> tblReserveDetails;
+
+    @FXML
+    private TableColumn<?, ?> colTableId;
+
+    @FXML
+    private TableColumn<?, ?> colReqQty;
 
     @FXML
     private AnchorPane root;
     private List<Reservation> ReservationList=new ArrayList<>();
+    private List<reservationDetails> ReservationdetailsList=new ArrayList<>();
     public void initialize() {
 
         this.ReservationList=getAllReservations();
         setCellValueFactory();
         loadItemTable();
+
+        this.ReservationdetailsList=getallReservationdetails();
+        setCellValueFactorynew();
+        loadItemTablenew();
+
+    }
+
+    private List<reservationDetails> getallReservationdetails() {
+        List<reservationDetails> reservationDetailsList = null;
+        try {
+            reservationDetailsList= ReservationDetailRepo.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reservationDetailsList;
+    }
+
+    private void loadItemTablenew() {
+        ObservableList<ReservationDetailsTm> tmList = FXCollections.observableArrayList();
+
+        for (reservationDetails reservationDetails : ReservationdetailsList) {
+            ReservationDetailsTm reservationDetailsTm = new ReservationDetailsTm(
+                    reservationDetails.getReservationId(),
+                  reservationDetails.getTableId(),
+                    reservationDetails.getReqTablesQty()
+            );
+
+
+            tmList.add(reservationDetailsTm);
+        }
+        tblReserveDetails.setItems(tmList);
+        ReservationDetailsTm selectedItem = tblReserveDetails.getSelectionModel().getSelectedItem();
+        System.out.println("selectedItem = " + selectedItem);
+    }
+
+    private void setCellValueFactorynew() {
+        colreserveId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
+        colTableId.setCellValueFactory(new PropertyValueFactory<>("tableId"));
+        colReqQty.setCellValueFactory(new PropertyValueFactory<>("reqTablesQty"));
 
     }
 

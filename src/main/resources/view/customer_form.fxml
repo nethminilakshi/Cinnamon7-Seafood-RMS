@@ -121,7 +121,7 @@
          <font>
             <Font size="16.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="536.0" layoutY="189.0" onAction="#txtSearchOnAction" onKeyReleased="#txtCustomerContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtContact" layoutX="536.0" layoutY="189.0" onAction="#txtSearchOnAction" onKeyReleased="#txtCustomerContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Enter Phone Number" style="-fx-background-color: white;">
          <font>
             <Font size="16.0" />
          </font></JFXTextField>

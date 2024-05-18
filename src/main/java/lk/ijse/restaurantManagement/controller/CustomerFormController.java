@@ -218,6 +218,7 @@ public class CustomerFormController {
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
+            clearFields();
             initialize();
         }
     }
@@ -227,7 +228,7 @@ public class CustomerFormController {
     }
     @FXML
     void txtSearchOnAction(ActionEvent event) {
-        if (isValidate()){
+
         String contact = txtContact.getText();
 
         try {
@@ -245,7 +246,7 @@ public class CustomerFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }}
-    }
+
 
     public void tblOnClickAction(MouseEvent mouseEvent) {
         CustomerTm selectedItem = tblCustomers.getSelectionModel().getSelectedItem();

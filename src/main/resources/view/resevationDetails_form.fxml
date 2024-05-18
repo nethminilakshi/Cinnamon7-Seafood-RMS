@@ -11,10 +11,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationDetailsFormControlller">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.restaurantManagement.controller.ReservationDetailsFormControlller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
-      <TableView fx:id="tblReservation" layoutX="48.0" layoutY="137.0" prefHeight="330.0" prefWidth="661.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <TableView fx:id="tblReservation" layoutX="70.0" layoutY="115.0" prefHeight="285.0" prefWidth="661.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
          <columns>
             <TableColumn fx:id="colReservationId" prefWidth="101.0" text="ReservationId" />
             <TableColumn fx:id="colDescription" prefWidth="156.0" text="Description" />
@@ -47,10 +47,17 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="530.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="45.0" layoutY="634.0" onAction="#btnBackOnAction" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
+      <TableView fx:id="tblReserveDetails" layoutX="164.0" layoutY="424.0" prefHeight="200.0" prefWidth="458.0" style="-fx-background-color: white;" stylesheets="@../Style/TableStyleSheet.css">
+         <columns>
+            <TableColumn fx:id="colreserveId" prefWidth="101.0" text="ReservationId" />
+            <TableColumn fx:id="colTableId" prefWidth="174.0" text="TableId" />
+            <TableColumn fx:id="colReqQty" prefWidth="182.0" text="Required Tables Count" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

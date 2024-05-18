@@ -118,11 +118,11 @@
          <font>
             <Font size="18.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtContact" layoutX="526.0" layoutY="200.0" onAction="#txtSearchOnAction" onKeyReleased="#txtEmployeeContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtContact" layoutX="526.0" layoutY="200.0" onAction="#txtSearchOnAction" onKeyReleased="#txtEmployeeContactOnKeyReleased" prefHeight="45.0" prefWidth="435.0" promptText="Enter Phone Number" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtSalary" layoutX="526.0" layoutY="287.0" onKeyReleased="#txtEmployeeSalaryOnKeyReleased" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtSalary" layoutX="526.0" layoutY="287.0" prefHeight="45.0" prefWidth="435.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font></JFXTextField>

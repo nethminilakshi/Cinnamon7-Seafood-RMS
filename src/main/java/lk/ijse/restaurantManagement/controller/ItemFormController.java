@@ -219,7 +219,7 @@ public class ItemFormController {
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
-        if (isValidate()) {
+
             String description = txtName.getText();
 
             try {
@@ -238,7 +238,7 @@ public class ItemFormController {
             }
             initialize();
         }
-    }
+
     public void tblClickOnAction(MouseEvent mouseEvent) {
         ItemTm selectedItem = tblItem.getSelectionModel().getSelectedItem();
         txtId.setText(selectedItem.getId());
@@ -253,7 +253,7 @@ public class ItemFormController {
     }
 
     public void txtItemUnitPriceOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(TextField.AMOUNT,txtUnitPrice);
+        Regex.setTextColor(TextField.UNITPRICE,txtUnitPrice);
     }
 
     public void txtitemQtyOnKeyReleased(KeyEvent keyEvent) {
@@ -264,7 +264,7 @@ public class ItemFormController {
         Regex.setTextColor(TextField.NAME,txtName);
     }
     public boolean isValidate(){
-        if(!Regex.setTextColor(TextField.AMOUNT,txtUnitPrice))return false;
+        if(!Regex.setTextColor(TextField.UNITPRICE,txtUnitPrice))return false;
         if(!Regex.setTextColor(TextField.QTY,txtQtyOnHand))return false;
         if(!Regex.setTextColor(TextField.NAME,txtName))return false;
         return true;
