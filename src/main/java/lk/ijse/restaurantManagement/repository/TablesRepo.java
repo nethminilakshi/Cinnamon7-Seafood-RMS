@@ -34,10 +34,10 @@ public class TablesRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, tables.getTableId());
-        pstm.setObject(2, tables.getDescription());
-        pstm.setObject(3, tables.getNoOfTables());
-        pstm.setObject(4, tables.getNoOfSeats());
+        pstm.setObject(1, tables.getDescription());
+        pstm.setObject(2, tables.getNoOfTables());
+        pstm.setObject(3, tables.getNoOfSeats());
+        pstm.setObject(4, tables.getTableId());
 
         return pstm.executeUpdate() > 0;
     }

@@ -13,11 +13,8 @@ public class newRepo {
 
     public static ReservationNew searchByDate(String date) throws SQLException {
 
-        String sql = "SELECT t.tableId, t.noOfTables\n" +
-                "FROM Tables t\n" +
-                "LEFT JOIN Reservation_Details rd ON t.tableId = rd.tableId\n" +
-                "LEFT JOIN Reservation r ON rd.reservationId = r.reservationId\n" +
-                "WHERE r.date != ? OR r.reservationId IS NULL;\n";
+        String sql = "SELECT t.tableId, t.noOfTables FROM Tables t LEFT JOIN Reservation_Details rd ON t.tableId = rd.tableId LEFT JOIN\n" +
+                " Reservation r ON rd.reservationId = r.reservationId WHERE MONTH(r.date) != ? OR r.reservationId IS NULL";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);

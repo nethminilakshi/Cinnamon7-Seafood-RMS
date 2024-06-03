@@ -159,6 +159,7 @@ public class TablesFormController {
                 boolean isUpdated = TablesRepo.update(tables);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Table updated!").show();
+
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

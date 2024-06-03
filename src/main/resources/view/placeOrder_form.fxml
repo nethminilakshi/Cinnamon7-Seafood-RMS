@@ -194,7 +194,7 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCode" layoutX="142.0" layoutY="371.0" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
+      <JFXTextField fx:id="txtCode" layoutX="142.0" layoutY="371.0" onAction="#searchOnItemCode" prefHeight="30.0" prefWidth="250.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>
@@ -214,7 +214,7 @@
             <Font size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtQty" layoutX="482.0" layoutY="564.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="76.0">
+      <JFXTextField fx:id="txtQty" layoutX="482.0" layoutY="564.0" onAction="#txtQtyOnAction" prefHeight="33.0" prefWidth="76.0" style="-fx-text-fill: white;">
          <font>
             <Font size="16.0" />
          </font>

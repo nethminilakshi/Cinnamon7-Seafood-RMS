@@ -19,27 +19,27 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="41.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="CUSTOMER" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="CUSTOMER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="39.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="EMPLOYEE" textFill="WHITE">
+      <Button layoutX="39.0" layoutY="246.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="EMPLOYEE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="ITEM" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="ITEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="39.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="SALARY" textFill="WHITE">
+      <Button layoutX="39.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="SALARY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="40.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="PLACE ORDER" textFill="WHITE">
+      <Button layoutX="40.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="PLACE ORDER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -53,22 +53,22 @@
          </font>
       </JFXButton>
       <AnchorPane fx:id="root" layoutX="255.0" prefHeight="700.0" prefWidth="1000.0" />
-      <Button layoutX="41.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="PAYMENT" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="PAYMENT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="DASHBOARD" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="DASHBOARD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnTablesOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="TABLES" textFill="WHITE" AnchorPane.bottomAnchor="301.0">
+      <Button layoutX="41.0" layoutY="360.0" mnemonicParsing="false" onAction="#btnTablesOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="TABLES" textFill="WHITE" AnchorPane.bottomAnchor="301.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnReservationOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #E67F1F;" text="RESERVATION" textFill="WHITE">
+      <Button layoutX="41.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnReservationOnAction" prefHeight="30.0" prefWidth="173.0" style="-fx-background-radius: 10; -fx-background-color: #994D1C;" text="RESERVATION" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

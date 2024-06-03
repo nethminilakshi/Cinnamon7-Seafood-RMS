@@ -229,7 +229,7 @@ public class SalaryFormController {
     }
     }
     public void txtSalaryOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(TextField.AMOUNT,txtAmount);
+        Regex.setTextColor(TextField.SALARY,txtAmount);
     }
     public boolean isValidate(){
         if(!Regex.setTextColor(TextField.AMOUNT,txtAmount))return false;

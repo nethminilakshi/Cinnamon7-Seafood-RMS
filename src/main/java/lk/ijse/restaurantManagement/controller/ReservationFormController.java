@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.ijse.restaurantManagement.model.*;
 import lk.ijse.restaurantManagement.model.tm.ReservationCartTm;
@@ -373,7 +374,16 @@ public class ReservationFormController {
 
         initialize();
     }
+    public void btnNextOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/mailSender_form.fxml"));
+        Stage stage = new Stage();
 
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Mail Sender Form");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.show();
+    }
     public void btnReservationDetails(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/resevationDetails_form.fxml"));
         Stage stage = (Stage) root.getScene().getWindow();

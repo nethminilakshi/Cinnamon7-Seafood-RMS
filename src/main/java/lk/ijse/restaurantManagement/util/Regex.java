@@ -25,7 +25,7 @@ public class Regex  {
                 field = "^([\\d]{3}|[\\d]{2}|[\\d]{1})$";
                 break;
             case DESC:
-                field = "^([A-z|\\s]{4,})$";
+                field = "^([A-Za-z\\s-]{4,})$";
                 break;
             case TYPE:
                 field = "^([A-z|\\s]{4,})$";
@@ -57,7 +57,9 @@ public class Regex  {
             case UNITPRICE:
                 field =   "^([0-9]){1,}[.]([0-9]){1,}$";
                 break;
-
+            case SALARY:
+                field = "^([0-9]){1,}[.]([0-9]){1,}$";
+                break;
 
         }
 

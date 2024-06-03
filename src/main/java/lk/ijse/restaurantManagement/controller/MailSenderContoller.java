@@ -11,11 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import lk.ijse.restaurantManagement.sendEmail;
+import lk.ijse.restaurantManagement.EmailSender;
 
-import javax.mail.MessagingException;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 
 public class MailSenderContoller {
     @FXML
@@ -30,16 +27,15 @@ public class MailSenderContoller {
     @FXML
     private TextField txtTitle;
 
-    @FXML
-    void initialize() {
-        hypGmail.setText(CustomerFormController.gmail);
-    }
+
+
 
     public void btnSendOnAction(MouseEvent mouseEvent) {
         if (txtTitle.getText().equals("") || txtGmail.getText().equals("") || Message.getText().equals("")) {
             new Alert(Alert.AlertType.WARNING, "please insert detail !").show();
         } else {
-            boolean b = sendMail(txtTitle.getText(), Message.getText(), txtGmail.getText());
+            EmailSender emailSender = new EmailSender();
+            boolean b = emailSender.sendEmail(txtGmail.getText(), txtTitle.getText(),Message.getText());
             if (b) {
                 new Alert(Alert.AlertType.CONFIRMATION, "send !").show();
             }
@@ -77,13 +73,4 @@ public class MailSenderContoller {
         }
     }
 
-    private boolean sendMail(String title, String message, String gmail) {
-        try {
-            new sendEmail().sendMail(title, message, gmail);
-            return true;
-        } catch (IOException | MessagingException | GeneralSecurityException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }

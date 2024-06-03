@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.restaurantManagement.model.Customer;
@@ -281,78 +282,19 @@ public class CustomerFormController {
         return true;
     }
 
-    public void txtGmailKeyTyped(KeyEvent keyEvent) {
-        if (!txtGmailSend.getText().equals("")){
-            for (int i = 0; i < txtGmailSend.getText().length(); i++) {
-                char ansible = txtGmailSend.getText().charAt(i);
-                if (ansible == '@'){
-                    txtGmailSend.setStyle("-fx-border-color: green");
-                  //  nextbtn.setDisable(false);
-                    break;
-                }
-                else {
-                    txtGmailSend.setStyle("-fx-border-color: red");
-                  //  nextbtn.setDisable(true);
-                }
-            }
-        }
-    }
 
-    public void btnNextOnAction(MouseEvent mouseEvent) {
-        if (isValidate()){
-        gmail = txtGmailSend.getText();
-        if (txtGmailSend.getText().equals("")){
-            new Alert(Alert.AlertType.WARNING,"enter valid gmail address !").show();
-            return;
-        }
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(this.getClass().getResource("/view/mailSender_form.fxml"));
-            if (root != null) {
-                Scene subScene = new Scene(root);
-                Stage primaryStage = (Stage) this.root.getScene().getWindow();
-                primaryStage.setScene(subScene);
-                primaryStage.centerOnScreen();
 
-                TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
-                tt.setFromX(-subScene.getWidth());
-                tt.setToX(0);
-                tt.play();
+    public void btnNextOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/mailSender_form.fxml"));
+        Stage stage = new Stage();
 
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }}
-
-    }
-
-    public void mouseEnter(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() instanceof javafx.scene.image.ImageView) {
-            javafx.scene.image.ImageView icon = (javafx.scene.image.ImageView) mouseEvent.getSource();
-
-            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
-            scaleT.setToX(1.2);
-            scaleT.setToY(1.2);
-            scaleT.play();
-
-            DropShadow glow = new DropShadow();
-            glow.setColor(Color.valueOf("#EF233C"));
-            glow.setColor(Color.CORNFLOWERBLUE);
-            glow.setWidth(15);
-            glow.setHeight(15);
-            glow.setRadius(15);
-            icon.setEffect(glow);
-        }
-    }
-
-    public void mouseExit(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() instanceof javafx.scene.image.ImageView) {
-            javafx.scene.image.ImageView icon = (javafx.scene.image.ImageView) mouseEvent.getSource();
-            ScaleTransition scaleT = new ScaleTransition(Duration.millis(200), icon);
-            scaleT.setToX(1);
-            scaleT.setToY(1);
-            scaleT.play();
-            icon.setEffect(null);
-        }
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Mail Sender Form");
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.show();
     }
 }
+
+
+

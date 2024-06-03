@@ -195,7 +195,7 @@ public class EmployeeFormController {
 
 
     public void btnUpdateOnAction(ActionEvent event) {
-       // if (isValidate()){
+        if (isValidate()){
         String employeeId=txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -215,7 +215,7 @@ public class EmployeeFormController {
         }
 
         initialize();
-   // }
+    }
 }
 
     private void clearFields() {

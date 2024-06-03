@@ -153,6 +153,28 @@ public class ItemRepo {
         return itemCount;
     }
 
+    public static Item searchByCode(String id) throws SQLException {
+        String sql = "SELECT * FROM Item WHERE Id = ?";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setObject(1, id);
+        ResultSet resultSet = pstm.executeQuery();
+
+        Item item = null;
+
+        if (resultSet.next()) {
+            String Id = resultSet.getString(1);
+            String  description = resultSet.getString(2);
+            String qtyOnHand = resultSet.getString(3);
+            String unitPrice= resultSet.getString(4);
+            String  status= resultSet.getString(4);
+
+            item = new Item(Id, description, qtyOnHand, unitPrice,status);
+        }
+        return item;
+    }
+
     public String autoGenarateItemCode() throws SQLException {
         String sql = "SELECT id from Item order by id desc limit 1";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()

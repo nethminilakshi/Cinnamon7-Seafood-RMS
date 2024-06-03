@@ -185,54 +185,57 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        if (isValidate()){
-        String id = txtCode.getText();
-        String description = txtDescription.getText();
-        int qty = Integer.parseInt(txtQty.getText());
-        double unitPrice = Double.parseDouble(txtUnitPrice.getText());
-        double total = qty * unitPrice;
-        String date = txtDate.getText();
-        JFXButton btnRemove = new JFXButton("remove");
-        btnRemove.setCursor(Cursor.HAND);
+        if (isValidate()) {
+            String id = txtCode.getText();
+            String description = txtDescription.getText();
+            int qty = Integer.parseInt(txtQty.getText());
+            double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+            double total = qty * unitPrice;
+            String date = txtDate.getText();
+            JFXButton btnRemove = new JFXButton("remove");
+            btnRemove.setCursor(Cursor.HAND);
 
-        btnRemove.setOnAction((e) -> {
-            ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
-            ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+            btnRemove.setOnAction((e) -> {
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-            Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
 
-            if(type.orElse(no) == yes) {
-                int selectedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
-                cartList.remove(selectedIndex);
+                if (type.orElse(no) == yes) {
+                    int selectedIndex = tblOrderCart.getSelectionModel().getSelectedIndex();
+                    cartList.remove(selectedIndex);
 
-                tblOrderCart.refresh();
-                calculateNetTotal();
+                    tblOrderCart.refresh();
+                    calculateNetTotal();
+                }
+            });
+
+            for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
+                if (id.equals(colItemCode.getCellData(i))) {
+                    qty += cartList.get(i).getQty();
+                    total = unitPrice * qty;
+
+                    cartList.get(i).setQty(qty);
+                    cartList.get(i).setTotal(total);
+
+                    tblOrderCart.refresh();
+                    calculateNetTotal();
+                    txtQty.setText("");
+                    return;
+                }
+                Clear();
             }
-        });
 
-        for (int i = 0; i < tblOrderCart.getItems().size(); i++) {
-            if (id.equals(colItemCode.getCellData(i))) {
-                qty += cartList.get(i).getQty();
-                total = unitPrice * qty;
+            CartTm cartTm = new CartTm(id, description, qty, unitPrice, total, date, btnRemove);
 
-                cartList.get(i).setQty(qty);
-                cartList.get(i).setTotal(total);
+            cartList.add(cartTm);
 
-                tblOrderCart.refresh();
-                calculateNetTotal();
-                txtQty.setText("");
-                return;
-            }
+            tblOrderCart.setItems(cartList);
+            txtQty.setText("");
+            calculateNetTotal();
         }
 
-        CartTm cartTm = new CartTm(id, description, qty, unitPrice, total,date, btnRemove);
-
-        cartList.add(cartTm);
-
-        tblOrderCart.setItems(cartList);
-        txtQty.setText("");
-        calculateNetTotal();
-    }}
+    }
 
     private void calculateNetTotal() {
         netTotal = 0;
@@ -285,8 +288,8 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
-    }}
+    }
+    }
 
     @FXML
     void searchOnDescAction(ActionEvent event) {
@@ -337,8 +340,7 @@ public class PlaceOrderFormController {
     }
 
     private void clearFields() {
-       // txtOrderId.setText("");
-       // txtDate.setText("");
+        cmbOrderType.setValue("");
         txtCode.setText("");
         txtDescription.setText("");
         txtUnitPrice.setText("");
@@ -347,6 +349,14 @@ public class PlaceOrderFormController {
         txtId.setText("");
         txtCustomerName.setText("");
         txtNetTotal.setText("");
+    }
+
+    private void Clear(){
+
+        txtCode.setText("");
+        txtDescription.setText("");
+        txtUnitPrice.setText("");
+        txtQtyOnHand.setText("");
     }
 
    public void btnReceiptOnAction(ActionEvent actionEvent) throws JRException, SQLException {
@@ -404,5 +414,26 @@ public class PlaceOrderFormController {
         if(!Regex.setTextColor(TextField.DESC,txtDescription))return false;
         if(!Regex.setTextColor(TextField.CONTACT,txtContact))return false;
         return true;
+    }
+
+    public void searchOnItemCode(ActionEvent actionEvent) {
+
+        String Id = txtCode.getText();
+
+        try {
+            Item item = ItemRepo.searchByCode(Id);
+
+            if (item != null) {
+                txtCode.setText(item.getId());
+                txtDescription.setText(item.getDescription());
+                txtUnitPrice.setText(item.getUnitPrice());
+                txtQtyOnHand.setText(item.getQtyOnHand());
+
+            } else {
+                new Alert(Alert.AlertType.INFORMATION, "Not Found Item ").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 }
