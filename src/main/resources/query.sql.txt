@@ -1,0 +1,143 @@
+create database Restaurant;
+
+use Restaurant;
+
+
+create table Customer(
+cusId varchar (10) primary key,
+name varchar (20),
+address varchar (30),
+contact varchar (12) unique key,
+email varchar (30)
+);
+
+
+create table Reservation(
+reservationId varchar (10) primary key,
+description varchar (50),
+cusId varchar (10),
+date varchar(10),
+time varchar(10),
+status varchar  (20),
+foreign key(cusId) references Customer(cusId) on update cascade on delete cascade
+);
+
+create table Reservation_Details(
+reservationId varchar (10),
+tableId varchar (10),
+reqTablesQty int(10),
+foreign key(reservationId) references Reservation(reservationId) on update cascade on delete cascade,
+foreign key(tableId) references Tables(tableId) on update cascade on delete cascade
+);
+
+
+create table Tables(
+tableId varchar (10) primary key,
+description varchar(100),
+noOfTables int(10),
+noOfSeats int(20)
+);
+
+
+create table Orders(
+orderId varchar(10) primary key,
+orderType varchar (25),
+cusId varchar (10),
+date varchar (15),
+foreign key(cusId) references Customer(cusId) on update cascade on delete cascade
+);
+
+
+create table Payment(
+paymentId varchar (10) primary key,
+cusId varchar (10),
+orderId varchar (10),
+payMethod varchar (20),
+amount decimal (15),
+foreign key(cusId) references Customer(cusId) on update cascade on delete cascade,
+foreign key(orderId) references Orders(orderId) on update cascade on delete cascade
+);
+
+
+create table Item(
+id varchar (10) primary key,
+description varchar (40),
+qtyOnHand varchar (10),
+unitPrice varchar (15),
+status varchar (30)
+);
+
+
+create table Inventory(
+inventoryId varchar (10) primary key,
+description varchar (40),
+qtyOnHand int (10),
+unitPrice decimal (15)
+);
+
+
+create table Inventory_Details(
+inventoryId varchar (10),
+itemId varchar (10),
+qty int (10),
+date varchar (15),
+foreign key(inventoryId) references Inventory(inventoryId) on update cascade on delete cascade,
+foreign key(itemId) references Item(Id) on update cascade on delete cascade
+);
+
+
+create table Order_Details(
+orderId varchar (10),
+itemId varchar (10),
+qty int (10),
+unitPrice decimal(12),
+foreign key(orderId) references Orders(orderId) on update cascade on delete cascade,
+foreign key(itemId) references Item(Id) on update cascade on delete cascade
+);
+
+
+create table Employee(
+employeeId varchar (10) primary key,
+name varchar (20),
+address varchar (25),
+contact varchar(12),
+position varchar(25),
+basicSalary varchar(20)
+);
+
+
+create table Employee_Details(
+employeeId varchar (10),
+description varchar (30),
+inventoryId varchar (10),
+foreign key(employeeId) references Employee(employeeId) on update cascade on delete cascade,
+foreign key(inventoryId) references Inventory(inventoryId) on update cascade on delete cascade
+);
+
+
+create table Attendence(
+attendenceId varchar (10) primary key,
+employeeId varchar (10),
+status varchar (15),
+date varchar (15),
+foreign key(employeeId) references Employee(employeeId) on update cascade on delete cascade
+);
+
+
+create table Salary(
+salaryId int not null auto_increment primary key,
+employeeId varchar (10),
+amount decimal (12),
+date varchar (15),
+foreign key(employeeId) references Employee(employeeId) on update cascade on delete cascade
+);
+
+create table users(
+userId varchar(20) primary key,
+userName varchar(20),
+password int (10)
+);
+
+
+
+
